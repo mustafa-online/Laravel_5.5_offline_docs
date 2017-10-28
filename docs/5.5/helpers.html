@@ -1,0 +1,1667 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from laravel.com/docs/5.5/helpers by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Oct 2017 13:48:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Helpers - Laravel - The PHP Framework For Web Artisans</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Taylor Otwell">
+    <meta name="description" content="Laravel - The PHP framework for web artisans.">
+    <meta name="keywords" content="laravel, php, framework, web, artisans, taylor otwell">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="canonical" href="helpers.html" />
+        <!-- -->
+    <link rel="stylesheet" href="../../build/assets/css/laravel-97189ffb5f.css">
+    <link rel="stylesheet" href="ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+    <link rel="apple-touch-icon" href="../../favicon.png">
+    <script src="ajax/libs/vue/1.0.26/vue.min.js"></script>
+</head>
+<body class="docs language-php">
+
+    <span class="overlay"></span>
+
+    <nav class="main">
+        <a href="https://laravel.com/" class="brand nav-block">
+            <svg xmlns="http://www.w3.org/2000/svg" width="84.1" height="57.6" viewBox="0 0 84.1 57.6"><path fill="#FB503B" d="M83.8 26.9c-.6-.6-8.3-10.3-9.6-11.9-1.4-1.6-2-1.3-2.9-1.2s-10.6 1.8-11.7 1.9c-1.1.2-1.8.6-1.1 1.6.6.9 7 9.9 8.4 12l-25.5 6.1L21.2 1.5c-.8-1.2-1-1.6-2.8-1.5C16.6.1 2.5 1.3 1.5 1.3c-1 .1-2.1.5-1.1 2.9S17.4 41 17.8 42c.4 1 1.6 2.6 4.3 2 2.8-.7 12.4-3.2 17.7-4.6 2.8 5 8.4 15.2 9.5 16.7 1.4 2 2.4 1.6 4.5 1 1.7-.5 26.2-9.3 27.3-9.8 1.1-.5 1.8-.8 1-1.9-.6-.8-7-9.5-10.4-14 2.3-.6 10.6-2.8 11.5-3.1 1-.3 1.2-.8.6-1.4zm-46.3 9.5c-.3.1-14.6 3.5-15.3 3.7-.8.2-.8.1-.8-.2-.2-.3-17-35.1-17.3-35.5-.2-.4-.2-.8 0-.8S17.6 2.4 18 2.4c.5 0 .4.1.6.4 0 0 18.7 32.3 19 32.8.4.5.2.7-.1.8zm40.2 7.5c.2.4.5.6-.3.8-.7.3-24.1 8.2-24.6 8.4-.5.2-.8.3-1.4-.6s-8.2-14-8.2-14L68.1 32c.6-.2.8-.3 1.2.3.4.7 8.2 11.3 8.4 11.6zm1.6-17.6c-.6.1-9.7 2.4-9.7 2.4l-7.5-10.2c-.2-.3-.4-.6.1-.7.5-.1 9-1.6 9.4-1.7.4-.1.7-.2 1.2.5.5.6 6.9 8.8 7.2 9.1.3.3-.1.5-.7.6z"/></svg>
+            <span>Laravel</span>
+        </a>
+
+        <div class="search nav-block invisible">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#A1A1A1" d="M5.8 11.7c-1.6 0-3-.6-4.1-1.7S0 7.4 0 5.8s.6-3 1.7-4.1C2.8.6 4.3 0 5.8 0s3 .6 4.1 1.7c2.3 2.3 2.3 6 0 8.3-1 1.1-2.5 1.7-4.1 1.7zM5.8 1c-1.3 0-2.5.5-3.4 1.4C1.5 3.3 1 4.5 1 5.8s.5 2.5 1.4 3.4c.9.9 2.1 1.4 3.4 1.4s2.5-.5 3.4-1.4c1.9-1.9 1.9-5 0-6.9C8.4 1.5 7.1 1 5.8 1z"/><path fill="#A1A1A1" d="M15.5 16c-.1 0-.3 0-.3-.1L9.3 10c-.2-.2-.2-.5 0-.7s.5-.2.7 0l5.9 5.9c.2.2.2.5 0 .7-.1.1-.3.1-.4.1z"/></svg>
+            <input placeholder="Laravel 5.5 Docs" type="text" disabled style="background:#fff" v-model="search" id="search-input" v-on:blur="reset" />
+        </div>
+
+        <ul class="main-nav" v-if="! search">
+            <li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+        </ul>
+
+                    <div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			5.5
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../master/helpers.html">Master</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="helpers.html">5.5</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.4/helpers.html">5.4</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.3/helpers.html">5.3</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.2/helpers.html">5.2</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.1/helpers.html">5.1</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0/helpers.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2/helpers.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+        
+        <div class="responsive-sidebar-nav">
+            <a href="#" class="toggle-slide menu-link btn">&#9776;</a>
+        </div>
+    </nav>
+
+    <nav id="slide-menu" class="slide-menu" role="navigation">
+
+	<div class="brand">
+		<a href="https://laravel.com/">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="https://laravel.com/">Home</a></li>
+		<li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>Documentation</h2>
+		<ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/5.5">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Errors &amp; Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="passport.html">API Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="https://github.com/laravel/socialite">Socialite</a></li>
+</ul>
+</li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<script async type="text/javascript" src="carbon9873.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=laravelcom" id="_carbonads_js"></script>
+		<small><a href="#" id="doc-expand" style="font-size: 9px; color: #525252;">▶</a></small>
+		<ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/5.5">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Errors &amp; Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="passport.html">API Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="https://github.com/laravel/socialite">Socialite</a></li>
+</ul>
+</li>
+</ul>
+	</section>
+
+	
+
+	<article>
+		<h1>Helpers</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#available-methods">Available Methods</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2>Introduction</h2>
+<p>Laravel includes a variety of global &quot;helper&quot; PHP functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.</p>
+<p><a name="available-methods"></a></p>
+<h2>Available Methods</h2>
+<style>
+    .collection-method-list > p {
+        column-count: 3; -moz-column-count: 3; -webkit-column-count: 3;
+        column-gap: 2em; -moz-column-gap: 2em; -webkit-column-gap: 2em;
+    }
+
+    .collection-method-list a {
+        display: block;
+    }
+</style>
+<h3>Arrays &amp; Objects</h3>
+<div class="collection-method-list">
+<p><a href="#method-array-add">array_add</a>
+<a href="#method-array-collapse">array_collapse</a>
+<a href="#method-array-divide">array_divide</a>
+<a href="#method-array-dot">array_dot</a>
+<a href="#method-array-except">array_except</a>
+<a href="#method-array-first">array_first</a>
+<a href="#method-array-flatten">array_flatten</a>
+<a href="#method-array-forget">array_forget</a>
+<a href="#method-array-get">array_get</a>
+<a href="#method-array-has">array_has</a>
+<a href="#method-array-last">array_last</a>
+<a href="#method-array-only">array_only</a>
+<a href="#method-array-pluck">array_pluck</a>
+<a href="#method-array-prepend">array_prepend</a>
+<a href="#method-array-pull">array_pull</a>
+<a href="#method-array-random">array_random</a>
+<a href="#method-array-set">array_set</a>
+<a href="#method-array-sort">array_sort</a>
+<a href="#method-array-sort-recursive">array_sort_recursive</a>
+<a href="#method-array-where">array_where</a>
+<a href="#method-array-wrap">array_wrap</a>
+<a href="#method-data-fill">data_fill</a>
+<a href="#method-data-get">data_get</a>
+<a href="#method-data-set">data_set</a>
+<a href="#method-head">head</a>
+<a href="#method-last">last</a></p>
+</div>
+<h3>Paths</h3>
+<div class="collection-method-list">
+<p><a href="#method-app-path">app_path</a>
+<a href="#method-base-path">base_path</a>
+<a href="#method-config-path">config_path</a>
+<a href="#method-database-path">database_path</a>
+<a href="#method-mix">mix</a>
+<a href="#method-public-path">public_path</a>
+<a href="#method-resource-path">resource_path</a>
+<a href="#method-storage-path">storage_path</a></p>
+</div>
+<h3>Strings</h3>
+<div class="collection-method-list">
+<p><a href="#method-__">__</a>
+<a href="#method-camel-case">camel_case</a>
+<a href="#method-class-basename">class_basename</a>
+<a href="#method-e">e</a>
+<a href="#method-ends-with">ends_with</a>
+<a href="#method-kebab-case">kebab_case</a>
+<a href="#method-preg-replace-array">preg_replace_array</a>
+<a href="#method-snake-case">snake_case</a>
+<a href="#method-starts-with">starts_with</a>
+<a href="#method-str-after">str_after</a>
+<a href="#method-str-before">str_before</a>
+<a href="#method-str-contains">str_contains</a>
+<a href="#method-str-finish">str_finish</a>
+<a href="#method-str-is">str_is</a>
+<a href="#method-str-limit">str_limit</a>
+<a href="#method-str-plural">str_plural</a>
+<a href="#method-str-random">str_random</a>
+<a href="#method-str-replace-array">str_replace_array</a>
+<a href="#method-str-replace-first">str_replace_first</a>
+<a href="#method-str-replace-last">str_replace_last</a>
+<a href="#method-str-singular">str_singular</a>
+<a href="#method-str-slug">str_slug</a>
+<a href="#method-str-start">str_start</a>
+<a href="#method-studly-case">studly_case</a>
+<a href="#method-title-case">title_case</a>
+<a href="#method-trans">trans</a>
+<a href="#method-trans-choice">trans_choice</a></p>
+</div>
+<h3>URLs</h3>
+<div class="collection-method-list">
+<p><a href="#method-action">action</a>
+<a href="#method-asset">asset</a>
+<a href="#method-secure-asset">secure_asset</a>
+<a href="#method-route">route</a>
+<a href="#method-secure-url">secure_url</a>
+<a href="#method-url">url</a></p>
+</div>
+<h3>Miscellaneous</h3>
+<div class="collection-method-list">
+<p><a href="#method-abort">abort</a>
+<a href="#method-abort-if">abort_if</a>
+<a href="#method-abort-unless">abort_unless</a>
+<a href="#method-app">app</a>
+<a href="#method-auth">auth</a>
+<a href="#method-back">back</a>
+<a href="#method-bcrypt">bcrypt</a>
+<a href="#method-blank">blank</a>
+<a href="#method-broadcast">broadcast</a>
+<a href="#method-cache">cache</a>
+<a href="#method-class-uses-recursive">class_uses_recursive</a>
+<a href="#method-collect">collect</a>
+<a href="#method-config">config</a>
+<a href="#method-cookie">cookie</a>
+<a href="#method-csrf-field">csrf_field</a>
+<a href="#method-csrf-token">csrf_token</a>
+<a href="#method-dd">dd</a>
+<a href="#method-decrypt">decrypt</a>
+<a href="#method-dispatch">dispatch</a>
+<a href="#method-dispatch-now">dispatch_now</a>
+<a href="#method-dump">dump</a>
+<a href="#method-encrypt">encrypt</a>
+<a href="#method-env">env</a>
+<a href="#method-event">event</a>
+<a href="#method-factory">factory</a>
+<a href="#method-filled">filled</a>
+<a href="#method-info">info</a>
+<a href="#method-logger">logger</a>
+<a href="#method-method-field">method_field</a>
+<a href="#method-now">now</a>
+<a href="#method-old">old</a>
+<a href="#method-optional">optional</a>
+<a href="#method-policy">policy</a>
+<a href="#method-redirect">redirect</a>
+<a href="#method-report">report</a>
+<a href="#method-request">request</a>
+<a href="#method-rescue">rescue</a>
+<a href="#method-resolve">resolve</a>
+<a href="#method-response">response</a>
+<a href="#method-retry">retry</a>
+<a href="#method-session">session</a>
+<a href="#method-tap">tap</a>
+<a href="#method-today">today</a>
+<a href="#method-throw-if">throw_if</a>
+<a href="#method-throw-unless">throw_unless</a>
+<a href="#method-trait-uses-recursive">trait_uses_recursive</a>
+<a href="#method-transform">transform</a>
+<a href="#method-validator">validator</a>
+<a href="#method-value">value</a>
+<a href="#method-view">view</a>
+<a href="#method-with">with</a></p>
+</div>
+<p><a name="method-listing"></a></p>
+<h2>Method Listing</h2>
+<style>
+    #collection-method code {
+        font-size: 14px;
+    }
+
+    #collection-method:not(.first-collection-method) {
+        margin-top: 50px;
+    }
+</style>
+<p><a name="arrays"></a></p>
+<h2>Arrays &amp; Objects</h2>
+<p><a name="method-array-add"></a></p>
+<h4 id="collection-method" class="first-collection-method"><code>array_add()</code></h4>
+<p>The <code>array_add</code> function adds a given key / value pair to an array if the given key doesn't already exist in the array:</p>
+<pre><code>$array = array_add(['name' =&gt; 'Desk'], 'price', 100);
+
+// ['name' =&gt; 'Desk', 'price' =&gt; 100]</code></pre>
+<p><a name="method-array-collapse"></a></p>
+<h4 id="collection-method"><code>array_collapse()</code></h4>
+<p>The <code>array_collapse</code> function collapses an array of arrays into a single array:</p>
+<pre><code>$array = array_collapse([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+<p><a name="method-array-divide"></a></p>
+<h4 id="collection-method"><code>array_divide()</code></h4>
+<p>The <code>array_divide</code> function returns two arrays, one containing the keys, and the other containing the values of the given array:</p>
+<pre><code>list($keys, $values) = array_divide(['name' =&gt; 'Desk']);
+
+// $keys: ['name']
+
+// $values: ['Desk']</code></pre>
+<p><a name="method-array-dot"></a></p>
+<h4 id="collection-method"><code>array_dot()</code></h4>
+<p>The <code>array_dot</code> function flattens a multi-dimensional array into a single level array that uses &quot;dot&quot; notation to indicate depth:</p>
+<pre><code>$array = ['products' =&gt; ['desk' =&gt; ['price' =&gt; 100]]];
+
+$flattened = array_dot($array);
+
+// ['products.desk.price' =&gt; 100]</code></pre>
+<p><a name="method-array-except"></a></p>
+<h4 id="collection-method"><code>array_except()</code></h4>
+<p>The <code>array_except</code> function removes the given key / value pairs from an array:</p>
+<pre><code>$array = ['name' =&gt; 'Desk', 'price' =&gt; 100];
+
+$filtered = array_except($array, ['price']);
+
+// ['name' =&gt; 'Desk']</code></pre>
+<p><a name="method-array-first"></a></p>
+<h4 id="collection-method"><code>array_first()</code></h4>
+<p>The <code>array_first</code> function returns the first element of an array passing a given truth test:</p>
+<pre><code>$array = [100, 200, 300];
+
+$first = array_first($array, function ($value, $key) {
+    return $value &gt;= 150;
+});
+
+// 200</code></pre>
+<p>A default value may also be passed as the third parameter to the method. This value will be returned if no value passes the truth test:</p>
+<pre><code>$first = array_first($array, $callback, $default);</code></pre>
+<p><a name="method-array-flatten"></a></p>
+<h4 id="collection-method"><code>array_flatten()</code></h4>
+<p>The <code>array_flatten</code> function flattens a multi-dimensional array into a single level array:</p>
+<pre><code>$array = ['name' =&gt; 'Joe', 'languages' =&gt; ['PHP', 'Ruby']];
+
+$flattened = array_flatten($array);
+
+// ['Joe', 'PHP', 'Ruby']</code></pre>
+<p><a name="method-array-forget"></a></p>
+<h4 id="collection-method"><code>array_forget()</code></h4>
+<p>The <code>array_forget</code> function removes a given key / value pair from a deeply nested array using &quot;dot&quot; notation:</p>
+<pre><code>$array = ['products' =&gt; ['desk' =&gt; ['price' =&gt; 100]]];
+
+array_forget($array, 'products.desk');
+
+// ['products' =&gt; []]</code></pre>
+<p><a name="method-array-get"></a></p>
+<h4 id="collection-method"><code>array_get()</code></h4>
+<p>The <code>array_get</code> function retrieves a value from a deeply nested array using &quot;dot&quot; notation:</p>
+<pre><code>$array = ['products' =&gt; ['desk' =&gt; ['price' =&gt; 100]]];
+
+$price = array_get($array, 'products.desk.price');
+
+// 100</code></pre>
+<p>The <code>array_get</code> function also accepts a default value, which will be returned if the specific key is not found:</p>
+<pre><code>$discount = array_get($array, 'products.desk.discount', 0);
+
+// 0</code></pre>
+<p><a name="method-array-has"></a></p>
+<h4 id="collection-method"><code>array_has()</code></h4>
+<p>The <code>array_has</code> function checks whether a given item or items exists in an array using &quot;dot&quot; notation:</p>
+<pre><code>$array = ['product' =&gt; ['name' =&gt; 'Desk', 'price' =&gt; 100]];
+
+$contains = array_has($array, 'product.name');
+
+// true
+
+$contains = array_has($array, ['product.price', 'product.discount']);
+
+// false</code></pre>
+<p><a name="method-array-last"></a></p>
+<h4 id="collection-method"><code>array_last()</code></h4>
+<p>The <code>array_last</code> function returns the last element of an array passing a given truth test:</p>
+<pre><code>$array = [100, 200, 300, 110];
+
+$last = array_last($array, function ($value, $key) {
+    return $value &gt;= 150;
+});
+
+// 300</code></pre>
+<p>A default value may be passed as the third argument to the method. This value will be returned if no value passes the truth test:</p>
+<pre><code>$last = array_last($array, $callback, $default);</code></pre>
+<p><a name="method-array-only"></a></p>
+<h4 id="collection-method"><code>array_only()</code></h4>
+<p>The <code>array_only</code> function returns only the specified key / value pairs from the given array:</p>
+<pre><code>$array = ['name' =&gt; 'Desk', 'price' =&gt; 100, 'orders' =&gt; 10];
+
+$slice = array_only($array, ['name', 'price']);
+
+// ['name' =&gt; 'Desk', 'price' =&gt; 100]</code></pre>
+<p><a name="method-array-pluck"></a></p>
+<h4 id="collection-method"><code>array_pluck()</code></h4>
+<p>The <code>array_pluck</code> function retrieves all of the values for a given key from an array:</p>
+<pre><code>$array = [
+    ['developer' =&gt; ['id' =&gt; 1, 'name' =&gt; 'Taylor']],
+    ['developer' =&gt; ['id' =&gt; 2, 'name' =&gt; 'Abigail']],
+];
+
+$names = array_pluck($array, 'developer.name');
+
+// ['Taylor', 'Abigail']</code></pre>
+<p>You may also specify how you wish the resulting list to be keyed:</p>
+<pre><code>$names = array_pluck($array, 'developer.name', 'developer.id');
+
+// [1 =&gt; 'Taylor', 2 =&gt; 'Abigail']</code></pre>
+<p><a name="method-array-prepend"></a></p>
+<h4 id="collection-method"><code>array_prepend()</code></h4>
+<p>The <code>array_prepend</code> function will push an item onto the beginning of an array:</p>
+<pre><code>$array = ['one', 'two', 'three', 'four'];
+
+$array = array_prepend($array, 'zero');
+
+// ['zero', 'one', 'two', 'three', 'four']</code></pre>
+<p>If needed, you may specify the key that should be used for the value:</p>
+<pre><code>$array = ['price' =&gt; 100];
+
+$array = array_prepend($array, 'Desk', 'name');
+
+// ['name' =&gt; 'Desk', 'price' =&gt; 100]</code></pre>
+<p><a name="method-array-pull"></a></p>
+<h4 id="collection-method"><code>array_pull()</code></h4>
+<p>The <code>array_pull</code> function returns and removes a key / value pair from an array:</p>
+<pre><code>$array = ['name' =&gt; 'Desk', 'price' =&gt; 100];
+
+$name = array_pull($array, 'name');
+
+// $name: Desk
+
+// $array: ['price' =&gt; 100]</code></pre>
+<p>A default value may be passed as the third argument to the method. This value will be returned if the key doesn't exist:</p>
+<pre><code>$value = array_pull($array, $key, $default);</code></pre>
+<p><a name="method-array-random"></a></p>
+<h4 id="collection-method"><code>array_random()</code></h4>
+<p>The <code>array_random</code> function returns a random value from an array:</p>
+<pre><code>$array = [1, 2, 3, 4, 5];
+
+$random = array_random($array);
+
+// 4 - (retrieved randomly)</code></pre>
+<p>You may also specify the number of items to return as an optional second argument. Note that providing this argument will return an array, even if only one item is desired:</p>
+<pre><code>$items = array_random($array, 2);
+
+// [2, 5] - (retrieved randomly)</code></pre>
+<p><a name="method-array-set"></a></p>
+<h4 id="collection-method"><code>array_set()</code></h4>
+<p>The <code>array_set</code> function sets a value within a deeply nested array using &quot;dot&quot; notation:</p>
+<pre><code>$array = ['products' =&gt; ['desk' =&gt; ['price' =&gt; 100]]];
+
+array_set($array, 'products.desk.price', 200);
+
+// ['products' =&gt; ['desk' =&gt; ['price' =&gt; 200]]]</code></pre>
+<p><a name="method-array-sort"></a></p>
+<h4 id="collection-method"><code>array_sort()</code></h4>
+<p>The <code>array_sort</code> function sorts an array by its values:</p>
+<pre><code>$array = ['Desk', 'Table', 'Chair'];
+
+$sorted = array_sort($array);
+
+// ['Chair', 'Desk', 'Table']</code></pre>
+<p>You may also sort the array by the results of the given Closure:</p>
+<pre><code>$array = [
+    ['name' =&gt; 'Desk'],
+    ['name' =&gt; 'Table'],
+    ['name' =&gt; 'Chair'],
+];
+
+$sorted = array_values(array_sort($array, function ($value) {
+    return $value['name'];
+}));
+
+/*
+    [
+        ['name' =&gt; 'Chair'],
+        ['name' =&gt; 'Desk'],
+        ['name' =&gt; 'Table'],
+    ]
+*/</code></pre>
+<p><a name="method-array-sort-recursive"></a></p>
+<h4 id="collection-method"><code>array_sort_recursive()</code></h4>
+<p>The <code>array_sort_recursive</code> function recursively sorts an array using the <code>sort</code> function:</p>
+<pre><code>$array = [
+    ['Roman', 'Taylor', 'Li'],
+    ['PHP', 'Ruby', 'JavaScript'],
+];
+
+$sorted = array_sort_recursive($array);
+
+/*
+    [
+        ['Li', 'Roman', 'Taylor'],
+        ['JavaScript', 'PHP', 'Ruby'],
+    ]
+*/</code></pre>
+<p><a name="method-array-where"></a></p>
+<h4 id="collection-method"><code>array_where()</code></h4>
+<p>The <code>array_where</code> function filters an array using the given Closure:</p>
+<pre><code>$array = [100, '200', 300, '400', 500];
+
+$filtered = array_where($array, function ($value, $key) {
+    return is_string($value);
+});
+
+// [1 =&gt; 200, 3 =&gt; 400]</code></pre>
+<p><a name="method-array-wrap"></a></p>
+<h4 id="collection-method"><code>array_wrap()</code></h4>
+<p>The <code>array_wrap</code> function wraps the given value in an array. If the given value is already an array it will not be changed:</p>
+<pre><code>$string = 'Laravel';
+
+$array = array_wrap($string);
+
+// ['Laravel']</code></pre>
+<p><a name="method-data-fill"></a></p>
+<h4 id="collection-method"><code>data_fill()</code></h4>
+<p>The <code>data_fill</code> function sets a missing value within a nested array or object using &quot;dot&quot; notation:</p>
+<pre><code>$data = ['products' =&gt; ['desk' =&gt; ['price' =&gt; 100]]];
+
+data_fill($data, 'products.desk.price', 200);
+
+// ['products' =&gt; ['desk' =&gt; ['price' =&gt; 100]]]
+
+data_fill($data, 'products.desk.discount', 10);
+
+// ['products' =&gt; ['desk' =&gt; ['price' =&gt; 100, 'discount' =&gt; 10]]]</code></pre>
+<p>This function also accepts asterisks as wildcards and will fill the target accordingly:</p>
+<pre><code>$data = [
+    'products' =&gt; [
+        ['name' =&gt; 'Desk 1' =&gt; 'price' =&gt; 100],
+        ['name' =&gt; 'Desk 2'],
+    ],
+];
+
+data_fill($data, 'products.*.price', 200);
+
+/*
+    [
+        'products' =&gt; [
+            ['name' =&gt; 'Desk 1' =&gt; 'price' =&gt; 100],
+            ['name' =&gt; 'Desk 2' =&gt; 'price' =&gt; 200],
+        ],
+    ]
+*/</code></pre>
+<p><a name="method-data-get"></a></p>
+<h4 id="collection-method"><code>data_get()</code></h4>
+<p>The <code>data_get</code> function retrieves a value from a nested array or object using &quot;dot&quot; notation:</p>
+<pre><code>$data = ['products' =&gt; ['desk' =&gt; ['price' =&gt; 100]]];
+
+$price = data_get($data, 'products.desk.price');
+
+// 100</code></pre>
+<p>The <code>data_get</code> function also accepts a default value, which will be returned if the specified key is not found:</p>
+<pre><code>$discount = data_get($data, 'products.desk.discount', 0);
+
+// 0</code></pre>
+<p><a name="method-data-set"></a></p>
+<h4 id="collection-method"><code>data_set()</code></h4>
+<p>The <code>data_set</code> function sets a value within a nested array or object using &quot;dot&quot; notation:</p>
+<pre><code>$data = ['products' =&gt; ['desk' =&gt; ['price' =&gt; 100]]];
+
+data_set($data, 'products.desk.price', 200);
+
+// ['products' =&gt; ['desk' =&gt; ['price' =&gt; 200]]]</code></pre>
+<p>This function also accepts wildcards and will set values on the target accordingly:</p>
+<pre><code>$data = [
+    'products' =&gt; [
+        ['name' =&gt; 'Desk 1', 'price' =&gt; 100],
+        ['name' =&gt; 'Desk 2', 'price' =&gt; 150],
+    ],
+];
+
+data_set($data, 'products.*.price', 200);
+
+/*
+    [
+        'products' =&gt; [
+            ['name' =&gt; 'Desk 1' =&gt; 'price' =&gt; 200],
+            ['name' =&gt; 'Desk 2' =&gt; 'price' =&gt; 200],
+        ],
+    ]
+*/</code></pre>
+<p>By default, any existing values are overwritten. If you wish to only set a value if it doesn't exist, you may pass <code>false</code> as the third argument:</p>
+<pre><code>$data = ['products' =&gt; ['desk' =&gt; ['price' =&gt; 100]]];
+
+data_set($data, 'products.desk.price', 200, false);
+
+// ['products' =&gt; ['desk' =&gt; ['price' =&gt; 100]]]</code></pre>
+<p><a name="method-head"></a></p>
+<h4 id="collection-method"><code>head()</code></h4>
+<p>The <code>head</code> function returns the first element in the given array:</p>
+<pre><code>$array = [100, 200, 300];
+
+$first = head($array);
+
+// 100</code></pre>
+<p><a name="method-last"></a></p>
+<h4 id="collection-method"><code>last()</code></h4>
+<p>The <code>last</code> function returns the last element in the given array:</p>
+<pre><code>$array = [100, 200, 300];
+
+$last = last($array);
+
+// 300</code></pre>
+<p><a name="paths"></a></p>
+<h2>Paths</h2>
+<p><a name="method-app-path"></a></p>
+<h4 id="collection-method"><code>app_path()</code></h4>
+<p>The <code>app_path</code> function returns the fully qualified path to the <code>app</code> directory. You may also use the <code>app_path</code> function to generate a fully qualified path to a file relative to the application directory:</p>
+<pre><code>$path = app_path();
+
+$path = app_path('Http/Controllers/Controller.php');</code></pre>
+<p><a name="method-base-path"></a></p>
+<h4 id="collection-method"><code>base_path()</code></h4>
+<p>The <code>base_path</code> function returns the fully qualified path to the project root. You may also use the <code>base_path</code> function to generate a fully qualified path to a given file relative to the project root directory:</p>
+<pre><code>$path = base_path();
+
+$path = base_path('vendor/bin');</code></pre>
+<p><a name="method-config-path"></a></p>
+<h4 id="collection-method"><code>config_path()</code></h4>
+<p>The <code>config_path</code> function returns the fully qualified path to the <code>config</code> directory. You may also use the <code>config_path</code> function to generate a fully qualified path to a given file within the application's configuration directory:</p>
+<pre><code>$path = config_path();
+
+$path = config_path('app.php');</code></pre>
+<p><a name="method-database-path"></a></p>
+<h4 id="collection-method"><code>database_path()</code></h4>
+<p>The <code>database_path</code> function returns the fully qualified path to the <code>database</code> directory. You may also use the <code>database_path</code> function to generate a fully qualified path to a given file within the database directory:</p>
+<pre><code>$path = database_path();
+
+$path = database_path('factories/UserFactory.php');</code></pre>
+<p><a name="method-mix"></a></p>
+<h4 id="collection-method"><code>mix()</code></h4>
+<p>The <code>mix</code> function returns the path to a <a href="mix.html">versioned Mix file</a>:</p>
+<pre><code>$path = mix('css/app.css');</code></pre>
+<p><a name="method-public-path"></a></p>
+<h4 id="collection-method"><code>public_path()</code></h4>
+<p>The <code>public_path</code> function returns the fully qualified path to the <code>public</code> directory. You may also use the <code>public_path</code> function to generate a fully qualified path to a given file within the public directory:</p>
+<pre><code>$path = public_path();
+
+$path = public_path('css/app.css');</code></pre>
+<p><a name="method-resource-path"></a></p>
+<h4 id="collection-method"><code>resource_path()</code></h4>
+<p>The <code>resource_path</code> function returns the fully qualified path to the <code>resources</code> directory. You may also use the <code>resource_path</code> function to generate a fully qualified path to a given file within the resources directory:</p>
+<pre><code>$path = resource_path();
+
+$path = resource_path('assets/sass/app.scss');</code></pre>
+<p><a name="method-storage-path"></a></p>
+<h4 id="collection-method"><code>storage_path()</code></h4>
+<p>The <code>storage_path</code> function returns the fully qualified path to the <code>storage</code> directory. You may also use the <code>storage_path</code> function to generate a fully qualified path to a given file within the storage directory:</p>
+<pre><code>$path = storage_path();
+
+$path = storage_path('app/file.txt');</code></pre>
+<p><a name="strings"></a></p>
+<h2>Strings</h2>
+<p><a name="method-__"></a></p>
+<h4 id="collection-method"><code>__()</code></h4>
+<p>The <code>__</code> function translates the given translation string or translation key using your <a href="localization.html">localization files</a>:</p>
+<pre><code>echo __('Welcome to our application');
+
+echo __('messages.welcome');</code></pre>
+<p>If the specified translation string or key does not exist, the <code>__</code> function will simply return the given value. So, using the example above, the <code>__</code> function would return <code>messages.welcome</code> if that translation key does not exist.</p>
+<p><a name="method-camel-case"></a></p>
+<h4 id="collection-method"><code>camel_case()</code></h4>
+<p>The <code>camel_case</code> function converts the given string to <code>camelCase</code>:</p>
+<pre><code>$converted = camel_case('foo_bar');
+
+// fooBar</code></pre>
+<p><a name="method-class-basename"></a></p>
+<h4 id="collection-method"><code>class_basename()</code></h4>
+<p>The <code>class_basename</code> returns the class name of the given class with the class' namespace removed:</p>
+<pre><code>$class = class_basename('Foo\Bar\Baz');
+
+// Baz</code></pre>
+<p><a name="method-e"></a></p>
+<h4 id="collection-method"><code>e()</code></h4>
+<p>The <code>e</code> function runs PHP's <code>htmlspecialchars</code> function with the <code>double_encode</code> option set to <code>false</code>:</p>
+<pre><code>echo e('&lt;html&gt;foo&lt;/html&gt;');
+
+// &amp;lt;html&amp;gt;foo&amp;lt;/html&amp;gt;</code></pre>
+<p><a name="method-ends-with"></a></p>
+<h4 id="collection-method"><code>ends_with()</code></h4>
+<p>The <code>ends_with</code> function determines if the given string ends with the given value:</p>
+<pre><code>$result = ends_with('This is my name', 'name');
+
+// true</code></pre>
+<p><a name="method-kebab-case"></a></p>
+<h4 id="collection-method"><code>kebab_case()</code></h4>
+<p>The <code>kebab_case</code> function converts the given string to <code>kebab-case</code>:</p>
+<pre><code>$converted = kebab_case('fooBar');
+
+// foo-bar</code></pre>
+<p><a name="method-preg-replace-array"></a></p>
+<h4 id="collection-method"><code>preg_replace_array()</code></h4>
+<p>The <code>preg_replace_array</code> function replaces a given pattern in the string sequentially using an array:</p>
+<pre><code>$string = 'The event will take place between :start and :end';
+
+$replaced = preg_replace_array('/:[a-z_]+/', ['8:30', '9:00'], $string);
+
+// The event will take place between 8:30 and 9:00</code></pre>
+<p><a name="method-snake-case"></a></p>
+<h4 id="collection-method"><code>snake_case()</code></h4>
+<p>The <code>snake_case</code> function converts the given string to <code>snake_case</code>:</p>
+<pre><code>$converted = snake_case('fooBar');
+
+// foo_bar</code></pre>
+<p><a name="method-starts-with"></a></p>
+<h4 id="collection-method"><code>starts_with()</code></h4>
+<p>The <code>starts_with</code> function determines if the given string begins with the given value:</p>
+<pre><code>$result = starts_with('This is my name', 'This');
+
+// true</code></pre>
+<p><a name="method-str-after"></a></p>
+<h4 id="collection-method"><code>str_after()</code></h4>
+<p>The <code>str_after</code> function returns everything after the given value in a string:</p>
+<pre><code>$slice = str_after('This is my name', 'This is');
+
+// ' my name'</code></pre>
+<p><a name="method-str-before"></a></p>
+<h4 id="collection-method"><code>str_before()</code></h4>
+<p>The <code>str_before</code> function returns everything before the given value in a string:</p>
+<pre><code>$slice = str_before('This is my name', 'my name');
+
+// 'This is '</code></pre>
+<p><a name="method-str-contains"></a></p>
+<h4 id="collection-method"><code>str_contains()</code></h4>
+<p>The <code>str_contains</code> function determines if the given string contains the given value:</p>
+<pre><code>$contains = str_contains('This is my name', 'my');
+
+// true</code></pre>
+<p>You may also pass an array of values to determine if the given string contains any of the values:</p>
+<pre><code>$contains = str_contains('This is my name', ['my', 'foo']);
+
+// true</code></pre>
+<p><a name="method-str-finish"></a></p>
+<h4 id="collection-method"><code>str_finish()</code></h4>
+<p>The <code>str_finish</code> function adds a single instance of the given value to a string if it does not already end with the value:</p>
+<pre><code>$adjusted = str_finish('this/string', '/');
+
+// this/string/
+
+$adjusted = str_finish('this/string/', '/');
+
+// this/string/</code></pre>
+<p><a name="method-str-is"></a></p>
+<h4 id="collection-method"><code>str_is()</code></h4>
+<p>The <code>str_is</code> function determines if a given string matches a given pattern. Asterisks may be used to indicate wildcards:</p>
+<pre><code>$matches = str_is('foo*', 'foobar');
+
+// true
+
+$matches = str_is('baz*', 'foobar');
+
+// false</code></pre>
+<p><a name="method-str-limit"></a></p>
+<h4 id="collection-method"><code>str_limit()</code></h4>
+<p>The <code>str_limit</code> function truncates the given string at the specified length:</p>
+<pre><code>$truncated = str_limit('The quick brown fox jumps over the lazy dog', 20);
+
+// The quick brown fox...</code></pre>
+<p>You may also pass a third argument to change the string that will be appended to the end:</p>
+<pre><code>$truncated = str_limit('The quick brown fox jumps over the lazy dog', 20, ' (...)');
+
+// The quick brown fox (...)</code></pre>
+<p><a name="method-str-plural"></a></p>
+<h4 id="collection-method"><code>str_plural()</code></h4>
+<p>The <code>str_plural</code> function converts a string to its plural form. This function currently only supports the English language:</p>
+<pre><code>$plural = str_plural('car');
+
+// cars
+
+$plural = str_plural('child');
+
+// children</code></pre>
+<p>You may provide an integer as a second argument to the function to retrieve the singular or plural form of the string:</p>
+<pre><code>$plural = str_plural('child', 2);
+
+// children
+
+$plural = str_plural('child', 1);
+
+// child</code></pre>
+<p><a name="method-str-random"></a></p>
+<h4 id="collection-method"><code>str_random()</code></h4>
+<p>The <code>str_random</code> function generates a random string of the specified length. This function uses PHP's <code>random_bytes</code> function:</p>
+<pre><code>$random = str_random(40);</code></pre>
+<p><a name="method-str-replace-array"></a></p>
+<h4 id="collection-method"><code>str_replace_array()</code></h4>
+<p>The <code>str_replace_array</code> function replaces a given value in the string sequentially using an array:</p>
+<pre><code>$string = 'The event will take place between ? and ?';
+
+$replaced = str_replace_array('?', ['8:30', '9:00'], $string);
+
+// The event will take place between 8:30 and 9:00</code></pre>
+<p><a name="method-str-replace-first"></a></p>
+<h4 id="collection-method"><code>str_replace_first()</code></h4>
+<p>The <code>str_replace_first</code> function replaces the first occurrence of a given value in a string:</p>
+<pre><code>$replaced = str_replace_first('the', 'a', 'the quick brown fox jumps over the lazy dog');
+
+// a quick brown fox jumps over the lazy dog</code></pre>
+<p><a name="method-str-replace-last"></a></p>
+<h4 id="collection-method"><code>str_replace_last()</code></h4>
+<p>The <code>str_replace_last</code> function replaces the last occurrence of a given value in a string:</p>
+<pre><code>$replaced = str_replace_last('the', 'a', 'the quick brown fox jumps over the lazy dog');
+
+// the quick brown fox jumps over a lazy dog</code></pre>
+<p><a name="method-str-singular"></a></p>
+<h4 id="collection-method"><code>str_singular()</code></h4>
+<p>The <code>str_singular</code> function converts a string to its singular form. This function currently only supports the English language:</p>
+<pre><code>$singular = str_singular('cars');
+
+// car
+
+$singular = str_singular('children');
+
+// child</code></pre>
+<p><a name="method-str-slug"></a></p>
+<h4 id="collection-method"><code>str_slug()</code></h4>
+<p>The <code>str_slug</code> function generates a URL friendly &quot;slug&quot; from the given string:</p>
+<pre><code>$slug = str_slug('Laravel 5 Framework', '-');
+
+// laravel-5-framework</code></pre>
+<p><a name="method-str-start"></a></p>
+<h4 id="collection-method"><code>str_start()</code></h4>
+<p>The <code>str_start</code> function adds a single instance of the given value to a string if it does not already start with the value:</p>
+<pre><code>$adjusted = str_start('this/string', '/');
+
+// /this/string
+
+$adjusted = str_start('/this/string/', '/');
+
+// /this/string</code></pre>
+<p><a name="method-studly-case"></a></p>
+<h4 id="collection-method"><code>studly_case()</code></h4>
+<p>The <code>studly_case</code> function converts the given string to <code>StudlyCase</code>:</p>
+<pre><code>$converted = studly_case('foo_bar');
+
+// FooBar</code></pre>
+<p><a name="method-title-case"></a></p>
+<h4 id="collection-method"><code>title_case()</code></h4>
+<p>The <code>title_case</code> function converts the given string to <code>Title Case</code>:</p>
+<pre><code>$converted = title_case('a nice title uses the correct case');
+
+// A Nice Title Uses The Correct Case</code></pre>
+<p><a name="method-trans"></a></p>
+<h4 id="collection-method"><code>trans()</code></h4>
+<p>The <code>trans</code> function translates the given translation key using your <a href="localization.html">localization files</a>:</p>
+<pre><code>echo trans('messages.welcome');</code></pre>
+<p>If the specified translation key does not exist, the <code>trans</code> function will simply return the given key. So, using the example above, the <code>trans</code> function would return <code>messages.welcome</code> if the translation key does not exist.</p>
+<p><a name="method-trans-choice"></a></p>
+<h4 id="collection-method"><code>trans_choice()</code></h4>
+<p>The <code>trans_choice</code> function translates the given translation key with inflection:</p>
+<pre><code>echo trans_choice('messages.notifications', $unreadCount);</code></pre>
+<p>If the specified translation key does not exist, the <code>trans_choice</code> function will simply return the given key. So, using the example above, the <code>trans_choice</code> function would return <code>messages.notifications</code> if the translation key does not exist.</p>
+<p><a name="urls"></a></p>
+<h2>URLs</h2>
+<p><a name="method-action"></a></p>
+<h4 id="collection-method"><code>action()</code></h4>
+<p>The <code>action</code> function generates a URL for the given controller action. You do not need to pass the full namespace of the controller. Instead, pass the controller class name relative to the <code>App\Http\Controllers</code> namespace:</p>
+<pre><code>$url = action('<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="db93b4b6be98b4b5afa9b4b7b7bea99bb2b5bfbea3">[email&#160;protected]</a>');</code></pre>
+<p>If the method accepts route parameters, you may pass them as the second argument to the method:</p>
+<pre><code>$url = action('<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9acfe9ffe8d9f5f4eee8f5f6f6ffe8daeae8f5fcf3f6ff">[email&#160;protected]</a>', ['id' =&gt; 1]);</code></pre>
+<p><a name="method-asset"></a></p>
+<h4 id="collection-method"><code>asset()</code></h4>
+<p>The <code>asset</code> function generates a URL for an asset using the current scheme of the request (HTTP or HTTPS):</p>
+<pre><code>$url = asset('img/photo.jpg');</code></pre>
+<p><a name="method-secure-asset"></a></p>
+<h4 id="collection-method"><code>secure_asset()</code></h4>
+<p>The <code>secure_asset</code> function generates a URL for an asset using HTTPS:</p>
+<pre><code>$url = secure_asset('img/photo.jpg');</code></pre>
+<p><a name="method-route"></a></p>
+<h4 id="collection-method"><code>route()</code></h4>
+<p>The <code>route</code> function generates a URL for the given named route:</p>
+<pre><code>$url = route('routeName');</code></pre>
+<p>If the route accepts parameters, you may pass them as the second argument to the method:</p>
+<pre><code>$url = route('routeName', ['id' =&gt; 1]);</code></pre>
+<p>By default, the <code>route</code> function generates an absolute URL. If you wish to generate a relative URL, you may pass <code>false</code> as the third argument:</p>
+<pre><code>$url = route('routeName', ['id' =&gt; 1], false);</code></pre>
+<p><a name="method-secure-url"></a></p>
+<h4 id="collection-method"><code>secure_url()</code></h4>
+<p>The <code>secure_url</code> function generates a fully qualified HTTPS URL to the given path:</p>
+<pre><code>$url = secure_url('user/profile');
+
+$url = secure_url('user/profile', [1]);</code></pre>
+<p><a name="method-url"></a></p>
+<h4 id="collection-method"><code>url()</code></h4>
+<p>The <code>url</code> function generates a fully qualified URL to the given path:</p>
+<pre><code>$url = url('user/profile');
+
+$url = url('user/profile', [1]);</code></pre>
+<p>If no path is provided, a <code>Illuminate\Routing\UrlGenerator</code> instance is returned:</p>
+<pre><code>$current = url()-&gt;current();
+
+$full = url()-&gt;full();
+
+$previous = url()-&gt;previous();</code></pre>
+<p><a name="miscellaneous"></a></p>
+<h2>Miscellaneous</h2>
+<p><a name="method-abort"></a></p>
+<h4 id="collection-method"><code>abort()</code></h4>
+<p>The <code>abort</code> function throws <a href="errors.html#http-exceptions">an HTTP exception</a> which will be rendered by the <a href="errors.html#the-exception-handler">exception handler</a>:</p>
+<pre><code>abort(403);</code></pre>
+<p>You may also provide the exception's response text and custom response headers:</p>
+<pre><code>abort(403, 'Unauthorized.', $headers);</code></pre>
+<p><a name="method-abort-if"></a></p>
+<h4 id="collection-method"><code>abort_if()</code></h4>
+<p>The <code>abort_if</code> function throws an HTTP exception if a given boolean expression evaluates to <code>true</code>:</p>
+<pre><code>abort_if(! Auth::user()-&gt;isAdmin(), 403);</code></pre>
+<p>Like the <code>abort</code> method, you may also provide the exception's response text as the third argument and an array of custom response headers as the fourth argument.</p>
+<p><a name="method-abort-unless"></a></p>
+<h4 id="collection-method"><code>abort_unless()</code></h4>
+<p>The <code>abort_unless</code> function throws an HTTP exception if a given boolean expression evaluates to <code>false</code>:</p>
+<pre><code>abort_unless(Auth::user()-&gt;isAdmin(), 403);</code></pre>
+<p>Like the <code>abort</code> method, you may also provide the exception's response text as the third argument and an array of custom response headers as the fourth argument.</p>
+<p><a name="method-app"></a></p>
+<h4 id="collection-method"><code>app()</code></h4>
+<p>The <code>app</code> function returns the <a href="container.html">service container</a> instance:</p>
+<pre><code>$container = app();</code></pre>
+<p>You may pass a class or interface name to resolve it from the container:</p>
+<pre><code>$api = app('HelpSpot\API');</code></pre>
+<p><a name="method-auth"></a></p>
+<h4 id="collection-method"><code>auth()</code></h4>
+<p>The <code>auth</code> function returns an <a href="authentication.html">authenticator</a> instance. You may use it instead of the <code>Auth</code> facade for convenience:</p>
+<pre><code>$user = auth()-&gt;user();</code></pre>
+<p>If needed, you may specify which guard instance you would like to access:</p>
+<pre><code>$user = auth('admin')-&gt;user();</code></pre>
+<p><a name="method-back"></a></p>
+<h4 id="collection-method"><code>back()</code></h4>
+<p>The <code>back</code> function generates a <a href="responses.html#redirects">redirect HTTP response</a> to the user's previous location:</p>
+<pre><code>return back($status = 302, $headers = [], $fallback = false);
+
+return back();</code></pre>
+<p><a name="method-bcrypt"></a></p>
+<h4 id="collection-method"><code>bcrypt()</code></h4>
+<p>The <code>bcrypt</code> function <a href="hashing.html">hashes</a> the given value using Bcrypt. You may use it as an alternative to the <code>Hash</code> facade:</p>
+<pre><code>$password = bcrypt('my-secret-password');</code></pre>
+<p><a name="method-broadcast"></a></p>
+<h4 id="collection-method"><code>broadcast()</code></h4>
+<p>The <code>broadcast</code> function <a href="broadcasting.html">broadcasts</a> the given <a href="events.html">event</a> to its listeners:</p>
+<pre><code>broadcast(new UserRegistered($user));</code></pre>
+<p><a name="method-blank"></a></p>
+<h4 id="collection-method"><code>blank()</code></h4>
+<p>The <code>blank</code> function returns whether the given value is &quot;blank&quot;:</p>
+<pre><code>blank('');
+blank('   ');
+blank(null);
+blank(collect());
+
+// true
+
+blank(0);
+blank(true);
+blank(false);
+
+// false</code></pre>
+<p>For the inverse of <code>blank</code>, see the <a href="#method-filled"><code>filled</code></a> method.</p>
+<p><a name="method-cache"></a></p>
+<h4 id="collection-method"><code>cache()</code></h4>
+<p>The <code>cache</code> function may be used to get values from the <a href="cache.html">cache</a>. If the given key does not exist in the cache, an optional default value will be returned:</p>
+<pre><code>$value = cache('key');
+
+$value = cache('key', 'default');</code></pre>
+<p>You may add items to the cache by passing an array of key / value pairs to the function. You should also pass the number of minutes or duration the cached value should be considered valid:</p>
+<pre><code>cache(['key' =&gt; 'value'], 5);
+
+cache(['key' =&gt; 'value'], Carbon::now()-&gt;addSeconds(10));</code></pre>
+<p><a name="method-class-uses-recursive"></a></p>
+<h4 id="collection-method"><code>class_uses_recursive()</code></h4>
+<p>The <code>class_uses_recursive</code> function returns all traits used by a class, including traits used by any subclasses:</p>
+<pre><code>$traits = class_uses_recursive(App\User::class);</code></pre>
+<p><a name="method-collect"></a></p>
+<h4 id="collection-method"><code>collect()</code></h4>
+<p>The <code>collect</code> function creates a <a href="collections.html">collection</a> instance from the given value:</p>
+<pre><code>$collection = collect(['taylor', 'abigail']);</code></pre>
+<p><a name="method-config"></a></p>
+<h4 id="collection-method"><code>config()</code></h4>
+<p>The <code>config</code> function gets the value of a <a href="configuration.html">configuration</a> variable. The configuration values may be accessed using &quot;dot&quot; syntax, which includes the name of the file and the option you wish to access. A default value may be specified and is returned if the configuration option does not exist:</p>
+<pre><code>$value = config('app.timezone');
+
+$value = config('app.timezone', $default);</code></pre>
+<p>You may set configuration variables at runtime by passing an array of key / value pairs:</p>
+<pre><code>config(['app.debug' =&gt; true]);</code></pre>
+<p><a name="method-cookie"></a></p>
+<h4 id="collection-method"><code>cookie()</code></h4>
+<p>The <code>cookie</code> function creates a new <a href="requests.html#cookies">cookie</a> instance:</p>
+<pre><code>$cookie = cookie('name', 'value', $minutes);</code></pre>
+<p><a name="method-csrf-field"></a></p>
+<h4 id="collection-method"><code>csrf_field()</code></h4>
+<p>The <code>csrf_field</code> function generates an HTML <code>hidden</code> input field containing the value of the CSRF token. For example, using <a href="blade.html">Blade syntax</a>:</p>
+<pre><code>{{ csrf_field() }}</code></pre>
+<p><a name="method-csrf-token"></a></p>
+<h4 id="collection-method"><code>csrf_token()</code></h4>
+<p>The <code>csrf_token</code> function retrieves the value of the current CSRF token:</p>
+<pre><code>$token = csrf_token();</code></pre>
+<p><a name="method-dd"></a></p>
+<h4 id="collection-method"><code>dd()</code></h4>
+<p>The <code>dd</code> function dumps the given variables and ends execution of the script:</p>
+<pre><code>dd($value);
+
+dd($value1, $value2, $value3, ...);</code></pre>
+<p>If you do not want to halt the execution of your script, use the <a href="#method-dump"><code>dump</code></a> function instead.</p>
+<p><a name="method-decrypt"></a></p>
+<h4 id="collection-method"><code>decrypt()</code></h4>
+<p>The <code>decrypt</code> function decrypts the given value using Laravel's <a href="encryption.html">encrypter</a>:</p>
+<pre><code>$decrypted = decrypt($encrypted_value);</code></pre>
+<p><a name="method-dispatch"></a></p>
+<h4 id="collection-method"><code>dispatch()</code></h4>
+<p>The <code>dispatch</code> function pushes the given <a href="queues.html#creating-jobs">job</a> onto the Laravel <a href="queues.html">job queue</a>:</p>
+<pre><code>dispatch(new App\Jobs\SendEmails);</code></pre>
+<p><a name="method-dispatch-now"></a></p>
+<h4 id="collection-method"><code>dispatch_now()</code></h4>
+<p>The <code>dispatch_now</code> function runs the given <a href="queues.html#creating-jobs">job</a> immediately and returns the value from its <code>handle</code> method:</p>
+<pre><code>$result = dispatch_now(new App\Jobs\SendEmails);</code></pre>
+<p><a name="method-dump"></a></p>
+<h4 id="collection-method"><code>dump()</code></h4>
+<p>The <code>dump</code> function dumps the given variables:</p>
+<pre><code>dump($value);
+
+dump($value1, $value2, $value3, ...);</code></pre>
+<p>If you want to stop executing the script after dumping the variables, use the <a href="#method-dd"><code>dd</code></a> function instead.</p>
+<p><a name="method-encrypt"></a></p>
+<h4 id="collection-method"><code>encrypt()</code></h4>
+<p>The <code>encrypt</code> function encrypts the given value using Laravel's <a href="encryption.html">encrypter</a>:</p>
+<pre><code>$encrypted = encrypt($unencrypted_value);</code></pre>
+<p><a name="method-env"></a></p>
+<h4 id="collection-method"><code>env()</code></h4>
+<p>The <code>env</code> function retrieves the value of an <a href="configuration.html#environment-configuration">environment variable</a> or returns a default value:</p>
+<pre><code>$env = env('APP_ENV');
+
+// Returns 'production' if APP_ENV is not set...
+$env = env('APP_ENV', 'production');</code></pre>
+<p><a name="method-event"></a></p>
+<h4 id="collection-method"><code>event()</code></h4>
+<p>The <code>event</code> function dispatches the given <a href="events.html">event</a> to its listeners:</p>
+<pre><code>event(new UserRegistered($user));</code></pre>
+<p><a name="method-factory"></a></p>
+<h4 id="collection-method"><code>factory()</code></h4>
+<p>The <code>factory</code> function creates a model factory builder for a given class, name, and amount. It can be used while <a href="database-testing.html#writing-factories">testing</a> or <a href="seeding.html#using-model-factories">seeding</a>:</p>
+<pre><code>$user = factory(App\User::class)-&gt;make();</code></pre>
+<p><a name="method-filled"></a></p>
+<h4 id="collection-method"><code>filled()</code></h4>
+<p>The <code>filled</code> function returns whether the given value is not &quot;blank&quot;:</p>
+<pre><code>filled(0);
+filled(true);
+filled(false);
+
+// true
+
+filled('');
+filled('   ');
+filled(null);
+filled(collect());
+
+// false</code></pre>
+<p>For the inverse of <code>filled</code>, see the <a href="#method-blank"><code>blank</code></a> method.</p>
+<p><a name="method-info"></a></p>
+<h4 id="collection-method"><code>info()</code></h4>
+<p>The <code>info</code> function will write information to the <a href="errors.html#logging">log</a>:</p>
+<pre><code>info('Some helpful information!');</code></pre>
+<p>An array of contextual data may also be passed to the function:</p>
+<pre><code>info('User login attempt failed.', ['id' =&gt; $user-&gt;id]);</code></pre>
+<p><a name="method-logger"></a></p>
+<h4 id="collection-method"><code>logger()</code></h4>
+<p>The <code>logger</code> function can be used to write a <code>debug</code> level message to the <a href="errors.html#logging">log</a>:</p>
+<pre><code>logger('Debug message');</code></pre>
+<p>An array of contextual data may also be passed to the function:</p>
+<pre><code>logger('User has logged in.', ['id' =&gt; $user-&gt;id]);</code></pre>
+<p>A <a href="errors.html#logging">logger</a> instance will be returned if no value is passed to the function:</p>
+<pre><code>logger()-&gt;error('You are not allowed here.');</code></pre>
+<p><a name="method-method-field"></a></p>
+<h4 id="collection-method"><code>method_field()</code></h4>
+<p>The <code>method_field</code> function generates an HTML <code>hidden</code> input field containing the spoofed value of the form's HTTP verb. For example, using <a href="blade.html">Blade syntax</a>:</p>
+<pre><code>&lt;form method="POST"&gt;
+    {{ method_field('DELETE') }}
+&lt;/form&gt;</code></pre>
+<p><a name="method-now"></a></p>
+<h4 id="collection-method"><code>now()</code></h4>
+<p>The <code>now</code> function creates a new <code>Illuminate\Support\Carbon</code> instance for the current time:</p>
+<pre><code>$now = now();</code></pre>
+<p><a name="method-old"></a></p>
+<h4 id="collection-method"><code>old()</code></h4>
+<p>The <code>old</code> function <a href="requests.html#retrieving-input">retrieves</a> an <a href="requests.html#old-input">old input</a> value flashed into the session:</p>
+<pre><code>$value = old('value');
+
+$value = old('value', 'default');</code></pre>
+<p><a name="method-optional"></a></p>
+<h4 id="collection-method"><code>optional()</code></h4>
+<p>The <code>optional</code> function accepts any argument and allows you to access properties or call methods on that object. If the given object is <code>null</code>, properties and methods will simply return <code>null</code> instead of causing an error:</p>
+<pre><code>return optional($user-&gt;address)-&gt;street;
+
+{!! old('name', optional($user)-&gt;name) !!}</code></pre>
+<p><a name="method-policy"></a></p>
+<h4 id="collection-method"><code>policy()</code></h4>
+<p>The <code>policy</code> method retrieves a <a href="authorization.html#creating-policies">policy</a> instance for a given class:</p>
+<pre><code>$policy = policy(App\User::class);</code></pre>
+<p><a name="method-redirect"></a></p>
+<h4 id="collection-method"><code>redirect()</code></h4>
+<p>The <code>redirect</code> function returns a <a href="responses.html#redirects">redirect HTTP response</a>, or returns the redirector instance if called with no arguments:</p>
+<pre><code>return redirect($to = null, $status = 302, $headers = [], $secure = null);
+
+return redirect('/home');
+
+return redirect()-&gt;route('route.name');</code></pre>
+<p><a name="method-report"></a></p>
+<h4 id="collection-method"><code>report()</code></h4>
+<p>The <code>report</code> function will report an exception using your <a href="errors.html#the-exception-handler">exception handler</a>'s <code>report</code> method:</p>
+<pre><code>report($e);</code></pre>
+<p><a name="method-request"></a></p>
+<h4 id="collection-method"><code>request()</code></h4>
+<p>The <code>request</code> function returns the current <a href="requests.html">request</a> instance or obtains an input item:</p>
+<pre><code>$request = request();
+
+$value = request('key', $default = null);</code></pre>
+<p><a name="method-rescue"></a></p>
+<h4 id="collection-method"><code>rescue()</code></h4>
+<p>The <code>rescue</code> function executes the given Closure and catches any exceptions that occur during its execution. All exceptions that are caught will be sent to your <a href="errors.html#the-exception-handler">exception handler</a>'s <code>report</code> method; however, the request will continue processing:</p>
+<pre><code>return rescue(function () {
+    return $this-&gt;method();
+});</code></pre>
+<p>You may also pass a second argument to the <code>rescue</code> function. This argument will be the &quot;default&quot; value that should be returned if an exception occurs while executing the Closure:</p>
+<pre><code>return rescue(function () {
+    return $this-&gt;method();
+}, false);
+
+return rescue(function () {
+    return $this-&gt;method();
+}, function () {
+    return $this-&gt;failure();
+});</code></pre>
+<p><a name="method-resolve"></a></p>
+<h4 id="collection-method"><code>resolve()</code></h4>
+<p>The <code>resolve</code> function resolves a given class or interface name to its instance using the <a href="container.html">service container</a>:</p>
+<pre><code>$api = resolve('HelpSpot\API');</code></pre>
+<p><a name="method-response"></a></p>
+<h4 id="collection-method"><code>response()</code></h4>
+<p>The <code>response</code> function creates a <a href="responses.html">response</a> instance or obtains an instance of the response factory:</p>
+<pre><code>return response('Hello World', 200, $headers);
+
+return response()-&gt;json(['foo' =&gt; 'bar'], 200, $headers);</code></pre>
+<p><a name="method-retry"></a></p>
+<h4 id="collection-method"><code>retry()</code></h4>
+<p>The <code>retry</code> function attempts to execute the given callback until the given maximum attempt threshold is met. If the callback does not throw an exception, its return value will be returned. If the callback throws an exception, it will automatically be retried. If the maximum attempt count is exceeded, the exception will be thrown:</p>
+<pre><code>return retry(5, function () {
+    // Attempt 5 times while resting 100ms in between attempts...
+}, 100);</code></pre>
+<p><a name="method-session"></a></p>
+<h4 id="collection-method"><code>session()</code></h4>
+<p>The <code>session</code> function may be used to get or set <a href="session.html">session</a> values:</p>
+<pre><code>$value = session('key');</code></pre>
+<p>You may set values by passing an array of key / value pairs to the function:</p>
+<pre><code>session(['chairs' =&gt; 7, 'instruments' =&gt; 3]);</code></pre>
+<p>The session store will be returned if no value is passed to the function:</p>
+<pre><code>$value = session()-&gt;get('key');
+
+session()-&gt;put('key', $value);</code></pre>
+<p><a name="method-tap"></a></p>
+<h4 id="collection-method"><code>tap()</code></h4>
+<p>The <code>tap</code> function accepts two arguments: an arbitrary <code>$value</code> and a Closure. The <code>$value</code> will be passed to the Closure and then be returned by the <code>tap</code> function. The return value of the Closure is irrelevant:</p>
+<pre><code>$user = tap(User::first(), function ($user) {
+    $user-&gt;name = 'taylor';
+
+    $user-&gt;save();
+});</code></pre>
+<p>If no Closure is passed to the <code>tap</code> function, you may call any method on the given <code>$value</code>. The return value of the method you call will always be <code>$value</code>, regardless of the what the method actually returns in its definition. For example, the Eloquent <code>update</code> method typically returns an integer. However, we can force the method to return the model itself by chaining the <code>update</code> method call through the <code>tap</code> function:</p>
+<pre><code>$user = tap($user)-&gt;update([
+    'name' =&gt; $name,
+    'email' =&gt; $email,
+]);</code></pre>
+<p><a name="method-today"></a></p>
+<h4 id="collection-method"><code>today()</code></h4>
+<p>The <code>today</code> function creates a new <code>Illuminate\Support\Carbon</code> instance for the current date:</p>
+<pre><code>$today = today();</code></pre>
+<p><a name="method-throw-if"></a></p>
+<h4 id="collection-method"><code>throw_if()</code></h4>
+<p>The <code>throw_if</code> function throws the given exception if a given boolean expression evaluates to <code>true</code>:</p>
+<pre><code>throw_if(! Auth::user()-&gt;isAdmin(), AuthorizationException::class);
+
+throw_if(
+    ! Auth::user()-&gt;isAdmin(),
+    AuthorizationException::class,
+    'You are not allowed to access this page'
+);</code></pre>
+<p><a name="method-throw-unless"></a></p>
+<h4 id="collection-method"><code>throw_unless()</code></h4>
+<p>The <code>throw_unless</code> function throws the given exception if a given boolean expression evaluates to <code>false</code>:</p>
+<pre><code>throw_unless(Auth::user()-&gt;isAdmin(), AuthorizationException::class);
+
+throw_unless(
+    Auth::user()-&gt;isAdmin(),
+    AuthorizationException::class,
+    'You are not allowed to access this page'
+);</code></pre>
+<p><a name="method-trait-uses-recursive"></a></p>
+<h4 id="collection-method"><code>trait_uses_recursive()</code></h4>
+<p>The <code>trait_uses_recursive</code> function returns all traits used by a trait:</p>
+<pre><code>$traits = trait_uses_recursive(\Illuminate\Notifications\Notifiable::class);</code></pre>
+<p><a name="method-transform"></a></p>
+<h4 id="collection-method"><code>transform()</code></h4>
+<p>The <code>transform</code> function executes a <code>Closure</code> on a given value if the value is not <a href="#method-blank">blank</a> and returns the result of the <code>Closure</code>:</p>
+<pre><code>$callback = function ($value) {
+    return $value * 2;
+};
+
+$result = transform(5, $callback);
+
+// 10</code></pre>
+<p>A default value or <code>Closure</code> may also be passed as the third parameter to the method. This value will be returned if the given value is blank:</p>
+<pre><code>$result = transform(null, $callback, 'The value is blank');
+
+// The value is blank</code></pre>
+<p><a name="method-validator"></a></p>
+<h4 id="collection-method"><code>validator()</code></h4>
+<p>The <code>validator</code> function creates a new <a href="validation.html">validator</a> instance with the given arguments. You may use it instead of the <code>Validator</code> facade for convenience:</p>
+<pre><code>$validator = validator($data, $rules, $messages);</code></pre>
+<p><a name="method-value"></a></p>
+<h4 id="collection-method"><code>value()</code></h4>
+<p>The <code>value</code> function returns the value it is given. However, if you pass a <code>Closure</code> to the function, the <code>Closure</code> will be executed then its result will be returned:</p>
+<pre><code>$result = value(true);
+
+// true
+
+$result = value(function () {
+    return false;
+});
+
+// false</code></pre>
+<p><a name="method-view"></a></p>
+<h4 id="collection-method"><code>view()</code></h4>
+<p>The <code>view</code> function retrieves a <a href="views.html">view</a> instance:</p>
+<pre><code>return view('auth.login');</code></pre>
+<p><a name="method-with"></a></p>
+<h4 id="collection-method"><code>with()</code></h4>
+<p>The <code>with</code> function returns the value it is given. If a <code>Closure</code> is passed as the second argument to the function, the <code>Closure</code> will be executed its result will be returned:</p>
+<pre><code>$callback = function ($value) {
+    return (is_numeric($value)) ? $value * 2 : 0;
+};
+
+$result = with(5, $callback);
+
+// 10
+
+$result = with(null, $callback);
+
+// 0
+
+$result = with(5, null);
+
+// 5</code></pre>
+	</article>
+</div>
+
+    <footer class="main">
+        <ul>
+            <li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+        </ul>
+        <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
+        <p class="less-significant">
+            <a href="http://jackmcdade.com/">
+                Designed by<br>
+                <svg xmlns="http://www.w3.org/2000/svg" width="128.2" height="28" viewBox="0 0 128.2 28"><g fill="#c3c3c3"><path d="M14.2.4v1.4l-1.4-.3.3 4.5c.1 1.5 0 3-.1 4.5 0 .4-.1.8-.1 1.2-.1.4-.1.8-.3 1.2-.1.4-.3.7-.5 1.1-.2.3-.5.6-.9.9-.4.2-.9.4-1.5.6-.6.2-1.1.3-1.6.3-.6 0-1.2-.1-1.6-.3-.5-.2-.9-.6-1.1-1-.3-.5-.5-1-.6-1.6-.1-.6-.1-1.3 0-2.1 0-.2.1-.5.2-.7-.1-.2 0-.4.1-.6l.3-.6 1.1.4c.2 0 .5.1.8.2.3.1.5.1.6.2 0 .2 0 .4-.1.5-.1.2-.1.3-.2.4-.1.1-.2.3-.2.4-.1.2-.1.3-.1.5L6 10.8c-.1.3-.2.7-.2 1.1 0 .4.1.8.2 1.2.2.4.4.7.6 1 .3.3.6.4 1 .3.6 0 1.1-.3 1.4-.6.3-.4.5-.9.7-1.7.1-.7.2-1.6.2-2.8V5.4c0-.6-.1-1.3-.1-2-.1-.6-.2-1.3-.3-2H5.7c-.7 0-1.5 0-2.2.2-.3.1-.6.2-1 .4-.3.1-.6.4-.9.6-.2.3-.4.6-.5 1-.1.3-.1.7 0 1 .1.5.3.8.4.9v-.1c0-.4.1-.8.4-1 .3-.2.6-.3.9-.3.3 0 .6.1.9.3.3.2.4.6.4 1s-.1.8-.4 1c-.3.2-.6.3-1 .3-.8 0-1.4-.2-1.8-.7-.4-.4-.7-.9-.8-1.5C0 4 0 3.4.2 2.7c.2-.6.5-1.1 1-1.5.4-.3.8-.5 1.2-.7.4-.1.9-.2 1.4-.3.5-.1.9-.1 1.4-.1h2.9c.6 0 1.1 0 1.6.1.5 0 1 .1 1.5.1s1 .1 1.5.1c.4.1.9.1 1.5 0zM25.2 14.3c0 .2.1.4.1.6 0 .2.1.4.1.7-1-.1-2-.2-3-.1-1.1.1-2.1.2-3 .4 0-.2-.1-.4-.1-.5 0-.2-.1-.4-.1-.5.2 0 .5-.1.7-.1.2 0 .4-.1.6-.1-.1-1.5-.3-3.1-.5-4.6-.5.1-.9.1-1.4.2-.5.1-.9.1-1.4.2-.2.7-.3 1.3-.5 2s-.3 1.3-.5 2h.6c.1 0 .3 0 .4.1v.9c0 .1 0 .2-.1.3H14v-1.2h1c.2-.5.3-1 .4-1.5.1-.5.3-1 .4-1.5.2-.6.3-1.2.5-1.7.2-.6.3-1.2.5-1.7.2-1.1.4-2.1.6-3.2.2-1.1.3-2.1.4-3.2h-1.4c0-.2.1-.4.1-.6 0-.2 0-.4.1-.6h5.8l.2 1.2h-1c.3 2.1.7 4.3 1 6.5.3 2.2.7 4.4 1 6.5h1.6zM17.5 9c.4-.1.7-.1 1.1-.2.4-.1.8-.1 1.2-.2-.2-1-.3-2-.5-2.9-.2-1-.4-1.9-.6-2.9-.2 1-.4 2.1-.5 3.1-.3 1-.5 2.1-.7 3.1zM36.7 10.4h-.6c0 .6 0 1.2-.2 1.9-.2.6-.5 1.2-1 1.6-.5.5-1 .9-1.6 1.1-.6.3-1.3.4-2 .5-.6.1-1.1.1-1.8 0-.6-.1-1.1-.4-1.6-.7-.2-.2-.5-.4-.8-.7-.3-.3-.5-.5-.6-.8-.3-.5-.5-1-.6-1.5-.2-.5-.3-.9-.4-1.4-.1-.5-.2-1-.2-1.5s0-1 .1-1.6c.2-1 .4-2 .8-2.9.4-.9.8-1.7 1.4-2.3.5-.7 1.2-1.2 1.9-1.6.7-.3 1.4-.5 2.2-.5.3 0 .5 0 .8.1.3.1.5.2.7.4.3.3.7.7 1 1.2.3.5.6 1.2.7 1.9h.6v.6l-2.5.4c-.3.1-.5.1-.6 0-.1 0-.2-.1-.2-.2-.1-.1-.1-.2 0-.3h.4c.2-.2.3-.3.3-.6v-.7c0-.5-.2-.9-.5-1.3l-.4-.4c-.2-.1-.4-.1-.6 0-.2 0-.4.2-.6.4-.2.2-.4.5-.5.9-.3.2-.4.6-.5.9-.1.3-.2.5-.2.7-.6 2.6-.7 5.3-.2 8 .1.3.2.7.3 1s.3.6.5.9c.2.3.5.5.8.7.3.2.6.2 1 .1.6-.1 1-.4 1.4-1 .3-.5.6-1.1.7-1.8.1-.3.1-.6.1-.9v-.5c-.2 0-.4 0-.6-.1-.1-.1-.2-.2-.2-.3 0-.1 0-.2.1-.3h3.4c0 .1 0 .2-.1.3-.1.1-.1.2-.1.3z"/><path d="M48 14.2c.1.2.3.3.5.4.2.1.5.1.7 0 .1.1.1.2.1.4s-.1.3-.2.4c-.1.1-.2.2-.4.2h-1.4c-.3 0-.7 0-1-.1-.3-.1-.7-.2-1-.4-.3-.2-.5-.4-.7-.7-.2-.3-.3-.6-.3-1V9.9v-.4c0-.2-.1-.3-.2-.5s-.3-.3-.4-.4c-.2-.1-.4-.1-.7-.1-.1 0-.2 0-.5.1-.2.3-.3.5-.5.8-.2.3-.3.5-.5.7 0 .8 0 1.5-.1 2.2 0 .7-.1 1.5-.1 2.1h1.4v1.1c-.5 0-.9.1-1.3 0-.4 0-.8 0-1.2-.1-.4 0-.8-.1-1.2-.1H37.3c-.1 0-.2 0-.3-.1-.1 0-.1-.1-.1-.2s-.1-.3-.1-.4v-.4c0-.1.1-.2.1-.2.2.1.4.2.6.1s.4-.2.5-.4c0-.1.1-.3.1-.7 0-.4 0-.9.1-1.6 0-.6.1-1.3.1-2.1s0-1.6.1-2.4c0-.8 0-1.5.1-2.3 0-.7.1-1.3.1-1.8v-.7c0-.2-.1-.4-.2-.6-.1-.2-.3-.3-.5-.4-.2-.1-.4 0-.6.1 0-.2-.1-.5-.1-.7 0-.2 0-.4-.1-.7 1 0 2 .1 3 .1.9 0 1.9.1 3 .1v.3c0 .1 0 .3.1.4v.4c0 .1 0 .2-.1.2-.1.1-.2.1-.3.1-.1 0-.2 0-.4-.1-.1-.1-.3-.1-.4-.2-.1-.1-.3-.1-.3-.1-.1.9-.1 1.9-.1 2.9s-.1 2-.1 3.1c.7-1.2 1.4-2.5 2-3.8.2-.3.3-.6.4-.9.1-.3.3-.6.5-.9.2-.3.4-.5.7-.7.3.3.6.2.9.1.3-.1.7-.1 1 0 .3.1.6.2.9.5.2.3.4.6.4 1s.1.8 0 1.1v.5c0 .2-.1.3-.2.4-.1.2-.2.3-.4.4-.2.1-.4.1-.5.2-.1 0-.3.1-.4.1h-.4c-.2-.3-.4-.4-.4-.6-.1-.2-.1-.4 0-.5.1-.2.2-.3.3-.3.1 0 .2-.1.4-.1.2-.1.3-.2.3-.3.1-.2.1-.3.1-.5 0-.3-.1-.5-.1-.7-.1-.2-.2-.3-.3-.3-.2 0-.3 0-.5.1s-.3.2-.5.4-.3.4-.4.6c-.1.2-.3.5-.4.7-.1.3-.3.6-.4.8-.2.2-.3.5-.4.8-.4.9-.8 1.7-1.2 2.5.3 0 .6-.1 1 0h1c.3 0 .7.1 1 .2.3.1.6.3.8.6.3.3.4.6.5 1 .1.4.1.8.2 1.1l.2 2.1c0 .2.1.5.1.7 0 .4.1.7.3.9zM71.7 13.9c.2.2.4.4.7.5.3.1.5 0 .8-.1 0 .2.1.3.1.6.1.2.1.4.1.6h-1.1s-.8 0-1.3.1h-2.3v-.2c0-.1.1-.2.2-.3.1-.1.2-.2.4-.3.2-.1.3-.1.6-.1.1 0 .1-.2.1-.7v-1.6c0-.6 0-1.2-.1-1.9s0-1.1 0-1.5V6.4c0-.7.1-1.5.1-2.2-.6 1.3-1.1 2.7-1.6 4.1-.5 1.5-1 3-1.5 4.4 0 0 .1.1.1.2-.2 0-.4 0-.7.1-.3.1-.5.1-.7.1-.5-1.9-1.1-3.7-1.6-5.5-.5-1.8-1.1-3.6-1.6-5.5-.1 1-.1 2-.1 3 0 1.1-.1 2.1-.1 3.2s0 2.1-.1 3.2c0 1-.1 2-.1 3h1.4v1.1c-.5 0-.9.1-1.3 0-.4 0-.8 0-1.2-.1-.4 0-.8-.1-1.2-.1H58c-.1 0-.2 0-.3-.1-.1 0-.1-.1-.1-.2s-.1-.3-.1-.4v-.4c0-.1.1-.2.1-.2.2.1.4.2.6.1s.4-.2.5-.4c0-.1.1-.3.1-.7 0-.4 0-.9.1-1.6 0-.6.1-1.3.1-2.1V7.2c0-.8 0-1.5.1-2.3 0-.7.1-1.3.1-1.8v-.7c0-.2-.1-.4-.2-.6-.1-.2-.3-.3-.5-.4-.2-.1-.4 0-.6.1 0-.2-.1-.5-.1-.7 0-.2 0-.4-.1-.7 1 0 2 .1 3 .1.9 0 1.9.1 3 .1 0 .3-.1.5-.4.7.3 1.3.6 2.6 1 3.9l1.2 3.9c.2-.6.4-1.3.6-1.9l.6-1.8c.3-.5.5-1.1.8-1.7.2-.6.4-1.3.6-2-.1 0-.3 0-.4-.1-.1 0-.2 0-.4-.1-.1 0-.1-.1-.1-.3 0-.1.1-.2.1-.3.1-.1.2-.1.3-.1h4.5c.1 0 .3.1.4.2.1.1.2.2.2.4s0 .3-.2.3c-.1-.1-.2-.1-.3-.1-.1 0-.2.1-.3.1-.2.4-.3.8-.4 1.3-.1.5-.1.9-.1 1.4-.2 2.8-.2 5.6 0 8.4 0 .3 0 .5.1.7-.1.3 0 .5.2.7zM81.7 12h-.4c0 .4 0 .9-.2 1.3-.1.4-.4.8-.7 1.1-.3.3-.7.6-1.1.8-.4.2-.9.3-1.3.4-.4.1-.8 0-1.2 0-.4-.1-.8-.2-1.1-.5-.2-.1-.3-.3-.5-.5s-.3-.4-.4-.6c-.2-.4-.3-.7-.4-1-.1-.3-.2-.6-.3-1-.1-.3-.1-.6-.1-1 0-.3 0-.7.1-1.1.1-.7.3-1.4.5-2 .3-.6.6-1.1.9-1.6s.8-.8 1.3-1.1c.5-.3 1-.4 1.5-.4.2 0 .4 0 .6.1.2.1.3.1.5.3.2.2.4.4.6.8.2.4.4.8.5 1.3h.4v.4l-1.7.3c-.2.1-.3.1-.4 0-.1 0-.1-.1-.2-.2v-.2h.4c.1-.1.2-.2.2-.4v-.5c0-.3-.1-.6-.3-.9l-.3-.3c-.1-.1-.2-.1-.4 0-.1 0-.3.1-.4.3-.1.2-.3.4-.4.6l-.3.6c-.1.2-.1.4-.1.5-.4 1.8-.5 3.6-.1 5.5.1.2.1.4.2.7l.3.6c.1.2.3.3.6.5.2.1.4.1.7.1.4-.1.7-.3 1-.7.2-.4.4-.8.5-1.2 0-.2.1-.4.1-.6v-.3h-.4c-.1 0-.1-.1-.1-.2s0-.2.1-.2h2.4v.2c-.5-.1-.5 0-.6.1z"/><path d="M83.5 14.2c.2-4.3.3-8.5.2-12.8h-1.8V.9.4c.7 0 1.3 0 2-.1.7 0 1.3 0 2-.1.8-.2 1.6-.2 2.4-.1.8.1 1.6.3 2.4.5.7.3 1.4.7 1.9 1.2s.9 1.1 1.1 1.8c.3 1.3.4 2.5.3 3.8 0 1.2-.2 2.4-.3 3.6 0 .4-.1.8-.2 1.2-.1.4-.3.8-.5 1.1-.3.5-.8 1-1.3 1.3-.5.3-1.1.5-1.7.6-.5.1-.9.2-1.4.1-.5 0-.9 0-1.4-.1h-4.9c-.2-.4-.1-.8.2-1.1.2-.2.3-.2.5-.3.2.3.4.3.5.4zm5.9-12.3c-.4-.3-.8-.5-1.3-.6-.5-.1-1-.1-1.5-.1-.3 4.5-.2 9.1.4 13.6.2 0 .4 0 .5-.1.2 0 .4-.1.6-.1.3-.1.6-.2.9-.4.3-.2.6-.4.8-.7.2-.3.4-.6.5-1s.2-.7.2-1.1c.4-2.1.4-4.2.2-6.3-.1-.6-.2-1.2-.4-1.9 0-.4-.4-.9-.9-1.3zM102.4 9.7c-.6-.1-1.3-.1-2 0s-1.4.4-2 .8l-.2-1.4.9-.1c0-.4-.1-.7-.1-1 0-.2-.1-.5-.1-.9-.3 0-.6.1-.9.1-.3 0-.6.1-1 .1-.2.7-.3 1.3-.4 1.8-.1.5-.2 1.1-.4 1.6l.2-.1.7.6c-.4.2-.8.6-1.2 1.1-.4.5-.7 1-.9 1.5l-.9-.5c0-.1.1-.2.2-.4s.2-.3.2-.4c.1-.2.2-.5.3-1 .1-.4.2-.9.4-1.3.1-.5.2-.9.3-1.3.1-.4.2-.7.2-.9l.3-1.2.3-1.2c.2-.7.3-1.4.4-2.1.1-.7.2-1.4.3-2.2h-.6l.1-.8 4-.1.1.8h-.2-.2c.1.7.2 1.4.3 2l.3 1.8.3 1.8c.1.6.2 1.3.4 2h.6l.3.9zm-3.6-3.6c-.1-.7-.2-1.3-.3-2-.1-.6-.3-1.3-.4-2-.1.6-.2 1.3-.4 2.1-.1.7-.3 1.5-.5 2.2l1.6-.3z"/><path d="M124.9 20.1c0-.3.1-.6.3-.8.2-.2.4-.3.7-.4.3-.1.5 0 .8.1.3.1.5.3.6.5.3.4.6.9.7 1.4.2.5.2 1 .2 1.5s-.1 1-.3 1.5c-.2.5-.4 1-.7 1.4-.6.9-1.4 1.6-2.4 2-1 .5-2 .7-3 .7-1.5 0-2.8-.3-3.9-1s-2.1-1.4-3-2.4c-.9-1-1.8-2.1-2.5-3.2-.8-1.2-1.5-2.3-2.3-3.5-1.1 1.2-2.4 2.2-3.9 3-1.5.8-3 1.1-4.5 1-1.1 0-2.1-.1-3-.5-.9-.3-1.6-.8-2.2-1.4-.6-.6-.9-1.3-1.1-2.2-.2-.8-.1-1.7.2-2.7.3-.9.7-1.6 1.3-2.2.6-.6 1.2-1.1 2-1.5.7-.4 1.5-.6 2.4-.7.8-.1 1.7 0 2.6.2v-5-4.6h-1.8V.8.3l3.7-.1c.8-.2 1.6-.2 2.4-.1.8.1 1.6.3 2.4.5.7.3 1.4.7 1.9 1.2s.9 1.1 1.1 1.8c.3 1.2.4 2.4.3 3.6-.1 1.2-.2 2.5-.4 3.7-.1 1-.4 2-.8 3-.5 1-1 2-1.7 2.9.3.4.6.8.8 1.2.3.4.5.8.8 1.2.5.8 1.1 1.6 1.7 2.5.6.8 1.3 1.6 2 2.4.7.7 1.5 1.3 2.4 1.8s1.8.7 2.9.8c1.1 0 2.1-.2 3-.7.9-.5 1.6-1.2 2.1-2.2.2-.4.3-.8.4-1.3.1-.5 0-.9-.1-1.3-.2.1-.4.2-.6.2-.2 0-.4 0-.6-.1-.2-.1-.4-.2-.5-.4s-.4-.5-.4-.8zm-22 .9c1.5-.4 2.8-1 3.7-1.8.9-.8 1.7-1.7 2.3-2.8-.2-.2-.3-.5-.6-.7-.6-.7-1.2-1.4-1.9-1.9 0 .6.1 1.2.1 1.8 0 .6.1 1.1.2 1.6v.1h-4.3c-.1-.2-.1-.4 0-.7 0-.2.1-.3.3-.5.3-.3.7-.4 1.1-.2l.1-3.5c-.5-.2-1-.3-1.5-.3s-1.1 0-1.6.1c-.6.1-1.1.3-1.6.6s-.9.7-1.3 1.1c-.4.4-.7.9-.9 1.5-.2.5-.3 1.1-.3 1.6 0 .7.2 1.3.6 1.8.4.5.9.9 1.4 1.4.2.2.5.3.8.5.3.1.7.2 1.1.3.4.1.8.1 1.2.1.3 0 .7 0 1.1-.1zm6.4-19.1c-.4-.3-.8-.5-1.2-.6-.5-.1-.9-.1-1.4-.1-.1 1.7-.2 3.4-.3 5.3-.1 1.9-.1 3.7 0 5.6.6.4 1.2.8 1.7 1.4.5.5 1 1.1 1.5 1.6.2-.6.4-1.2.6-1.9.2-.6.3-1.2.3-1.7.2-1.1.2-2.1.3-3.1 0-1 0-2.1-.1-3.1-.1-.6-.2-1.2-.4-1.9-.2-.6-.5-1.1-1-1.5z"/><path d="M116.5 1.2h-1.8V.4c.5 0 .9 0 1.2-.1s.7 0 1.1 0h1.1s.8 0 1.3-.1c.9 0 1.8 0 2.8-.1.9 0 1.8 0 2.8-.1v3.6h-1.3c-.1 0-.1-.1 0-.1.1-.2.1-.4.1-.6s0-.4-.1-.6l-.3-.6c-.1-.2-.2-.3-.4-.4-.2-.1-.4-.2-.6-.2h-.7c-.3 0-.5.1-.8.1-.3.1-.5.2-.6.4-.1.2-.1.3-.1.3v.3c0 .7-.1 1.3-.1 2 0 .6-.1 1.3-.1 1.9v1c.6-.2 1.2-.3 1.9-.4.6-.1 1.2-.3 1.9-.4 0 .1.1.2.1.3V7c0 .2-.1.3-.1.4-.1.1-.1.2-.1.3-.1.1-.2.1-.4.2-.1 0-.3.1-.4.1-.5.1-.9.2-1.4.3-.5.1-.9.1-1.4.2 0 1-.1 2-.2 2.9-.1 1-.1 1.9-.2 2.9.8.2 1.5.3 2 .1.6-.2 1.2-.5 1.9-1 .2-.1.2-.3.2-.5v-.7c0-.2.1-.5.2-.6.1-.2.3-.3.7-.4.4 0 .6.1.7.4.1.3.2.7.2 1.1 0 .5 0 .9-.1 1.4-.1.5-.1.9 0 1.2h-1.4c-.4 0-.8 0-1.2.1-.4 0-.8 0-1.2.1h-1.3c-.9 0-1.7 0-2.5.1-.7.1-1.6.1-2.4.1-.2-.2-.2-.4-.2-.7 0-.2.1-.5.3-.6.2-.2.3-.3.6-.3.2-.1.5 0 .7.1.1-2.1.2-4.3.1-6.5-.7-2.2-.7-4.3-.5-6.5z"/></g></svg>
+            </a>
+        </p>
+    </footer>
+
+    <script style="display: none !important;">!function(e,t,r,n,c,a,l){function i(t,r){return r=e.createElement('div'),r.innerHTML='<a href="'+t.replace(/"/g,'&quot;')+'"></a>',r.childNodes[0].getAttribute('href')}function o(e,t,r,n){for(r='',n='0x'+e.substr(t,2)|0,t+=2;t<e.length;t+=2)r+=String.fromCharCode('0x'+e.substr(t,2)^n);return i(r)}try{for(c=e.getElementsByTagName('a'),l='/cdn-cgi/l/email-protection#',n=0;n<c.length;n++)try{(t=(a=c[n]).href.indexOf(l))>-1&&(a.href='mailto:'+o(a.href,t+l.length))}catch(e){}for(c=e.querySelectorAll('.__cf_email__'),n=0;n<c.length;n++)try{(a=c[n]).parentNode.replaceChild(e.createTextNode(o(a.getAttribute('data-cfemail'),0)),a)}catch(e){}}catch(e){}}(document);</script><script>
+        var algolia_app_id      = '8BB87I11DE';
+        var algolia_search_key  = '8e1d446d61fce359f69cd7c8b86a50de';
+        var version             = '5.5';
+    </script>
+
+    <script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.h1}}
+		<div class="h1">
+			{{{ _highlightResult.h1.value }}}
+		</div>
+		{{/_highlightResult.h1}}
+
+		<div class="sub-section">
+			{{#_highlightResult.h2}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.h2.value }}}
+			</div>
+			{{/_highlightResult.h2}}
+
+			{{#_highlightResult.h3}}
+			<div class="h3">
+				> {{{ _highlightResult.h3.value }}}
+			</div>
+			{{/_highlightResult.h3}}
+
+			{{#_highlightResult.h4}}
+			<div class="h4">
+				> {{{ _highlightResult.h4.value }}}
+			</div>
+			{{/_highlightResult.h4}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+			<img width="105" src="https://laravel.com/assets/img/algolia-logo.svg">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+
+    <script src="../../build/assets/js/laravel-35667fed17.js"></script>
+    <script src="../../assets/js/viewport-units-buggyfill.js"></script>
+    <script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/5.5/helpers by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Oct 2017 13:48:17 GMT -->
+</html>

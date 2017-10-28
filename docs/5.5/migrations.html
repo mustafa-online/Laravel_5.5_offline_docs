@@ -1,0 +1,1114 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from laravel.com/docs/5.5/migrations by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Oct 2017 13:48:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Database: Migrations - Laravel - The PHP Framework For Web Artisans</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Taylor Otwell">
+    <meta name="description" content="Laravel - The PHP framework for web artisans.">
+    <meta name="keywords" content="laravel, php, framework, web, artisans, taylor otwell">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="canonical" href="migrations.html" />
+        <!-- -->
+    <link rel="stylesheet" href="../../build/assets/css/laravel-97189ffb5f.css">
+    <link rel="stylesheet" href="ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+    <link rel="apple-touch-icon" href="../../favicon.png">
+    <script src="ajax/libs/vue/1.0.26/vue.min.js"></script>
+</head>
+<body class="docs language-php">
+
+    <span class="overlay"></span>
+
+    <nav class="main">
+        <a href="https://laravel.com/" class="brand nav-block">
+            <svg xmlns="http://www.w3.org/2000/svg" width="84.1" height="57.6" viewBox="0 0 84.1 57.6"><path fill="#FB503B" d="M83.8 26.9c-.6-.6-8.3-10.3-9.6-11.9-1.4-1.6-2-1.3-2.9-1.2s-10.6 1.8-11.7 1.9c-1.1.2-1.8.6-1.1 1.6.6.9 7 9.9 8.4 12l-25.5 6.1L21.2 1.5c-.8-1.2-1-1.6-2.8-1.5C16.6.1 2.5 1.3 1.5 1.3c-1 .1-2.1.5-1.1 2.9S17.4 41 17.8 42c.4 1 1.6 2.6 4.3 2 2.8-.7 12.4-3.2 17.7-4.6 2.8 5 8.4 15.2 9.5 16.7 1.4 2 2.4 1.6 4.5 1 1.7-.5 26.2-9.3 27.3-9.8 1.1-.5 1.8-.8 1-1.9-.6-.8-7-9.5-10.4-14 2.3-.6 10.6-2.8 11.5-3.1 1-.3 1.2-.8.6-1.4zm-46.3 9.5c-.3.1-14.6 3.5-15.3 3.7-.8.2-.8.1-.8-.2-.2-.3-17-35.1-17.3-35.5-.2-.4-.2-.8 0-.8S17.6 2.4 18 2.4c.5 0 .4.1.6.4 0 0 18.7 32.3 19 32.8.4.5.2.7-.1.8zm40.2 7.5c.2.4.5.6-.3.8-.7.3-24.1 8.2-24.6 8.4-.5.2-.8.3-1.4-.6s-8.2-14-8.2-14L68.1 32c.6-.2.8-.3 1.2.3.4.7 8.2 11.3 8.4 11.6zm1.6-17.6c-.6.1-9.7 2.4-9.7 2.4l-7.5-10.2c-.2-.3-.4-.6.1-.7.5-.1 9-1.6 9.4-1.7.4-.1.7-.2 1.2.5.5.6 6.9 8.8 7.2 9.1.3.3-.1.5-.7.6z"/></svg>
+            <span>Laravel</span>
+        </a>
+
+        <div class="search nav-block invisible">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#A1A1A1" d="M5.8 11.7c-1.6 0-3-.6-4.1-1.7S0 7.4 0 5.8s.6-3 1.7-4.1C2.8.6 4.3 0 5.8 0s3 .6 4.1 1.7c2.3 2.3 2.3 6 0 8.3-1 1.1-2.5 1.7-4.1 1.7zM5.8 1c-1.3 0-2.5.5-3.4 1.4C1.5 3.3 1 4.5 1 5.8s.5 2.5 1.4 3.4c.9.9 2.1 1.4 3.4 1.4s2.5-.5 3.4-1.4c1.9-1.9 1.9-5 0-6.9C8.4 1.5 7.1 1 5.8 1z"/><path fill="#A1A1A1" d="M15.5 16c-.1 0-.3 0-.3-.1L9.3 10c-.2-.2-.2-.5 0-.7s.5-.2.7 0l5.9 5.9c.2.2.2.5 0 .7-.1.1-.3.1-.4.1z"/></svg>
+            <input placeholder="Laravel 5.5 Docs" type="text" disabled style="background:#fff" v-model="search" id="search-input" v-on:blur="reset" />
+        </div>
+
+        <ul class="main-nav" v-if="! search">
+            <li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+        </ul>
+
+                    <div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			5.5
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../master/migrations.html">Master</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="migrations.html">5.5</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.4/migrations.html">5.4</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.3/migrations.html">5.3</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.2/migrations.html">5.2</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.1/migrations.html">5.1</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0/migrations.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2/migrations.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+        
+        <div class="responsive-sidebar-nav">
+            <a href="#" class="toggle-slide menu-link btn">&#9776;</a>
+        </div>
+    </nav>
+
+    <nav id="slide-menu" class="slide-menu" role="navigation">
+
+	<div class="brand">
+		<a href="https://laravel.com/">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="https://laravel.com/">Home</a></li>
+		<li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>Documentation</h2>
+		<ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/5.5">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Errors &amp; Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="passport.html">API Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="https://github.com/laravel/socialite">Socialite</a></li>
+</ul>
+</li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<script async type="text/javascript" src="carbon9873.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=laravelcom" id="_carbonads_js"></script>
+		<small><a href="#" id="doc-expand" style="font-size: 9px; color: #525252;">▶</a></small>
+		<ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/5.5">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Errors &amp; Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="passport.html">API Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="https://github.com/laravel/socialite">Socialite</a></li>
+</ul>
+</li>
+</ul>
+	</section>
+
+	
+
+	<article>
+		<h1>Database: Migrations</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#generating-migrations">Generating Migrations</a></li>
+<li><a href="#migration-structure">Migration Structure</a></li>
+<li><a href="#running-migrations">Running Migrations</a>
+<ul>
+<li><a href="#rolling-back-migrations">Rolling Back Migrations</a></li>
+</ul></li>
+<li><a href="#tables">Tables</a>
+<ul>
+<li><a href="#creating-tables">Creating Tables</a></li>
+<li><a href="#renaming-and-dropping-tables">Renaming / Dropping Tables</a></li>
+</ul></li>
+<li><a href="#columns">Columns</a>
+<ul>
+<li><a href="#creating-columns">Creating Columns</a></li>
+<li><a href="#column-modifiers">Column Modifiers</a></li>
+<li><a href="#modifying-columns">Modifying Columns</a></li>
+<li><a href="#dropping-columns">Dropping Columns</a></li>
+</ul></li>
+<li><a href="#indexes">Indexes</a>
+<ul>
+<li><a href="#creating-indexes">Creating Indexes</a></li>
+<li><a href="#dropping-indexes">Dropping Indexes</a></li>
+<li><a href="#foreign-key-constraints">Foreign Key Constraints</a></li>
+</ul></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2>Introduction</h2>
+<p>Migrations are like version control for your database, allowing your team to easily modify and share the application's database schema. Migrations are typically paired with Laravel's schema builder to easily build your application's database schema. If you have ever had to tell a teammate to manually add a column to their local database schema, you've faced the problem that database migrations solve.</p>
+<p>The Laravel <code>Schema</code> <a href="facades.html">facade</a> provides database agnostic support for creating and manipulating tables across all of Laravel's supported database systems.</p>
+<p><a name="generating-migrations"></a></p>
+<h2>Generating Migrations</h2>
+<p>To create a migration, use the <code>make:migration</code> <a href="artisan.html">Artisan command</a>:</p>
+<pre><code>php artisan make:migration create_users_table</code></pre>
+<p>The new migration will be placed in your <code>database/migrations</code> directory. Each migration file name contains a timestamp which allows Laravel to determine the order of the migrations.</p>
+<p>The <code>--table</code> and <code>--create</code> options may also be used to indicate the name of the table and whether the migration will be creating a new table. These options simply pre-fill the generated migration stub file with the specified table:</p>
+<pre><code>php artisan make:migration create_users_table --create=users
+
+php artisan make:migration add_votes_to_users_table --table=users</code></pre>
+<p>If you would like to specify a custom output path for the generated migration, you may use the <code>--path</code> option when executing the <code>make:migration</code> command. The given path should be relative to your application's base path.</p>
+<p><a name="migration-structure"></a></p>
+<h2>Migration Structure</h2>
+<p>A migration class contains two methods: <code>up</code> and <code>down</code>. The <code>up</code> method is used to add new tables, columns, or indexes to your database, while the <code>down</code> method should simply reverse the operations performed by the <code>up</code> method.</p>
+<p>Within both of these methods you may use the Laravel schema builder to expressively create and modify tables. To learn about all of the methods available on the <code>Schema</code> builder, <a href="#creating-tables">check out its documentation</a>. For example, this migration example creates a <code>flights</code> table:</p>
+<pre><code>&lt;?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateFlightsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('flights', function (Blueprint $table) {
+            $table-&gt;increments('id');
+            $table-&gt;string('name');
+            $table-&gt;string('airline');
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('flights');
+    }
+}</code></pre>
+<p><a name="running-migrations"></a></p>
+<h2>Running Migrations</h2>
+<p>To run all of your outstanding migrations, execute the <code>migrate</code> Artisan command:</p>
+<pre><code>php artisan migrate</code></pre>
+<blockquote>
+<p>{note} If you are using the <a href="homestead.html">Homestead virtual machine</a>, you should run this command from within your virtual machine.</p>
+</blockquote>
+<h4>Forcing Migrations To Run In Production</h4>
+<p>Some migration operations are destructive, which means they may cause you to lose data. In order to protect you from running these commands against your production database, you will be prompted for confirmation before the commands are executed. To force the commands to run without a prompt, use the <code>--force</code> flag:</p>
+<pre><code>php artisan migrate --force</code></pre>
+<p><a name="rolling-back-migrations"></a></p>
+<h3>Rolling Back Migrations</h3>
+<p>To rollback the latest migration operation, you may use the <code>rollback</code> command. This command rolls back the last &quot;batch&quot; of migrations, which may include multiple migration files:</p>
+<pre><code>php artisan migrate:rollback</code></pre>
+<p>You may rollback a limited number of migrations by providing the <code>step</code> option to the <code>rollback</code> command. For example, the following command will rollback the last five migrations:</p>
+<pre><code>php artisan migrate:rollback --step=5</code></pre>
+<p>The <code>migrate:reset</code> command will roll back all of your application's migrations:</p>
+<pre><code>php artisan migrate:reset</code></pre>
+<h4>Rollback &amp; Migrate In Single Command</h4>
+<p>The <code>migrate:refresh</code> command will roll back all of your migrations and then execute the <code>migrate</code> command. This command effectively re-creates your entire database:</p>
+<pre><code>php artisan migrate:refresh
+
+// Refresh the database and run all database seeds...
+php artisan migrate:refresh --seed</code></pre>
+<p>You may rollback &amp; re-migrate a limited number of migrations by providing the <code>step</code> option to the <code>refresh</code> command. For example, the following command will rollback &amp; re-migrate the last five migrations:</p>
+<pre><code>php artisan migrate:refresh --step=5</code></pre>
+<p><a name="tables"></a></p>
+<h2>Tables</h2>
+<p><a name="creating-tables"></a></p>
+<h3>Creating Tables</h3>
+<p>To create a new database table, use the <code>create</code> method on the <code>Schema</code> facade. The <code>create</code> method accepts two arguments. The first is the name of the table, while the second is a <code>Closure</code> which receives a <code>Blueprint</code> object that may be used to define the new table:</p>
+<pre><code>Schema::create('users', function (Blueprint $table) {
+    $table-&gt;increments('id');
+});</code></pre>
+<p>Of course, when creating the table, you may use any of the schema builder's <a href="#creating-columns">column methods</a> to define the table's columns.</p>
+<h4>Checking For Table / Column Existence</h4>
+<p>You may easily check for the existence of a table or column using the <code>hasTable</code> and <code>hasColumn</code> methods:</p>
+<pre><code>if (Schema::hasTable('users')) {
+    //
+}
+
+if (Schema::hasColumn('users', 'email')) {
+    //
+}</code></pre>
+<h4>Connection &amp; Storage Engine</h4>
+<p>If you want to perform a schema operation on a database connection that is not your default connection, use the <code>connection</code> method:</p>
+<pre><code>Schema::connection('foo')-&gt;create('users', function (Blueprint $table) {
+    $table-&gt;increments('id');
+});</code></pre>
+<p>You may use the <code>engine</code> property on the schema builder to define the table's storage engine:</p>
+<pre><code>Schema::create('users', function (Blueprint $table) {
+    $table-&gt;engine = 'InnoDB';
+
+    $table-&gt;increments('id');
+});</code></pre>
+<p><a name="renaming-and-dropping-tables"></a></p>
+<h3>Renaming / Dropping Tables</h3>
+<p>To rename an existing database table, use the <code>rename</code> method:</p>
+<pre><code>Schema::rename($from, $to);</code></pre>
+<p>To drop an existing table, you may use the <code>drop</code> or <code>dropIfExists</code> methods:</p>
+<pre><code>Schema::drop('users');
+
+Schema::dropIfExists('users');</code></pre>
+<h4>Renaming Tables With Foreign Keys</h4>
+<p>Before renaming a table, you should verify that any foreign key constraints on the table have an explicit name in your migration files instead of letting Laravel assign a convention based name. Otherwise, the foreign key constraint name will refer to the old table name.</p>
+<p><a name="columns"></a></p>
+<h2>Columns</h2>
+<p><a name="creating-columns"></a></p>
+<h3>Creating Columns</h3>
+<p>The <code>table</code> method on the <code>Schema</code> facade may be used to update existing tables. Like the <code>create</code> method, the <code>table</code> method accepts two arguments: the name of the table and a <code>Closure</code> that receives a <code>Blueprint</code> instance you may use to add columns to the table:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('email');
+});</code></pre>
+<h4>Available Column Types</h4>
+<p>Of course, the schema builder contains a variety of column types that you may specify when building your tables:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table-&gt;bigIncrements('id');</code></td>
+<td>Incrementing ID (primary key) using a &quot;UNSIGNED BIG INTEGER&quot; equivalent.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;bigInteger('votes');</code></td>
+<td>BIGINT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;binary('data');</code></td>
+<td>BLOB equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;boolean('confirmed');</code></td>
+<td>BOOLEAN equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;char('name', 4);</code></td>
+<td>CHAR equivalent with a length.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;date('created_at');</code></td>
+<td>DATE equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dateTime('created_at');</code></td>
+<td>DATETIME equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dateTimeTz('created_at');</code></td>
+<td>DATETIME (with timezone) equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;decimal('amount', 5, 2);</code></td>
+<td>DECIMAL equivalent with a precision and scale.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;double('column', 15, 8);</code></td>
+<td>DOUBLE equivalent with precision, 15 digits in total and 8 after the decimal point.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;enum('choices', ['foo', 'bar']);</code></td>
+<td>ENUM equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;float('amount', 8, 2);</code></td>
+<td>FLOAT equivalent for the database, 8 digits in total and 2 after the decimal point.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;geometry('column');</code></td>
+<td>GEOMETRY equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;geometryCollection('column');</code></td>
+<td>GEOMETRYCOLLECTION equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;increments('id');</code></td>
+<td>Incrementing ID (primary key) using a &quot;UNSIGNED INTEGER&quot; equivalent.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;integer('votes');</code></td>
+<td>INTEGER equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;ipAddress('visitor');</code></td>
+<td>IP address equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;json('options');</code></td>
+<td>JSON equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;jsonb('options');</code></td>
+<td>JSONB equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;lineString('column');</code></td>
+<td>LINESTRING equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;longText('description');</code></td>
+<td>LONGTEXT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;macAddress('device');</code></td>
+<td>MAC address equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;mediumIncrements('id');</code></td>
+<td>Incrementing ID (primary key) using a &quot;UNSIGNED MEDIUM INTEGER&quot; equivalent.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;mediumInteger('numbers');</code></td>
+<td>MEDIUMINT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;mediumText('description');</code></td>
+<td>MEDIUMTEXT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;morphs('taggable');</code></td>
+<td>Adds unsigned INTEGER <code>taggable_id</code> and STRING <code>taggable_type</code>.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;multiLineString('column');</code></td>
+<td>MULTILINESTRING equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;multiPoint('column');</code></td>
+<td>MULTIPOINT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;multiPolygon('column');</code></td>
+<td>MULTIPOLYGON equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;nullableMorphs('taggable');</code></td>
+<td>Nullable versions of the <code>morphs()</code> columns.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;nullableTimestamps();</code></td>
+<td>Nullable versions of the <code>timestamps()</code> columns.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;point('column');</code></td>
+<td>POINT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;polygon('column');</code></td>
+<td>POLYGON equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;rememberToken();</code></td>
+<td>Adds <code>remember_token</code> as VARCHAR(100) NULL.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;smallIncrements('id');</code></td>
+<td>Incrementing ID (primary key) using a &quot;UNSIGNED SMALL INTEGER&quot; equivalent.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;smallInteger('votes');</code></td>
+<td>SMALLINT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;softDeletes();</code></td>
+<td>Adds nullable <code>deleted_at</code> column for soft deletes.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;string('email');</code></td>
+<td>VARCHAR equivalent column.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;string('name', 100);</code></td>
+<td>VARCHAR equivalent with a length.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;text('description');</code></td>
+<td>TEXT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;time('sunrise');</code></td>
+<td>TIME equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timeTz('sunrise');</code></td>
+<td>TIME (with timezone) equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;tinyInteger('numbers');</code></td>
+<td>TINYINT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timestamp('added_on');</code></td>
+<td>TIMESTAMP equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timestampTz('added_on');</code></td>
+<td>TIMESTAMP (with timezone) equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timestamps();</code></td>
+<td>Adds nullable <code>created_at</code> and <code>updated_at</code> columns.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;timestampsTz();</code></td>
+<td>Adds nullable <code>created_at</code> and <code>updated_at</code> (with timezone) columns.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unsignedBigInteger('votes');</code></td>
+<td>Unsigned BIGINT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unsignedInteger('votes');</code></td>
+<td>Unsigned INT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unsignedMediumInteger('votes');</code></td>
+<td>Unsigned MEDIUMINT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unsignedSmallInteger('votes');</code></td>
+<td>Unsigned SMALLINT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unsignedTinyInteger('votes');</code></td>
+<td>Unsigned TINYINT equivalent for the database.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;uuid('id');</code></td>
+<td>UUID equivalent for the database.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="column-modifiers"></a></p>
+<h3>Column Modifiers</h3>
+<p>In addition to the column types listed above, there are several column &quot;modifiers&quot; you may use while adding a column to a database table. For example, to make the column &quot;nullable&quot;, you may use the <code>nullable</code> method:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('email')-&gt;nullable();
+});</code></pre>
+<p>Below is a list of all the available column modifiers. This list does not include the <a href="#creating-indexes">index modifiers</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Modifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-&gt;after('column')</code></td>
+<td>Place the column &quot;after&quot; another column (MySQL Only)</td>
+</tr>
+<tr>
+<td><code>-&gt;comment('my comment')</code></td>
+<td>Add a comment to a column (MySQL Only)</td>
+</tr>
+<tr>
+<td><code>-&gt;default($value)</code></td>
+<td>Specify a &quot;default&quot; value for the column</td>
+</tr>
+<tr>
+<td><code>-&gt;first()</code></td>
+<td>Place the column &quot;first&quot; in the table (MySQL Only)</td>
+</tr>
+<tr>
+<td><code>-&gt;nullable()</code></td>
+<td>Allow NULL values to be inserted into the column</td>
+</tr>
+<tr>
+<td><code>-&gt;storedAs($expression)</code></td>
+<td>Create a stored generated column (MySQL Only)</td>
+</tr>
+<tr>
+<td><code>-&gt;unsigned()</code></td>
+<td>Set <code>integer</code> columns to <code>UNSIGNED</code></td>
+</tr>
+<tr>
+<td><code>-&gt;virtualAs($expression)</code></td>
+<td>Create a virtual generated column (MySQL Only)</td>
+</tr>
+</tbody>
+</table>
+<p><a name="changing-columns"></a>
+<a name="modifying-columns"></a></p>
+<h3>Modifying Columns</h3>
+<h4>Prerequisites</h4>
+<p>Before modifying a column, be sure to add the <code>doctrine/dbal</code> dependency to your <code>composer.json</code> file. The Doctrine DBAL library is used to determine the current state of the column and create the SQL queries needed to make the specified adjustments to the column:</p>
+<pre><code>composer require doctrine/dbal</code></pre>
+<h4>Updating Column Attributes</h4>
+<p>The <code>change</code> method allows you to modify some existing column types to a new type or modify the column's attributes. For example, you may wish to increase the size of a string column. To see the <code>change</code> method in action, let's increase the size of the <code>name</code> column from 25 to 50:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('name', 50)-&gt;change();
+});</code></pre>
+<p>We could also modify a column to be nullable:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('name', 50)-&gt;nullable()-&gt;change();
+});</code></pre>
+<blockquote>
+<p>{note} The following column types can not be &quot;changed&quot;: char, double, enum, mediumInteger, timestamp, tinyInteger, ipAddress, json, jsonb, macAddress, mediumIncrements, morphs, nullableMorphs, nullableTimestamps, softDeletes, timeTz, timestampTz, timestamps, timestampsTz, unsignedMediumInteger, unsignedTinyInteger, uuid.</p>
+</blockquote>
+<p><a name="renaming-columns"></a></p>
+<h4>Renaming Columns</h4>
+<p>To rename a column, you may use the <code>renameColumn</code> method on the Schema builder. Before renaming a column, be sure to add the <code>doctrine/dbal</code> dependency to your <code>composer.json</code> file:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;renameColumn('from', 'to');
+});</code></pre>
+<blockquote>
+<p>{note} Renaming any column in a table that also has a column of type <code>enum</code> is not currently supported.</p>
+</blockquote>
+<p><a name="dropping-columns"></a></p>
+<h3>Dropping Columns</h3>
+<p>To drop a column, use the <code>dropColumn</code> method on the Schema builder. Before dropping columns from a SQLite database, you will need to add the <code>doctrine/dbal</code> dependency to your <code>composer.json</code> file and run the <code>composer update</code> command in your terminal to install the library:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;dropColumn('votes');
+});</code></pre>
+<p>You may drop multiple columns from a table by passing an array of column names to the <code>dropColumn</code> method:</p>
+<pre><code>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;dropColumn(['votes', 'avatar', 'location']);
+});</code></pre>
+<blockquote>
+<p>{note} Dropping or modifying multiple columns within a single migration while using a SQLite database is not supported.</p>
+</blockquote>
+<p><a name="indexes"></a></p>
+<h2>Indexes</h2>
+<p><a name="creating-indexes"></a></p>
+<h3>Creating Indexes</h3>
+<p>The schema builder supports several types of indexes. First, let's look at an example that specifies a column's values should be unique. To create the index, we can simply chain the <code>unique</code> method onto the column definition:</p>
+<pre><code>$table-&gt;string('email')-&gt;unique();</code></pre>
+<p>Alternatively, you may create the index after defining the column. For example:</p>
+<pre><code>$table-&gt;unique('email');</code></pre>
+<p>You may even pass an array of columns to an index method to create a compound index:</p>
+<pre><code>$table-&gt;index(['account_id', 'created_at']);</code></pre>
+<p>Laravel will automatically generate a reasonable index name, but you may pass a second argument to the method to specify the name yourself:</p>
+<pre><code>$table-&gt;index('email', 'my_index_name');</code></pre>
+<h4>Available Index Types</h4>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table-&gt;primary('id');</code></td>
+<td>Add a primary key.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;primary(['first', 'last']);</code></td>
+<td>Add composite keys.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unique('email');</code></td>
+<td>Add a unique index.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unique('state', 'my_index_name');</code></td>
+<td>Add a custom index name.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;unique(['first', 'last']);</code></td>
+<td>Add a composite unique index.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;index('state');</code></td>
+<td>Add a basic index.</td>
+</tr>
+</tbody>
+</table>
+<h4>Index Lengths &amp; MySQL / MariaDB</h4>
+<p>Laravel uses the <code>utf8mb4</code> character set by default, which includes support for storing &quot;emojis&quot; in the database. If you are running a version of MySQL older than the 5.7.7 release or MariaDB older than the 10.2.2 release, you may need to manually configure the default string length generated by migrations in order for MySQL to create indexes for them. You may configure this by calling the <code>Schema::defaultStringLength</code> method within your <code>AppServiceProvider</code>:</p>
+<pre><code>use Illuminate\Support\Facades\Schema;
+
+/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}</code></pre>
+<p>Alternatively, you may enable the <code>innodb_large_prefix</code> option for your database. Refer to your database's documentation for instructions on how to properly enable this option.</p>
+<p><a name="dropping-indexes"></a></p>
+<h3>Dropping Indexes</h3>
+<p>To drop an index, you must specify the index's name. By default, Laravel automatically assigns a reasonable name to the indexes. Simply concatenate the table name, the name of the indexed column, and the index type. Here are some examples:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$table-&gt;dropPrimary('users_id_primary');</code></td>
+<td>Drop a primary key from the &quot;users&quot; table.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropUnique('users_email_unique');</code></td>
+<td>Drop a unique index from the &quot;users&quot; table.</td>
+</tr>
+<tr>
+<td><code>$table-&gt;dropIndex('geo_state_index');</code></td>
+<td>Drop a basic index from the &quot;geo&quot; table.</td>
+</tr>
+</tbody>
+</table>
+<p>If you pass an array of columns into a method that drops indexes, the conventional index name will be generated based on the table name, columns and key type:</p>
+<pre><code>Schema::table('geo', function (Blueprint $table) {
+    $table-&gt;dropIndex(['state']); // Drops index 'geo_state_index'
+});</code></pre>
+<p><a name="foreign-key-constraints"></a></p>
+<h3>Foreign Key Constraints</h3>
+<p>Laravel also provides support for creating foreign key constraints, which are used to force referential integrity at the database level. For example, let's define a <code>user_id</code> column on the <code>posts</code> table that references the <code>id</code> column on a <code>users</code> table:</p>
+<pre><code>Schema::table('posts', function (Blueprint $table) {
+    $table-&gt;integer('user_id')-&gt;unsigned();
+
+    $table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users');
+});</code></pre>
+<p>You may also specify the desired action for the &quot;on delete&quot; and &quot;on update&quot; properties of the constraint:</p>
+<pre><code>$table-&gt;foreign('user_id')
+      -&gt;references('id')-&gt;on('users')
+      -&gt;onDelete('cascade');</code></pre>
+<p>To drop a foreign key, you may use the <code>dropForeign</code> method. Foreign key constraints use the same naming convention as indexes. So, we will concatenate the table name and the columns in the constraint then suffix the name with &quot;_foreign&quot;:</p>
+<pre><code>$table-&gt;dropForeign('posts_user_id_foreign');</code></pre>
+<p>Or, you may pass an array value which will automatically use the conventional constraint name when dropping:</p>
+<pre><code>$table-&gt;dropForeign(['user_id']);</code></pre>
+<p>You may enable or disable foreign key constraints within your migrations by using the following methods:</p>
+<pre><code>Schema::enableForeignKeyConstraints();
+
+Schema::disableForeignKeyConstraints();</code></pre>
+	</article>
+</div>
+
+    <footer class="main">
+        <ul>
+            <li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+        </ul>
+        <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
+        <p class="less-significant">
+            <a href="http://jackmcdade.com/">
+                Designed by<br>
+                <svg xmlns="http://www.w3.org/2000/svg" width="128.2" height="28" viewBox="0 0 128.2 28"><g fill="#c3c3c3"><path d="M14.2.4v1.4l-1.4-.3.3 4.5c.1 1.5 0 3-.1 4.5 0 .4-.1.8-.1 1.2-.1.4-.1.8-.3 1.2-.1.4-.3.7-.5 1.1-.2.3-.5.6-.9.9-.4.2-.9.4-1.5.6-.6.2-1.1.3-1.6.3-.6 0-1.2-.1-1.6-.3-.5-.2-.9-.6-1.1-1-.3-.5-.5-1-.6-1.6-.1-.6-.1-1.3 0-2.1 0-.2.1-.5.2-.7-.1-.2 0-.4.1-.6l.3-.6 1.1.4c.2 0 .5.1.8.2.3.1.5.1.6.2 0 .2 0 .4-.1.5-.1.2-.1.3-.2.4-.1.1-.2.3-.2.4-.1.2-.1.3-.1.5L6 10.8c-.1.3-.2.7-.2 1.1 0 .4.1.8.2 1.2.2.4.4.7.6 1 .3.3.6.4 1 .3.6 0 1.1-.3 1.4-.6.3-.4.5-.9.7-1.7.1-.7.2-1.6.2-2.8V5.4c0-.6-.1-1.3-.1-2-.1-.6-.2-1.3-.3-2H5.7c-.7 0-1.5 0-2.2.2-.3.1-.6.2-1 .4-.3.1-.6.4-.9.6-.2.3-.4.6-.5 1-.1.3-.1.7 0 1 .1.5.3.8.4.9v-.1c0-.4.1-.8.4-1 .3-.2.6-.3.9-.3.3 0 .6.1.9.3.3.2.4.6.4 1s-.1.8-.4 1c-.3.2-.6.3-1 .3-.8 0-1.4-.2-1.8-.7-.4-.4-.7-.9-.8-1.5C0 4 0 3.4.2 2.7c.2-.6.5-1.1 1-1.5.4-.3.8-.5 1.2-.7.4-.1.9-.2 1.4-.3.5-.1.9-.1 1.4-.1h2.9c.6 0 1.1 0 1.6.1.5 0 1 .1 1.5.1s1 .1 1.5.1c.4.1.9.1 1.5 0zM25.2 14.3c0 .2.1.4.1.6 0 .2.1.4.1.7-1-.1-2-.2-3-.1-1.1.1-2.1.2-3 .4 0-.2-.1-.4-.1-.5 0-.2-.1-.4-.1-.5.2 0 .5-.1.7-.1.2 0 .4-.1.6-.1-.1-1.5-.3-3.1-.5-4.6-.5.1-.9.1-1.4.2-.5.1-.9.1-1.4.2-.2.7-.3 1.3-.5 2s-.3 1.3-.5 2h.6c.1 0 .3 0 .4.1v.9c0 .1 0 .2-.1.3H14v-1.2h1c.2-.5.3-1 .4-1.5.1-.5.3-1 .4-1.5.2-.6.3-1.2.5-1.7.2-.6.3-1.2.5-1.7.2-1.1.4-2.1.6-3.2.2-1.1.3-2.1.4-3.2h-1.4c0-.2.1-.4.1-.6 0-.2 0-.4.1-.6h5.8l.2 1.2h-1c.3 2.1.7 4.3 1 6.5.3 2.2.7 4.4 1 6.5h1.6zM17.5 9c.4-.1.7-.1 1.1-.2.4-.1.8-.1 1.2-.2-.2-1-.3-2-.5-2.9-.2-1-.4-1.9-.6-2.9-.2 1-.4 2.1-.5 3.1-.3 1-.5 2.1-.7 3.1zM36.7 10.4h-.6c0 .6 0 1.2-.2 1.9-.2.6-.5 1.2-1 1.6-.5.5-1 .9-1.6 1.1-.6.3-1.3.4-2 .5-.6.1-1.1.1-1.8 0-.6-.1-1.1-.4-1.6-.7-.2-.2-.5-.4-.8-.7-.3-.3-.5-.5-.6-.8-.3-.5-.5-1-.6-1.5-.2-.5-.3-.9-.4-1.4-.1-.5-.2-1-.2-1.5s0-1 .1-1.6c.2-1 .4-2 .8-2.9.4-.9.8-1.7 1.4-2.3.5-.7 1.2-1.2 1.9-1.6.7-.3 1.4-.5 2.2-.5.3 0 .5 0 .8.1.3.1.5.2.7.4.3.3.7.7 1 1.2.3.5.6 1.2.7 1.9h.6v.6l-2.5.4c-.3.1-.5.1-.6 0-.1 0-.2-.1-.2-.2-.1-.1-.1-.2 0-.3h.4c.2-.2.3-.3.3-.6v-.7c0-.5-.2-.9-.5-1.3l-.4-.4c-.2-.1-.4-.1-.6 0-.2 0-.4.2-.6.4-.2.2-.4.5-.5.9-.3.2-.4.6-.5.9-.1.3-.2.5-.2.7-.6 2.6-.7 5.3-.2 8 .1.3.2.7.3 1s.3.6.5.9c.2.3.5.5.8.7.3.2.6.2 1 .1.6-.1 1-.4 1.4-1 .3-.5.6-1.1.7-1.8.1-.3.1-.6.1-.9v-.5c-.2 0-.4 0-.6-.1-.1-.1-.2-.2-.2-.3 0-.1 0-.2.1-.3h3.4c0 .1 0 .2-.1.3-.1.1-.1.2-.1.3z"/><path d="M48 14.2c.1.2.3.3.5.4.2.1.5.1.7 0 .1.1.1.2.1.4s-.1.3-.2.4c-.1.1-.2.2-.4.2h-1.4c-.3 0-.7 0-1-.1-.3-.1-.7-.2-1-.4-.3-.2-.5-.4-.7-.7-.2-.3-.3-.6-.3-1V9.9v-.4c0-.2-.1-.3-.2-.5s-.3-.3-.4-.4c-.2-.1-.4-.1-.7-.1-.1 0-.2 0-.5.1-.2.3-.3.5-.5.8-.2.3-.3.5-.5.7 0 .8 0 1.5-.1 2.2 0 .7-.1 1.5-.1 2.1h1.4v1.1c-.5 0-.9.1-1.3 0-.4 0-.8 0-1.2-.1-.4 0-.8-.1-1.2-.1H37.3c-.1 0-.2 0-.3-.1-.1 0-.1-.1-.1-.2s-.1-.3-.1-.4v-.4c0-.1.1-.2.1-.2.2.1.4.2.6.1s.4-.2.5-.4c0-.1.1-.3.1-.7 0-.4 0-.9.1-1.6 0-.6.1-1.3.1-2.1s0-1.6.1-2.4c0-.8 0-1.5.1-2.3 0-.7.1-1.3.1-1.8v-.7c0-.2-.1-.4-.2-.6-.1-.2-.3-.3-.5-.4-.2-.1-.4 0-.6.1 0-.2-.1-.5-.1-.7 0-.2 0-.4-.1-.7 1 0 2 .1 3 .1.9 0 1.9.1 3 .1v.3c0 .1 0 .3.1.4v.4c0 .1 0 .2-.1.2-.1.1-.2.1-.3.1-.1 0-.2 0-.4-.1-.1-.1-.3-.1-.4-.2-.1-.1-.3-.1-.3-.1-.1.9-.1 1.9-.1 2.9s-.1 2-.1 3.1c.7-1.2 1.4-2.5 2-3.8.2-.3.3-.6.4-.9.1-.3.3-.6.5-.9.2-.3.4-.5.7-.7.3.3.6.2.9.1.3-.1.7-.1 1 0 .3.1.6.2.9.5.2.3.4.6.4 1s.1.8 0 1.1v.5c0 .2-.1.3-.2.4-.1.2-.2.3-.4.4-.2.1-.4.1-.5.2-.1 0-.3.1-.4.1h-.4c-.2-.3-.4-.4-.4-.6-.1-.2-.1-.4 0-.5.1-.2.2-.3.3-.3.1 0 .2-.1.4-.1.2-.1.3-.2.3-.3.1-.2.1-.3.1-.5 0-.3-.1-.5-.1-.7-.1-.2-.2-.3-.3-.3-.2 0-.3 0-.5.1s-.3.2-.5.4-.3.4-.4.6c-.1.2-.3.5-.4.7-.1.3-.3.6-.4.8-.2.2-.3.5-.4.8-.4.9-.8 1.7-1.2 2.5.3 0 .6-.1 1 0h1c.3 0 .7.1 1 .2.3.1.6.3.8.6.3.3.4.6.5 1 .1.4.1.8.2 1.1l.2 2.1c0 .2.1.5.1.7 0 .4.1.7.3.9zM71.7 13.9c.2.2.4.4.7.5.3.1.5 0 .8-.1 0 .2.1.3.1.6.1.2.1.4.1.6h-1.1s-.8 0-1.3.1h-2.3v-.2c0-.1.1-.2.2-.3.1-.1.2-.2.4-.3.2-.1.3-.1.6-.1.1 0 .1-.2.1-.7v-1.6c0-.6 0-1.2-.1-1.9s0-1.1 0-1.5V6.4c0-.7.1-1.5.1-2.2-.6 1.3-1.1 2.7-1.6 4.1-.5 1.5-1 3-1.5 4.4 0 0 .1.1.1.2-.2 0-.4 0-.7.1-.3.1-.5.1-.7.1-.5-1.9-1.1-3.7-1.6-5.5-.5-1.8-1.1-3.6-1.6-5.5-.1 1-.1 2-.1 3 0 1.1-.1 2.1-.1 3.2s0 2.1-.1 3.2c0 1-.1 2-.1 3h1.4v1.1c-.5 0-.9.1-1.3 0-.4 0-.8 0-1.2-.1-.4 0-.8-.1-1.2-.1H58c-.1 0-.2 0-.3-.1-.1 0-.1-.1-.1-.2s-.1-.3-.1-.4v-.4c0-.1.1-.2.1-.2.2.1.4.2.6.1s.4-.2.5-.4c0-.1.1-.3.1-.7 0-.4 0-.9.1-1.6 0-.6.1-1.3.1-2.1V7.2c0-.8 0-1.5.1-2.3 0-.7.1-1.3.1-1.8v-.7c0-.2-.1-.4-.2-.6-.1-.2-.3-.3-.5-.4-.2-.1-.4 0-.6.1 0-.2-.1-.5-.1-.7 0-.2 0-.4-.1-.7 1 0 2 .1 3 .1.9 0 1.9.1 3 .1 0 .3-.1.5-.4.7.3 1.3.6 2.6 1 3.9l1.2 3.9c.2-.6.4-1.3.6-1.9l.6-1.8c.3-.5.5-1.1.8-1.7.2-.6.4-1.3.6-2-.1 0-.3 0-.4-.1-.1 0-.2 0-.4-.1-.1 0-.1-.1-.1-.3 0-.1.1-.2.1-.3.1-.1.2-.1.3-.1h4.5c.1 0 .3.1.4.2.1.1.2.2.2.4s0 .3-.2.3c-.1-.1-.2-.1-.3-.1-.1 0-.2.1-.3.1-.2.4-.3.8-.4 1.3-.1.5-.1.9-.1 1.4-.2 2.8-.2 5.6 0 8.4 0 .3 0 .5.1.7-.1.3 0 .5.2.7zM81.7 12h-.4c0 .4 0 .9-.2 1.3-.1.4-.4.8-.7 1.1-.3.3-.7.6-1.1.8-.4.2-.9.3-1.3.4-.4.1-.8 0-1.2 0-.4-.1-.8-.2-1.1-.5-.2-.1-.3-.3-.5-.5s-.3-.4-.4-.6c-.2-.4-.3-.7-.4-1-.1-.3-.2-.6-.3-1-.1-.3-.1-.6-.1-1 0-.3 0-.7.1-1.1.1-.7.3-1.4.5-2 .3-.6.6-1.1.9-1.6s.8-.8 1.3-1.1c.5-.3 1-.4 1.5-.4.2 0 .4 0 .6.1.2.1.3.1.5.3.2.2.4.4.6.8.2.4.4.8.5 1.3h.4v.4l-1.7.3c-.2.1-.3.1-.4 0-.1 0-.1-.1-.2-.2v-.2h.4c.1-.1.2-.2.2-.4v-.5c0-.3-.1-.6-.3-.9l-.3-.3c-.1-.1-.2-.1-.4 0-.1 0-.3.1-.4.3-.1.2-.3.4-.4.6l-.3.6c-.1.2-.1.4-.1.5-.4 1.8-.5 3.6-.1 5.5.1.2.1.4.2.7l.3.6c.1.2.3.3.6.5.2.1.4.1.7.1.4-.1.7-.3 1-.7.2-.4.4-.8.5-1.2 0-.2.1-.4.1-.6v-.3h-.4c-.1 0-.1-.1-.1-.2s0-.2.1-.2h2.4v.2c-.5-.1-.5 0-.6.1z"/><path d="M83.5 14.2c.2-4.3.3-8.5.2-12.8h-1.8V.9.4c.7 0 1.3 0 2-.1.7 0 1.3 0 2-.1.8-.2 1.6-.2 2.4-.1.8.1 1.6.3 2.4.5.7.3 1.4.7 1.9 1.2s.9 1.1 1.1 1.8c.3 1.3.4 2.5.3 3.8 0 1.2-.2 2.4-.3 3.6 0 .4-.1.8-.2 1.2-.1.4-.3.8-.5 1.1-.3.5-.8 1-1.3 1.3-.5.3-1.1.5-1.7.6-.5.1-.9.2-1.4.1-.5 0-.9 0-1.4-.1h-4.9c-.2-.4-.1-.8.2-1.1.2-.2.3-.2.5-.3.2.3.4.3.5.4zm5.9-12.3c-.4-.3-.8-.5-1.3-.6-.5-.1-1-.1-1.5-.1-.3 4.5-.2 9.1.4 13.6.2 0 .4 0 .5-.1.2 0 .4-.1.6-.1.3-.1.6-.2.9-.4.3-.2.6-.4.8-.7.2-.3.4-.6.5-1s.2-.7.2-1.1c.4-2.1.4-4.2.2-6.3-.1-.6-.2-1.2-.4-1.9 0-.4-.4-.9-.9-1.3zM102.4 9.7c-.6-.1-1.3-.1-2 0s-1.4.4-2 .8l-.2-1.4.9-.1c0-.4-.1-.7-.1-1 0-.2-.1-.5-.1-.9-.3 0-.6.1-.9.1-.3 0-.6.1-1 .1-.2.7-.3 1.3-.4 1.8-.1.5-.2 1.1-.4 1.6l.2-.1.7.6c-.4.2-.8.6-1.2 1.1-.4.5-.7 1-.9 1.5l-.9-.5c0-.1.1-.2.2-.4s.2-.3.2-.4c.1-.2.2-.5.3-1 .1-.4.2-.9.4-1.3.1-.5.2-.9.3-1.3.1-.4.2-.7.2-.9l.3-1.2.3-1.2c.2-.7.3-1.4.4-2.1.1-.7.2-1.4.3-2.2h-.6l.1-.8 4-.1.1.8h-.2-.2c.1.7.2 1.4.3 2l.3 1.8.3 1.8c.1.6.2 1.3.4 2h.6l.3.9zm-3.6-3.6c-.1-.7-.2-1.3-.3-2-.1-.6-.3-1.3-.4-2-.1.6-.2 1.3-.4 2.1-.1.7-.3 1.5-.5 2.2l1.6-.3z"/><path d="M124.9 20.1c0-.3.1-.6.3-.8.2-.2.4-.3.7-.4.3-.1.5 0 .8.1.3.1.5.3.6.5.3.4.6.9.7 1.4.2.5.2 1 .2 1.5s-.1 1-.3 1.5c-.2.5-.4 1-.7 1.4-.6.9-1.4 1.6-2.4 2-1 .5-2 .7-3 .7-1.5 0-2.8-.3-3.9-1s-2.1-1.4-3-2.4c-.9-1-1.8-2.1-2.5-3.2-.8-1.2-1.5-2.3-2.3-3.5-1.1 1.2-2.4 2.2-3.9 3-1.5.8-3 1.1-4.5 1-1.1 0-2.1-.1-3-.5-.9-.3-1.6-.8-2.2-1.4-.6-.6-.9-1.3-1.1-2.2-.2-.8-.1-1.7.2-2.7.3-.9.7-1.6 1.3-2.2.6-.6 1.2-1.1 2-1.5.7-.4 1.5-.6 2.4-.7.8-.1 1.7 0 2.6.2v-5-4.6h-1.8V.8.3l3.7-.1c.8-.2 1.6-.2 2.4-.1.8.1 1.6.3 2.4.5.7.3 1.4.7 1.9 1.2s.9 1.1 1.1 1.8c.3 1.2.4 2.4.3 3.6-.1 1.2-.2 2.5-.4 3.7-.1 1-.4 2-.8 3-.5 1-1 2-1.7 2.9.3.4.6.8.8 1.2.3.4.5.8.8 1.2.5.8 1.1 1.6 1.7 2.5.6.8 1.3 1.6 2 2.4.7.7 1.5 1.3 2.4 1.8s1.8.7 2.9.8c1.1 0 2.1-.2 3-.7.9-.5 1.6-1.2 2.1-2.2.2-.4.3-.8.4-1.3.1-.5 0-.9-.1-1.3-.2.1-.4.2-.6.2-.2 0-.4 0-.6-.1-.2-.1-.4-.2-.5-.4s-.4-.5-.4-.8zm-22 .9c1.5-.4 2.8-1 3.7-1.8.9-.8 1.7-1.7 2.3-2.8-.2-.2-.3-.5-.6-.7-.6-.7-1.2-1.4-1.9-1.9 0 .6.1 1.2.1 1.8 0 .6.1 1.1.2 1.6v.1h-4.3c-.1-.2-.1-.4 0-.7 0-.2.1-.3.3-.5.3-.3.7-.4 1.1-.2l.1-3.5c-.5-.2-1-.3-1.5-.3s-1.1 0-1.6.1c-.6.1-1.1.3-1.6.6s-.9.7-1.3 1.1c-.4.4-.7.9-.9 1.5-.2.5-.3 1.1-.3 1.6 0 .7.2 1.3.6 1.8.4.5.9.9 1.4 1.4.2.2.5.3.8.5.3.1.7.2 1.1.3.4.1.8.1 1.2.1.3 0 .7 0 1.1-.1zm6.4-19.1c-.4-.3-.8-.5-1.2-.6-.5-.1-.9-.1-1.4-.1-.1 1.7-.2 3.4-.3 5.3-.1 1.9-.1 3.7 0 5.6.6.4 1.2.8 1.7 1.4.5.5 1 1.1 1.5 1.6.2-.6.4-1.2.6-1.9.2-.6.3-1.2.3-1.7.2-1.1.2-2.1.3-3.1 0-1 0-2.1-.1-3.1-.1-.6-.2-1.2-.4-1.9-.2-.6-.5-1.1-1-1.5z"/><path d="M116.5 1.2h-1.8V.4c.5 0 .9 0 1.2-.1s.7 0 1.1 0h1.1s.8 0 1.3-.1c.9 0 1.8 0 2.8-.1.9 0 1.8 0 2.8-.1v3.6h-1.3c-.1 0-.1-.1 0-.1.1-.2.1-.4.1-.6s0-.4-.1-.6l-.3-.6c-.1-.2-.2-.3-.4-.4-.2-.1-.4-.2-.6-.2h-.7c-.3 0-.5.1-.8.1-.3.1-.5.2-.6.4-.1.2-.1.3-.1.3v.3c0 .7-.1 1.3-.1 2 0 .6-.1 1.3-.1 1.9v1c.6-.2 1.2-.3 1.9-.4.6-.1 1.2-.3 1.9-.4 0 .1.1.2.1.3V7c0 .2-.1.3-.1.4-.1.1-.1.2-.1.3-.1.1-.2.1-.4.2-.1 0-.3.1-.4.1-.5.1-.9.2-1.4.3-.5.1-.9.1-1.4.2 0 1-.1 2-.2 2.9-.1 1-.1 1.9-.2 2.9.8.2 1.5.3 2 .1.6-.2 1.2-.5 1.9-1 .2-.1.2-.3.2-.5v-.7c0-.2.1-.5.2-.6.1-.2.3-.3.7-.4.4 0 .6.1.7.4.1.3.2.7.2 1.1 0 .5 0 .9-.1 1.4-.1.5-.1.9 0 1.2h-1.4c-.4 0-.8 0-1.2.1-.4 0-.8 0-1.2.1h-1.3c-.9 0-1.7 0-2.5.1-.7.1-1.6.1-2.4.1-.2-.2-.2-.4-.2-.7 0-.2.1-.5.3-.6.2-.2.3-.3.6-.3.2-.1.5 0 .7.1.1-2.1.2-4.3.1-6.5-.7-2.2-.7-4.3-.5-6.5z"/></g></svg>
+            </a>
+        </p>
+    </footer>
+
+    <script>
+        var algolia_app_id      = '8BB87I11DE';
+        var algolia_search_key  = '8e1d446d61fce359f69cd7c8b86a50de';
+        var version             = '5.5';
+    </script>
+
+    <script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.h1}}
+		<div class="h1">
+			{{{ _highlightResult.h1.value }}}
+		</div>
+		{{/_highlightResult.h1}}
+
+		<div class="sub-section">
+			{{#_highlightResult.h2}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.h2.value }}}
+			</div>
+			{{/_highlightResult.h2}}
+
+			{{#_highlightResult.h3}}
+			<div class="h3">
+				> {{{ _highlightResult.h3.value }}}
+			</div>
+			{{/_highlightResult.h3}}
+
+			{{#_highlightResult.h4}}
+			<div class="h4">
+				> {{{ _highlightResult.h4.value }}}
+			</div>
+			{{/_highlightResult.h4}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+			<img width="105" src="https://laravel.com/assets/img/algolia-logo.svg">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+
+    <script src="../../build/assets/js/laravel-35667fed17.js"></script>
+    <script src="../../assets/js/viewport-units-buggyfill.js"></script>
+    <script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/5.5/migrations by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Oct 2017 13:48:33 GMT -->
+</html>

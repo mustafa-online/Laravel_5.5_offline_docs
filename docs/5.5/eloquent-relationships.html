@@ -1,0 +1,1356 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from laravel.com/docs/5.5/eloquent-relationships by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Oct 2017 13:48:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Eloquent: Relationships - Laravel - The PHP Framework For Web Artisans</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Taylor Otwell">
+    <meta name="description" content="Laravel - The PHP framework for web artisans.">
+    <meta name="keywords" content="laravel, php, framework, web, artisans, taylor otwell">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="canonical" href="eloquent-relationships.html" />
+        <!-- -->
+    <link rel="stylesheet" href="../../build/assets/css/laravel-97189ffb5f.css">
+    <link rel="stylesheet" href="ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+    <link rel="apple-touch-icon" href="../../favicon.png">
+    <script src="ajax/libs/vue/1.0.26/vue.min.js"></script>
+</head>
+<body class="docs language-php">
+
+    <span class="overlay"></span>
+
+    <nav class="main">
+        <a href="https://laravel.com/" class="brand nav-block">
+            <svg xmlns="http://www.w3.org/2000/svg" width="84.1" height="57.6" viewBox="0 0 84.1 57.6"><path fill="#FB503B" d="M83.8 26.9c-.6-.6-8.3-10.3-9.6-11.9-1.4-1.6-2-1.3-2.9-1.2s-10.6 1.8-11.7 1.9c-1.1.2-1.8.6-1.1 1.6.6.9 7 9.9 8.4 12l-25.5 6.1L21.2 1.5c-.8-1.2-1-1.6-2.8-1.5C16.6.1 2.5 1.3 1.5 1.3c-1 .1-2.1.5-1.1 2.9S17.4 41 17.8 42c.4 1 1.6 2.6 4.3 2 2.8-.7 12.4-3.2 17.7-4.6 2.8 5 8.4 15.2 9.5 16.7 1.4 2 2.4 1.6 4.5 1 1.7-.5 26.2-9.3 27.3-9.8 1.1-.5 1.8-.8 1-1.9-.6-.8-7-9.5-10.4-14 2.3-.6 10.6-2.8 11.5-3.1 1-.3 1.2-.8.6-1.4zm-46.3 9.5c-.3.1-14.6 3.5-15.3 3.7-.8.2-.8.1-.8-.2-.2-.3-17-35.1-17.3-35.5-.2-.4-.2-.8 0-.8S17.6 2.4 18 2.4c.5 0 .4.1.6.4 0 0 18.7 32.3 19 32.8.4.5.2.7-.1.8zm40.2 7.5c.2.4.5.6-.3.8-.7.3-24.1 8.2-24.6 8.4-.5.2-.8.3-1.4-.6s-8.2-14-8.2-14L68.1 32c.6-.2.8-.3 1.2.3.4.7 8.2 11.3 8.4 11.6zm1.6-17.6c-.6.1-9.7 2.4-9.7 2.4l-7.5-10.2c-.2-.3-.4-.6.1-.7.5-.1 9-1.6 9.4-1.7.4-.1.7-.2 1.2.5.5.6 6.9 8.8 7.2 9.1.3.3-.1.5-.7.6z"/></svg>
+            <span>Laravel</span>
+        </a>
+
+        <div class="search nav-block invisible">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#A1A1A1" d="M5.8 11.7c-1.6 0-3-.6-4.1-1.7S0 7.4 0 5.8s.6-3 1.7-4.1C2.8.6 4.3 0 5.8 0s3 .6 4.1 1.7c2.3 2.3 2.3 6 0 8.3-1 1.1-2.5 1.7-4.1 1.7zM5.8 1c-1.3 0-2.5.5-3.4 1.4C1.5 3.3 1 4.5 1 5.8s.5 2.5 1.4 3.4c.9.9 2.1 1.4 3.4 1.4s2.5-.5 3.4-1.4c1.9-1.9 1.9-5 0-6.9C8.4 1.5 7.1 1 5.8 1z"/><path fill="#A1A1A1" d="M15.5 16c-.1 0-.3 0-.3-.1L9.3 10c-.2-.2-.2-.5 0-.7s.5-.2.7 0l5.9 5.9c.2.2.2.5 0 .7-.1.1-.3.1-.4.1z"/></svg>
+            <input placeholder="Laravel 5.5 Docs" type="text" disabled style="background:#fff" v-model="search" id="search-input" v-on:blur="reset" />
+        </div>
+
+        <ul class="main-nav" v-if="! search">
+            <li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+        </ul>
+
+                    <div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			5.5
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../master/eloquent-relationships.html">Master</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="eloquent-relationships.html">5.5</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.4/eloquent-relationships.html">5.4</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.3/eloquent-relationships.html">5.3</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.2/eloquent-relationships.html">5.2</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.1/eloquent-relationships.html">5.1</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0/eloquent-relationships.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2/eloquent-relationships.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+        
+        <div class="responsive-sidebar-nav">
+            <a href="#" class="toggle-slide menu-link btn">&#9776;</a>
+        </div>
+    </nav>
+
+    <nav id="slide-menu" class="slide-menu" role="navigation">
+
+	<div class="brand">
+		<a href="https://laravel.com/">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="https://laravel.com/">Home</a></li>
+		<li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>Documentation</h2>
+		<ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/5.5">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Errors &amp; Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="passport.html">API Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="https://github.com/laravel/socialite">Socialite</a></li>
+</ul>
+</li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<script async type="text/javascript" src="carbon9873.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=laravelcom" id="_carbonads_js"></script>
+		<small><a href="#" id="doc-expand" style="font-size: 9px; color: #525252;">▶</a></small>
+		<ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/5.5">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Errors &amp; Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="passport.html">API Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="https://github.com/laravel/socialite">Socialite</a></li>
+</ul>
+</li>
+</ul>
+	</section>
+
+	
+
+	<article>
+		<h1>Eloquent: Relationships</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#defining-relationships">Defining Relationships</a>
+<ul>
+<li><a href="#one-to-one">One To One</a></li>
+<li><a href="#one-to-many">One To Many</a></li>
+<li><a href="#one-to-many-inverse">One To Many (Inverse)</a></li>
+<li><a href="#many-to-many">Many To Many</a></li>
+<li><a href="#has-many-through">Has Many Through</a></li>
+<li><a href="#polymorphic-relations">Polymorphic Relations</a></li>
+<li><a href="#many-to-many-polymorphic-relations">Many To Many Polymorphic Relations</a></li>
+</ul></li>
+<li><a href="#querying-relations">Querying Relations</a>
+<ul>
+<li><a href="#relationship-methods-vs-dynamic-properties">Relationship Methods Vs. Dynamic Properties</a></li>
+<li><a href="#querying-relationship-existence">Querying Relationship Existence</a></li>
+<li><a href="#querying-relationship-absence">Querying Relationship Absence</a></li>
+<li><a href="#counting-related-models">Counting Related Models</a></li>
+</ul></li>
+<li><a href="#eager-loading">Eager Loading</a>
+<ul>
+<li><a href="#constraining-eager-loads">Constraining Eager Loads</a></li>
+<li><a href="#lazy-eager-loading">Lazy Eager Loading</a></li>
+</ul></li>
+<li><a href="#inserting-and-updating-related-models">Inserting &amp; Updating Related Models</a>
+<ul>
+<li><a href="#the-save-method">The <code>save</code> Method</a></li>
+<li><a href="#the-create-method">The <code>create</code> Method</a></li>
+<li><a href="#updating-belongs-to-relationships">Belongs To Relationships</a></li>
+<li><a href="#updating-many-to-many-relationships">Many To Many Relationships</a></li>
+</ul></li>
+<li><a href="#touching-parent-timestamps">Touching Parent Timestamps</a></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2>Introduction</h2>
+<p>Database tables are often related to one another. For example, a blog post may have many comments, or an order could be related to the user who placed it. Eloquent makes managing and working with these relationships easy, and supports several different types of relationships:</p>
+<ul>
+<li><a href="#one-to-one">One To One</a></li>
+<li><a href="#one-to-many">One To Many</a></li>
+<li><a href="#many-to-many">Many To Many</a></li>
+<li><a href="#has-many-through">Has Many Through</a></li>
+<li><a href="#polymorphic-relations">Polymorphic Relations</a></li>
+<li><a href="#many-to-many-polymorphic-relations">Many To Many Polymorphic Relations</a></li>
+</ul>
+<p><a name="defining-relationships"></a></p>
+<h2>Defining Relationships</h2>
+<p>Eloquent relationships are defined as methods on your Eloquent model classes. Since, like Eloquent models themselves, relationships also serve as powerful <a href="queries.html">query builders</a>, defining relationships as methods provides powerful method chaining and querying capabilities. For example, we may chain additional constraints on this <code>posts</code> relationship:</p>
+<pre><code>$user-&gt;posts()-&gt;where('active', 1)-&gt;get();</code></pre>
+<p>But, before diving too deep into using relationships, let's learn how to define each type.</p>
+<p><a name="one-to-one"></a></p>
+<h3>One To One</h3>
+<p>A one-to-one relationship is a very basic relation. For example, a <code>User</code> model might be associated with one <code>Phone</code>. To define this relationship, we place a <code>phone</code> method on the <code>User</code> model. The <code>phone</code> method should call the <code>hasOne</code> method and return its result:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function phone()
+    {
+        return $this-&gt;hasOne('App\Phone');
+    }
+}</code></pre>
+<p>The first argument passed to the <code>hasOne</code> method is the name of the related model. Once the relationship is defined, we may retrieve the related record using Eloquent's dynamic properties. Dynamic properties allow you to access relationship methods as if they were properties defined on the model:</p>
+<pre><code>$phone = User::find(1)-&gt;phone;</code></pre>
+<p>Eloquent determines the foreign key of the relationship based on the model name. In this case, the <code>Phone</code> model is automatically assumed to have a <code>user_id</code> foreign key. If you wish to override this convention, you may pass a second argument to the <code>hasOne</code> method:</p>
+<pre><code>return $this-&gt;hasOne('App\Phone', 'foreign_key');</code></pre>
+<p>Additionally, Eloquent assumes that the foreign key should have a value matching the <code>id</code> (or the custom <code>$primaryKey</code>) column of the parent. In other words, Eloquent will look for the value of the user's <code>id</code> column in the <code>user_id</code> column of the <code>Phone</code> record. If you would like the relationship to use a value other than <code>id</code>, you may pass a third argument to the <code>hasOne</code> method specifying your custom key:</p>
+<pre><code>return $this-&gt;hasOne('App\Phone', 'foreign_key', 'local_key');</code></pre>
+<h4>Defining The Inverse Of The Relationship</h4>
+<p>So, we can access the <code>Phone</code> model from our <code>User</code>. Now, let's define a relationship on the <code>Phone</code> model that will let us access the <code>User</code> that owns the phone. We can define the inverse of a <code>hasOne</code> relationship using the <code>belongsTo</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Phone extends Model
+{
+    /**
+     * Get the user that owns the phone.
+     */
+    public function user()
+    {
+        return $this-&gt;belongsTo('App\User');
+    }
+}</code></pre>
+<p>In the example above, Eloquent will try to match the <code>user_id</code> from the <code>Phone</code> model to an <code>id</code> on the <code>User</code> model. Eloquent determines the default foreign key name by examining the name of the relationship method and suffixing the method name with <code>_id</code>. However, if the foreign key on the <code>Phone</code> model is not <code>user_id</code>, you may pass a custom key name as the second argument to the <code>belongsTo</code> method:</p>
+<pre><code>/**
+ * Get the user that owns the phone.
+ */
+public function user()
+{
+    return $this-&gt;belongsTo('App\User', 'foreign_key');
+}</code></pre>
+<p>If your parent model does not use <code>id</code> as its primary key, or you wish to join the child model to a different column, you may pass a third argument to the <code>belongsTo</code> method specifying your parent table's custom key:</p>
+<pre><code>/**
+ * Get the user that owns the phone.
+ */
+public function user()
+{
+    return $this-&gt;belongsTo('App\User', 'foreign_key', 'other_key');
+}</code></pre>
+<p><a name="default-models"></a></p>
+<h4>Default Models</h4>
+<p>The <code>belongsTo</code> relationship allows you to define a default model that will be returned if the given relationship is <code>null</code>. This pattern is often referred to as the <a href="https://en.wikipedia.org/wiki/Null_Object_pattern">Null Object pattern</a> and can help remove conditional checks in your code. In the following example, the <code>user</code> relation will return an empty <code>App\User</code> model if no <code>user</code> is attached to the post:</p>
+<pre><code>/**
+ * Get the author of the post.
+ */
+public function user()
+{
+    return $this-&gt;belongsTo('App\User')-&gt;withDefault();
+}</code></pre>
+<p>To populate the default model with attributes, you may pass an array or Closure to the <code>withDefault</code> method:</p>
+<pre><code>/**
+ * Get the author of the post.
+ */
+public function user()
+{
+    return $this-&gt;belongsTo('App\User')-&gt;withDefault([
+        'name' =&gt; 'Guest Author',
+    ]);
+}
+
+/**
+ * Get the author of the post.
+ */
+public function user()
+{
+    return $this-&gt;belongsTo('App\User')-&gt;withDefault(function ($user) {
+        $user-&gt;name = 'Guest Author';
+    });
+}</code></pre>
+<p><a name="one-to-many"></a></p>
+<h3>One To Many</h3>
+<p>A &quot;one-to-many&quot; relationship is used to define relationships where a single model owns any amount of other models. For example, a blog post may have an infinite number of comments. Like all other Eloquent relationships, one-to-many relationships are defined by placing a function on your Eloquent model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    /**
+     * Get the comments for the blog post.
+     */
+    public function comments()
+    {
+        return $this-&gt;hasMany('App\Comment');
+    }
+}</code></pre>
+<p>Remember, Eloquent will automatically determine the proper foreign key column on the <code>Comment</code> model. By convention, Eloquent will take the &quot;snake case&quot; name of the owning model and suffix it with <code>_id</code>. So, for this example, Eloquent will assume the foreign key on the <code>Comment</code> model is <code>post_id</code>.</p>
+<p>Once the relationship has been defined, we can access the collection of comments by accessing the <code>comments</code> property. Remember, since Eloquent provides &quot;dynamic properties&quot;, we can access relationship methods as if they were defined as properties on the model:</p>
+<pre><code>$comments = App\Post::find(1)-&gt;comments;
+
+foreach ($comments as $comment) {
+    //
+}</code></pre>
+<p>Of course, since all relationships also serve as query builders, you can add further constraints to which comments are retrieved by calling the <code>comments</code> method and continuing to chain conditions onto the query:</p>
+<pre><code>$comments = App\Post::find(1)-&gt;comments()-&gt;where('title', 'foo')-&gt;first();</code></pre>
+<p>Like the <code>hasOne</code> method, you may also override the foreign and local keys by passing additional arguments to the <code>hasMany</code> method:</p>
+<pre><code>return $this-&gt;hasMany('App\Comment', 'foreign_key');
+
+return $this-&gt;hasMany('App\Comment', 'foreign_key', 'local_key');</code></pre>
+<p><a name="one-to-many-inverse"></a></p>
+<h3>One To Many (Inverse)</h3>
+<p>Now that we can access all of a post's comments, let's define a relationship to allow a comment to access its parent post. To define the inverse of a <code>hasMany</code> relationship, define a relationship function on the child model which calls the <code>belongsTo</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+    /**
+     * Get the post that owns the comment.
+     */
+    public function post()
+    {
+        return $this-&gt;belongsTo('App\Post');
+    }
+}</code></pre>
+<p>Once the relationship has been defined, we can retrieve the <code>Post</code> model for a <code>Comment</code> by accessing the <code>post</code> &quot;dynamic property&quot;:</p>
+<pre><code>$comment = App\Comment::find(1);
+
+echo $comment-&gt;post-&gt;title;</code></pre>
+<p>In the example above, Eloquent will try to match the <code>post_id</code> from the <code>Comment</code> model to an <code>id</code> on the <code>Post</code> model. Eloquent determines the default foreign key name by examining the name of the relationship method and suffixing the method name with <code>_id</code>. However, if the foreign key on the <code>Comment</code> model is not <code>post_id</code>, you may pass a custom key name as the second argument to the <code>belongsTo</code> method:</p>
+<pre><code>/**
+ * Get the post that owns the comment.
+ */
+public function post()
+{
+    return $this-&gt;belongsTo('App\Post', 'foreign_key');
+}</code></pre>
+<p>If your parent model does not use <code>id</code> as its primary key, or you wish to join the child model to a different column, you may pass a third argument to the <code>belongsTo</code> method specifying your parent table's custom key:</p>
+<pre><code>/**
+ * Get the post that owns the comment.
+ */
+public function post()
+{
+    return $this-&gt;belongsTo('App\Post', 'foreign_key', 'other_key');
+}</code></pre>
+<p><a name="many-to-many"></a></p>
+<h3>Many To Many</h3>
+<p>Many-to-many relations are slightly more complicated than <code>hasOne</code> and <code>hasMany</code> relationships. An example of such a relationship is a user with many roles, where the roles are also shared by other users. For example, many users may have the role of &quot;Admin&quot;. To define this relationship, three database tables are needed: <code>users</code>, <code>roles</code>, and <code>role_user</code>. The <code>role_user</code> table is derived from the alphabetical order of the related model names, and contains the <code>user_id</code> and <code>role_id</code> columns.</p>
+<p>Many-to-many relationships are defined by writing a method that returns the result of the <code>belongsToMany</code> method. For example, let's define the <code>roles</code> method on our <code>User</code> model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * The roles that belong to the user.
+     */
+    public function roles()
+    {
+        return $this-&gt;belongsToMany('App\Role');
+    }
+}</code></pre>
+<p>Once the relationship is defined, you may access the user's roles using the <code>roles</code> dynamic property:</p>
+<pre><code>$user = App\User::find(1);
+
+foreach ($user-&gt;roles as $role) {
+    //
+}</code></pre>
+<p>Of course, like all other relationship types, you may call the <code>roles</code> method to continue chaining query constraints onto the relationship:</p>
+<pre><code>$roles = App\User::find(1)-&gt;roles()-&gt;orderBy('name')-&gt;get();</code></pre>
+<p>As mentioned previously, to determine the table name of the relationship's joining table, Eloquent will join the two related model names in alphabetical order. However, you are free to override this convention. You may do so by passing a second argument to the <code>belongsToMany</code> method:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Role', 'role_user');</code></pre>
+<p>In addition to customizing the name of the joining table, you may also customize the column names of the keys on the table by passing additional arguments to the <code>belongsToMany</code> method. The third argument is the foreign key name of the model on which you are defining the relationship, while the fourth argument is the foreign key name of the model that you are joining to:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');</code></pre>
+<h4>Defining The Inverse Of The Relationship</h4>
+<p>To define the inverse of a many-to-many relationship, you simply place another call to <code>belongsToMany</code> on your related model. To continue our user roles example, let's define the <code>users</code> method on the <code>Role</code> model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Role extends Model
+{
+    /**
+     * The users that belong to the role.
+     */
+    public function users()
+    {
+        return $this-&gt;belongsToMany('App\User');
+    }
+}</code></pre>
+<p>As you can see, the relationship is defined exactly the same as its <code>User</code> counterpart, with the exception of simply referencing the <code>App\User</code> model. Since we're reusing the <code>belongsToMany</code> method, all of the usual table and key customization options are available when defining the inverse of many-to-many relationships.</p>
+<h4>Retrieving Intermediate Table Columns</h4>
+<p>As you have already learned, working with many-to-many relations requires the presence of an intermediate table. Eloquent provides some very helpful ways of interacting with this table. For example, let's assume our <code>User</code> object has many <code>Role</code> objects that it is related to. After accessing this relationship, we may access the intermediate table using the <code>pivot</code> attribute on the models:</p>
+<pre><code>$user = App\User::find(1);
+
+foreach ($user-&gt;roles as $role) {
+    echo $role-&gt;pivot-&gt;created_at;
+}</code></pre>
+<p>Notice that each <code>Role</code> model we retrieve is automatically assigned a <code>pivot</code> attribute. This attribute contains a model representing the intermediate table, and may be used like any other Eloquent model.</p>
+<p>By default, only the model keys will be present on the <code>pivot</code> object. If your pivot table contains extra attributes, you must specify them when defining the relationship:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Role')-&gt;withPivot('column1', 'column2');</code></pre>
+<p>If you want your pivot table to have automatically maintained <code>created_at</code> and <code>updated_at</code> timestamps, use the <code>withTimestamps</code> method on the relationship definition:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Role')-&gt;withTimestamps();</code></pre>
+<h4>Customizing The <code>pivot</code> Attribute Name</h4>
+<p>As noted earlier, attributes from the intermediate table may be accessed on models using the <code>pivot</code> attribute. However, you are free to customize the name of this attribute to better reflect its purpose within your application.</p>
+<p>For example, if your application contains users that may subscribe to podcasts, you probably have a many-to-many relationship between users and podcasts. If this is the case, you may wish to rename your intermediate table accessor to <code>subscription</code> instead of <code>pivot</code>. This can be done using the <code>as</code> method when defining the relationship:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Podcast')
+                -&gt;as('subscription')
+                -&gt;withTimestamps();</code></pre>
+<p>Once this is done, you may access the intermediate table data using the customized name:</p>
+<pre><code>$users = User::with('podcasts')-&gt;get();
+
+foreach ($users-&gt;flatMap-&gt;podcasts as $podcast) {
+    echo $podcast-&gt;subscription-&gt;created_at;
+}</code></pre>
+<h4>Filtering Relationships Via Intermediate Table Columns</h4>
+<p>You can also filter the results returned by <code>belongsToMany</code> using the <code>wherePivot</code> and <code>wherePivotIn</code> methods when defining the relationship:</p>
+<pre><code>return $this-&gt;belongsToMany('App\Role')-&gt;wherePivot('approved', 1);
+
+return $this-&gt;belongsToMany('App\Role')-&gt;wherePivotIn('priority', [1, 2]);</code></pre>
+<h4>Defining Custom Intermediate Table Models</h4>
+<p>If you would like to define a custom model to represent the intermediate table of your relationship, you may call the <code>using</code> method when defining the relationship. All custom models used to represent intermediate tables of relationships must extend the <code>Illuminate\Database\Eloquent\Relations\Pivot</code> class. For example, we may define a <code>Role</code> which uses a custom <code>UserRole</code> pivot model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Role extends Model
+{
+    /**
+     * The users that belong to the role.
+     */
+    public function users()
+    {
+        return $this-&gt;belongsToMany('App\User')-&gt;using('App\UserRole');
+    }
+}</code></pre>
+<p>When defining the <code>UserRole</code> model, we will extend the <code>Pivot</code> class:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Relations\Pivot;
+
+class UserRole extends Pivot
+{
+    //
+}</code></pre>
+<p><a name="has-many-through"></a></p>
+<h3>Has Many Through</h3>
+<p>The &quot;has-many-through&quot; relationship provides a convenient shortcut for accessing distant relations via an intermediate relation. For example, a <code>Country</code> model might have many <code>Post</code> models through an intermediate <code>User</code> model. In this example, you could easily gather all blog posts for a given country. Let's look at the tables required to define this relationship:</p>
+<pre><code>countries
+    id - integer
+    name - string
+
+users
+    id - integer
+    country_id - integer
+    name - string
+
+posts
+    id - integer
+    user_id - integer
+    title - string</code></pre>
+<p>Though <code>posts</code> does not contain a <code>country_id</code> column, the <code>hasManyThrough</code> relation provides access to a country's posts via <code>$country-&gt;posts</code>. To perform this query, Eloquent inspects the <code>country_id</code> on the intermediate <code>users</code> table. After finding the matching user IDs, they are used to query the <code>posts</code> table.</p>
+<p>Now that we have examined the table structure for the relationship, let's define it on the <code>Country</code> model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Country extends Model
+{
+    /**
+     * Get all of the posts for the country.
+     */
+    public function posts()
+    {
+        return $this-&gt;hasManyThrough('App\Post', 'App\User');
+    }
+}</code></pre>
+<p>The first argument passed to the <code>hasManyThrough</code> method is the name of the final model we wish to access, while the second argument is the name of the intermediate model.</p>
+<p>Typical Eloquent foreign key conventions will be used when performing the relationship's queries. If you would like to customize the keys of the relationship, you may pass them as the third and fourth arguments to the <code>hasManyThrough</code> method. The third argument is the name of the foreign key on the intermediate model. The fourth argument is the name of the foreign key on the final model. The fifth argument is the local key, while the sixth argument is the local key of the intermediate model:</p>
+<pre><code>class Country extends Model
+{
+    public function posts()
+    {
+        return $this-&gt;hasManyThrough(
+            'App\Post',
+            'App\User',
+            'country_id', // Foreign key on users table...
+            'user_id', // Foreign key on posts table...
+            'id', // Local key on countries table...
+            'id' // Local key on users table...
+        );
+    }
+}</code></pre>
+<p><a name="polymorphic-relations"></a></p>
+<h3>Polymorphic Relations</h3>
+<h4>Table Structure</h4>
+<p>Polymorphic relations allow a model to belong to more than one other model on a single association. For example, imagine users of your application can &quot;comment&quot; both posts and videos. Using polymorphic relationships, you can use a single <code>comments</code> table for both of these scenarios. First, let's examine the table structure required to build this relationship:</p>
+<pre><code>posts
+    id - integer
+    title - string
+    body - text
+
+videos
+    id - integer
+    title - string
+    url - string
+
+comments
+    id - integer
+    body - text
+    commentable_id - integer
+    commentable_type - string</code></pre>
+<p>Two important columns to note are the <code>commentable_id</code> and <code>commentable_type</code> columns on the <code>comments</code> table. The <code>commentable_id</code> column will contain the ID value of the post or video, while the <code>commentable_type</code> column will contain the class name of the owning model. The <code>commentable_type</code> column is how the ORM determines which &quot;type&quot; of owning model to return when accessing the <code>commentable</code> relation.</p>
+<h4>Model Structure</h4>
+<p>Next, let's examine the model definitions needed to build this relationship:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+    /**
+     * Get all of the owning commentable models.
+     */
+    public function commentable()
+    {
+        return $this-&gt;morphTo();
+    }
+}
+
+class Post extends Model
+{
+    /**
+     * Get all of the post's comments.
+     */
+    public function comments()
+    {
+        return $this-&gt;morphMany('App\Comment', 'commentable');
+    }
+}
+
+class Video extends Model
+{
+    /**
+     * Get all of the video's comments.
+     */
+    public function comments()
+    {
+        return $this-&gt;morphMany('App\Comment', 'commentable');
+    }
+}</code></pre>
+<h4>Retrieving Polymorphic Relations</h4>
+<p>Once your database table and models are defined, you may access the relationships via your models. For example, to access all of the comments for a post, we can simply use the <code>comments</code> dynamic property:</p>
+<pre><code>$post = App\Post::find(1);
+
+foreach ($post-&gt;comments as $comment) {
+    //
+}</code></pre>
+<p>You may also retrieve the owner of a polymorphic relation from the polymorphic model by accessing the name of the method that performs the call to <code>morphTo</code>. In our case, that is the <code>commentable</code> method on the <code>Comment</code> model. So, we will access that method as a dynamic property:</p>
+<pre><code>$comment = App\Comment::find(1);
+
+$commentable = $comment-&gt;commentable;</code></pre>
+<p>The <code>commentable</code> relation on the <code>Comment</code> model will return either a <code>Post</code> or <code>Video</code> instance, depending on which type of model owns the comment.</p>
+<h4>Custom Polymorphic Types</h4>
+<p>By default, Laravel will use the fully qualified class name to store the type of the related model. For instance, given the example above where a <code>Comment</code> may belong to a <code>Post</code> or a <code>Video</code>, the default <code>commentable_type</code> would be either <code>App\Post</code> or <code>App\Video</code>, respectively. However, you may wish to decouple your database from your application's internal structure. In that case, you may define a relationship &quot;morph map&quot; to instruct Eloquent to use a custom name for each model instead of the class name:</p>
+<pre><code>use Illuminate\Database\Eloquent\Relations\Relation;
+
+Relation::morphMap([
+    'posts' =&gt; 'App\Post',
+    'videos' =&gt; 'App\Video',
+]);</code></pre>
+<p>You may register the <code>morphMap</code> in the <code>boot</code> function of your <code>AppServiceProvider</code> or create a separate service provider if you wish.</p>
+<p><a name="many-to-many-polymorphic-relations"></a></p>
+<h3>Many To Many Polymorphic Relations</h3>
+<h4>Table Structure</h4>
+<p>In addition to traditional polymorphic relations, you may also define &quot;many-to-many&quot; polymorphic relations. For example, a blog <code>Post</code> and <code>Video</code> model could share a polymorphic relation to a <code>Tag</code> model. Using a many-to-many polymorphic relation allows you to have a single list of unique tags that are shared across blog posts and videos. First, let's examine the table structure:</p>
+<pre><code>posts
+    id - integer
+    name - string
+
+videos
+    id - integer
+    name - string
+
+tags
+    id - integer
+    name - string
+
+taggables
+    tag_id - integer
+    taggable_id - integer
+    taggable_type - string</code></pre>
+<h4>Model Structure</h4>
+<p>Next, we're ready to define the relationships on the model. The <code>Post</code> and <code>Video</code> models will both have a <code>tags</code> method that calls the <code>morphToMany</code> method on the base Eloquent class:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    /**
+     * Get all of the tags for the post.
+     */
+    public function tags()
+    {
+        return $this-&gt;morphToMany('App\Tag', 'taggable');
+    }
+}</code></pre>
+<h4>Defining The Inverse Of The Relationship</h4>
+<p>Next, on the <code>Tag</code> model, you should define a method for each of its related models. So, for this example, we will define a <code>posts</code> method and a <code>videos</code> method:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Tag extends Model
+{
+    /**
+     * Get all of the posts that are assigned this tag.
+     */
+    public function posts()
+    {
+        return $this-&gt;morphedByMany('App\Post', 'taggable');
+    }
+
+    /**
+     * Get all of the videos that are assigned this tag.
+     */
+    public function videos()
+    {
+        return $this-&gt;morphedByMany('App\Video', 'taggable');
+    }
+}</code></pre>
+<h4>Retrieving The Relationship</h4>
+<p>Once your database table and models are defined, you may access the relationships via your models. For example, to access all of the tags for a post, you can simply use the <code>tags</code> dynamic property:</p>
+<pre><code>$post = App\Post::find(1);
+
+foreach ($post-&gt;tags as $tag) {
+    //
+}</code></pre>
+<p>You may also retrieve the owner of a polymorphic relation from the polymorphic model by accessing the name of the method that performs the call to <code>morphedByMany</code>. In our case, that is the <code>posts</code> or <code>videos</code> methods on the <code>Tag</code> model. So, you will access those methods as dynamic properties:</p>
+<pre><code>$tag = App\Tag::find(1);
+
+foreach ($tag-&gt;videos as $video) {
+    //
+}</code></pre>
+<p><a name="querying-relations"></a></p>
+<h2>Querying Relations</h2>
+<p>Since all types of Eloquent relationships are defined via methods, you may call those methods to obtain an instance of the relationship without actually executing the relationship queries. In addition, all types of Eloquent relationships also serve as <a href="queries.html">query builders</a>, allowing you to continue to chain constraints onto the relationship query before finally executing the SQL against your database.</p>
+<p>For example, imagine a blog system in which a <code>User</code> model has many associated <code>Post</code> models:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * Get all of the posts for the user.
+     */
+    public function posts()
+    {
+        return $this-&gt;hasMany('App\Post');
+    }
+}</code></pre>
+<p>You may query the <code>posts</code> relationship and add additional constraints to the relationship like so:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;posts()-&gt;where('active', 1)-&gt;get();</code></pre>
+<p>You are able to use any of the <a href="queries.html">query builder</a> methods on the relationship, so be sure to explore the query builder documentation to learn about all of the methods that are available to you.</p>
+<p><a name="relationship-methods-vs-dynamic-properties"></a></p>
+<h3>Relationship Methods Vs. Dynamic Properties</h3>
+<p>If you do not need to add additional constraints to an Eloquent relationship query, you may simply access the relationship as if it were a property. For example, continuing to use our <code>User</code> and <code>Post</code> example models, we may access all of a user's posts like so:</p>
+<pre><code>$user = App\User::find(1);
+
+foreach ($user-&gt;posts as $post) {
+    //
+}</code></pre>
+<p>Dynamic properties are &quot;lazy loading&quot;, meaning they will only load their relationship data when you actually access them. Because of this, developers often use <a href="#eager-loading">eager loading</a> to pre-load relationships they know will be accessed after loading the model. Eager loading provides a significant reduction in SQL queries that must be executed to load a model's relations.</p>
+<p><a name="querying-relationship-existence"></a></p>
+<h3>Querying Relationship Existence</h3>
+<p>When accessing the records for a model, you may wish to limit your results based on the existence of a relationship. For example, imagine you want to retrieve all blog posts that have at least one comment. To do so, you may pass the name of the relationship to the <code>has</code> and <code>orHas</code> methods:</p>
+<pre><code>// Retrieve all posts that have at least one comment...
+$posts = App\Post::has('comments')-&gt;get();</code></pre>
+<p>You may also specify an operator and count to further customize the query:</p>
+<pre><code>// Retrieve all posts that have three or more comments...
+$posts = Post::has('comments', '&gt;=', 3)-&gt;get();</code></pre>
+<p>Nested <code>has</code> statements may also be constructed using &quot;dot&quot; notation. For example, you may retrieve all posts that have at least one comment and vote:</p>
+<pre><code>// Retrieve all posts that have at least one comment with votes...
+$posts = Post::has('comments.votes')-&gt;get();</code></pre>
+<p>If you need even more power, you may use the <code>whereHas</code> and <code>orWhereHas</code> methods to put &quot;where&quot; conditions on your <code>has</code> queries. These methods allow you to add customized constraints to a relationship constraint, such as checking the content of a comment:</p>
+<pre><code>// Retrieve all posts with at least one comment containing words like foo%
+$posts = Post::whereHas('comments', function ($query) {
+    $query-&gt;where('content', 'like', 'foo%');
+})-&gt;get();</code></pre>
+<p><a name="querying-relationship-absence"></a></p>
+<h3>Querying Relationship Absence</h3>
+<p>When accessing the records for a model, you may wish to limit your results based on the absence of a relationship. For example, imagine you want to retrieve all blog posts that <strong>don't</strong> have any comments. To do so, you may pass the name of the relationship to the <code>doesntHave</code> and <code>orDoesntHave</code> methods:</p>
+<pre><code>$posts = App\Post::doesntHave('comments')-&gt;get();</code></pre>
+<p>If you need even more power, you may use the <code>whereDoesntHave</code> and <code>orWhereDoesntHave</code> methods to put &quot;where&quot; conditions on your <code>doesntHave</code> queries. These methods allows you to add customized constraints to a relationship constraint, such as checking the content of a comment:</p>
+<pre><code>$posts = Post::whereDoesntHave('comments', function ($query) {
+    $query-&gt;where('content', 'like', 'foo%');
+})-&gt;get();</code></pre>
+<p><a name="counting-related-models"></a></p>
+<h3>Counting Related Models</h3>
+<p>If you want to count the number of results from a relationship without actually loading them you may use the <code>withCount</code> method, which will place a <code>{relation}_count</code> column on your resulting models. For example:</p>
+<pre><code>$posts = App\Post::withCount('comments')-&gt;get();
+
+foreach ($posts as $post) {
+    echo $post-&gt;comments_count;
+}</code></pre>
+<p>You may add the &quot;counts&quot; for multiple relations as well as add constraints to the queries:</p>
+<pre><code>$posts = Post::withCount(['votes', 'comments' =&gt; function ($query) {
+    $query-&gt;where('content', 'like', 'foo%');
+}])-&gt;get();
+
+echo $posts[0]-&gt;votes_count;
+echo $posts[0]-&gt;comments_count;</code></pre>
+<p>You may also alias the relationship count result, allowing multiple counts on the same relationship:</p>
+<pre><code>$posts = Post::withCount([
+    'comments',
+    'comments as pending_comments_count' =&gt; function ($query) {
+        $query-&gt;where('approved', false);
+    }
+])-&gt;get();
+
+echo $posts[0]-&gt;comments_count;
+
+echo $posts[0]-&gt;pending_comments_count;</code></pre>
+<p><a name="eager-loading"></a></p>
+<h2>Eager Loading</h2>
+<p>When accessing Eloquent relationships as properties, the relationship data is &quot;lazy loaded&quot;. This means the relationship data is not actually loaded until you first access the property. However, Eloquent can &quot;eager load&quot; relationships at the time you query the parent model. Eager loading alleviates the N + 1 query problem. To illustrate the N + 1 query problem, consider a <code>Book</code> model that is related to <code>Author</code>:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Book extends Model
+{
+    /**
+     * Get the author that wrote the book.
+     */
+    public function author()
+    {
+        return $this-&gt;belongsTo('App\Author');
+    }
+}</code></pre>
+<p>Now, let's retrieve all books and their authors:</p>
+<pre><code>$books = App\Book::all();
+
+foreach ($books as $book) {
+    echo $book-&gt;author-&gt;name;
+}</code></pre>
+<p>This loop will execute 1 query to retrieve all of the books on the table, then another query for each book to retrieve the author. So, if we have 25 books, this loop would run 26 queries: 1 for the original book, and 25 additional queries to retrieve the author of each book.</p>
+<p>Thankfully, we can use eager loading to reduce this operation to just 2 queries. When querying, you may specify which relationships should be eager loaded using the <code>with</code> method:</p>
+<pre><code>$books = App\Book::with('author')-&gt;get();
+
+foreach ($books as $book) {
+    echo $book-&gt;author-&gt;name;
+}</code></pre>
+<p>For this operation, only two queries will be executed:</p>
+<pre><code>select * from books
+
+select * from authors where id in (1, 2, 3, 4, 5, ...)</code></pre>
+<h4>Eager Loading Multiple Relationships</h4>
+<p>Sometimes you may need to eager load several different relationships in a single operation. To do so, just pass additional arguments to the <code>with</code> method:</p>
+<pre><code>$books = App\Book::with(['author', 'publisher'])-&gt;get();</code></pre>
+<h4>Nested Eager Loading</h4>
+<p>To eager load nested relationships, you may use &quot;dot&quot; syntax. For example, let's eager load all of the book's authors and all of the author's personal contacts in one Eloquent statement:</p>
+<pre><code>$books = App\Book::with('author.contacts')-&gt;get();</code></pre>
+<h4>Eager Loading Specific Columns</h4>
+<p>You may not always need every column from the relationships you are retrieving. For this reason, Eloquent allows you to specify which columns of the relationship you would like to retrieve:</p>
+<pre><code>$users = App\Book::with('author:id,name')-&gt;get();</code></pre>
+<blockquote>
+<p>{note} When using this feature, you should always include the <code>id</code> column in the list of columns you wish to retrieve.</p>
+</blockquote>
+<p><a name="constraining-eager-loads"></a></p>
+<h3>Constraining Eager Loads</h3>
+<p>Sometimes you may wish to eager load a relationship, but also specify additional query constraints for the eager loading query. Here's an example:</p>
+<pre><code>$users = App\User::with(['posts' =&gt; function ($query) {
+    $query-&gt;where('title', 'like', '%first%');
+}])-&gt;get();</code></pre>
+<p>In this example, Eloquent will only eager load posts where the post's <code>title</code> column contains the word <code>first</code>. Of course, you may call other <a href="queries.html">query builder</a> methods to further customize the eager loading operation:</p>
+<pre><code>$users = App\User::with(['posts' =&gt; function ($query) {
+    $query-&gt;orderBy('created_at', 'desc');
+}])-&gt;get();</code></pre>
+<p><a name="lazy-eager-loading"></a></p>
+<h3>Lazy Eager Loading</h3>
+<p>Sometimes you may need to eager load a relationship after the parent model has already been retrieved. For example, this may be useful if you need to dynamically decide whether to load related models:</p>
+<pre><code>$books = App\Book::all();
+
+if ($someCondition) {
+    $books-&gt;load('author', 'publisher');
+}</code></pre>
+<p>If you need to set additional query constraints on the eager loading query, you may pass an array keyed by the relationships you wish to load. The array values should be <code>Closure</code> instances which receive the query instance:</p>
+<pre><code>$books-&gt;load(['author' =&gt; function ($query) {
+    $query-&gt;orderBy('published_date', 'asc');
+}]);</code></pre>
+<p>To load a relationship only when it has not already been loaded, use the <code>loadMissing</code> method:</p>
+<pre><code>public function format(Book $book)
+{
+    $book-&gt;loadMissing('author');
+
+    return [
+        'name' =&gt; $book-&gt;name,
+        'author' =&gt; $book-&gt;author-&gt;name
+    ];
+}</code></pre>
+<p><a name="inserting-and-updating-related-models"></a></p>
+<h2>Inserting &amp; Updating Related Models</h2>
+<p><a name="the-save-method"></a></p>
+<h3>The Save Method</h3>
+<p>Eloquent provides convenient methods for adding new models to relationships. For example, perhaps you need to insert a new <code>Comment</code> for a <code>Post</code> model. Instead of manually setting the <code>post_id</code> attribute on the <code>Comment</code>, you may insert the <code>Comment</code> directly from the relationship's <code>save</code> method:</p>
+<pre><code>$comment = new App\Comment(['message' =&gt; 'A new comment.']);
+
+$post = App\Post::find(1);
+
+$post-&gt;comments()-&gt;save($comment);</code></pre>
+<p>Notice that we did not access the <code>comments</code> relationship as a dynamic property. Instead, we called the <code>comments</code> method to obtain an instance of the relationship. The <code>save</code> method will automatically add the appropriate <code>post_id</code> value to the new <code>Comment</code> model.</p>
+<p>If you need to save multiple related models, you may use the <code>saveMany</code> method:</p>
+<pre><code>$post = App\Post::find(1);
+
+$post-&gt;comments()-&gt;saveMany([
+    new App\Comment(['message' =&gt; 'A new comment.']),
+    new App\Comment(['message' =&gt; 'Another comment.']),
+]);</code></pre>
+<p><a name="the-create-method"></a></p>
+<h3>The Create Method</h3>
+<p>In addition to the <code>save</code> and <code>saveMany</code> methods, you may also use the <code>create</code> method, which accepts an array of attributes, creates a model, and inserts it into the database. Again, the difference between <code>save</code> and <code>create</code> is that <code>save</code> accepts a full Eloquent model instance while <code>create</code> accepts a plain PHP <code>array</code>:</p>
+<pre><code>$post = App\Post::find(1);
+
+$comment = $post-&gt;comments()-&gt;create([
+    'message' =&gt; 'A new comment.',
+]);</code></pre>
+<blockquote>
+<p>{tip} Before using the <code>create</code> method, be sure to review the documentation on attribute <a href="eloquent.html#mass-assignment">mass assignment</a>.</p>
+</blockquote>
+<p>You may use the <code>createMany</code> method to create multiple related models:</p>
+<pre><code>$post = App\Post::find(1);
+
+$post-&gt;comments()-&gt;createMany([
+    [
+        'message' =&gt; 'A new comment.',
+    ],
+    [
+        'message' =&gt; 'Another new comment.',
+    ],
+]);</code></pre>
+<p><a name="updating-belongs-to-relationships"></a></p>
+<h3>Belongs To Relationships</h3>
+<p>When updating a <code>belongsTo</code> relationship, you may use the <code>associate</code> method. This method will set the foreign key on the child model:</p>
+<pre><code>$account = App\Account::find(10);
+
+$user-&gt;account()-&gt;associate($account);
+
+$user-&gt;save();</code></pre>
+<p>When removing a <code>belongsTo</code> relationship, you may use the <code>dissociate</code> method. This method will set the relationship's foreign key to <code>null</code>:</p>
+<pre><code>$user-&gt;account()-&gt;dissociate();
+
+$user-&gt;save();</code></pre>
+<p><a name="updating-many-to-many-relationships"></a></p>
+<h3>Many To Many Relationships</h3>
+<h4>Attaching / Detaching</h4>
+<p>Eloquent also provides a few additional helper methods to make working with related models more convenient. For example, let's imagine a user can have many roles and a role can have many users. To attach a role to a user by inserting a record in the intermediate table that joins the models, use the <code>attach</code> method:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;roles()-&gt;attach($roleId);</code></pre>
+<p>When attaching a relationship to a model, you may also pass an array of additional data to be inserted into the intermediate table:</p>
+<pre><code>$user-&gt;roles()-&gt;attach($roleId, ['expires' =&gt; $expires]);</code></pre>
+<p>Of course, sometimes it may be necessary to remove a role from a user. To remove a many-to-many relationship record, use the <code>detach</code> method. The <code>detach</code> method will remove the appropriate record out of the intermediate table; however, both models will remain in the database:</p>
+<pre><code>// Detach a single role from the user...
+$user-&gt;roles()-&gt;detach($roleId);
+
+// Detach all roles from the user...
+$user-&gt;roles()-&gt;detach();</code></pre>
+<p>For convenience, <code>attach</code> and <code>detach</code> also accept arrays of IDs as input:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;roles()-&gt;detach([1, 2, 3]);
+
+$user-&gt;roles()-&gt;attach([
+    1 =&gt; ['expires' =&gt; $expires],
+    2 =&gt; ['expires' =&gt; $expires]
+]);</code></pre>
+<h4>Syncing Associations</h4>
+<p>You may also use the <code>sync</code> method to construct many-to-many associations. The <code>sync</code> method accepts an array of IDs to place on the intermediate table. Any IDs that are not in the given array will be removed from the intermediate table. So, after this operation is complete, only the IDs in the given array will exist in the intermediate table:</p>
+<pre><code>$user-&gt;roles()-&gt;sync([1, 2, 3]);</code></pre>
+<p>You may also pass additional intermediate table values with the IDs:</p>
+<pre><code>$user-&gt;roles()-&gt;sync([1 =&gt; ['expires' =&gt; true], 2, 3]);</code></pre>
+<p>If you do not want to detach existing IDs, you may use the <code>syncWithoutDetaching</code> method:</p>
+<pre><code>$user-&gt;roles()-&gt;syncWithoutDetaching([1, 2, 3]);</code></pre>
+<h4>Toggling Associations</h4>
+<p>The many-to-many relationship also provides a <code>toggle</code> method which &quot;toggles&quot; the attachment status of the given IDs. If the given ID is currently attached, it will be detached. Likewise, if it is currently detached, it will be attached:</p>
+<pre><code>$user-&gt;roles()-&gt;toggle([1, 2, 3]);</code></pre>
+<h4>Saving Additional Data On A Pivot Table</h4>
+<p>When working with a many-to-many relationship, the <code>save</code> method accepts an array of additional intermediate table attributes as its second argument:</p>
+<pre><code>App\User::find(1)-&gt;roles()-&gt;save($role, ['expires' =&gt; $expires]);</code></pre>
+<h4>Updating A Record On A Pivot Table</h4>
+<p>If you need to update an existing row in your pivot table, you may use <code>updateExistingPivot</code> method. This method accepts the pivot record foreign key and an array of attributes to update:</p>
+<pre><code>$user = App\User::find(1);
+
+$user-&gt;roles()-&gt;updateExistingPivot($roleId, $attributes);</code></pre>
+<p><a name="touching-parent-timestamps"></a></p>
+<h2>Touching Parent Timestamps</h2>
+<p>When a model <code>belongsTo</code> or <code>belongsToMany</code> another model, such as a <code>Comment</code> which belongs to a <code>Post</code>, it is sometimes helpful to update the parent's timestamp when the child model is updated. For example, when a <code>Comment</code> model is updated, you may want to automatically &quot;touch&quot; the <code>updated_at</code> timestamp of the owning <code>Post</code>. Eloquent makes it easy. Just add a <code>touches</code> property containing the names of the relationships to the child model:</p>
+<pre><code>&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+    /**
+     * All of the relationships to be touched.
+     *
+     * @var array
+     */
+    protected $touches = ['post'];
+
+    /**
+     * Get the post that the comment belongs to.
+     */
+    public function post()
+    {
+        return $this-&gt;belongsTo('App\Post');
+    }
+}</code></pre>
+<p>Now, when you update a <code>Comment</code>, the owning <code>Post</code> will have its <code>updated_at</code> column updated as well, making it more convenient to know when to invalidate a cache of the <code>Post</code> model:</p>
+<pre><code>$comment = App\Comment::find(1);
+
+$comment-&gt;text = 'Edit to this comment!';
+
+$comment-&gt;save();</code></pre>
+	</article>
+</div>
+
+    <footer class="main">
+        <ul>
+            <li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+        </ul>
+        <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
+        <p class="less-significant">
+            <a href="http://jackmcdade.com/">
+                Designed by<br>
+                <svg xmlns="http://www.w3.org/2000/svg" width="128.2" height="28" viewBox="0 0 128.2 28"><g fill="#c3c3c3"><path d="M14.2.4v1.4l-1.4-.3.3 4.5c.1 1.5 0 3-.1 4.5 0 .4-.1.8-.1 1.2-.1.4-.1.8-.3 1.2-.1.4-.3.7-.5 1.1-.2.3-.5.6-.9.9-.4.2-.9.4-1.5.6-.6.2-1.1.3-1.6.3-.6 0-1.2-.1-1.6-.3-.5-.2-.9-.6-1.1-1-.3-.5-.5-1-.6-1.6-.1-.6-.1-1.3 0-2.1 0-.2.1-.5.2-.7-.1-.2 0-.4.1-.6l.3-.6 1.1.4c.2 0 .5.1.8.2.3.1.5.1.6.2 0 .2 0 .4-.1.5-.1.2-.1.3-.2.4-.1.1-.2.3-.2.4-.1.2-.1.3-.1.5L6 10.8c-.1.3-.2.7-.2 1.1 0 .4.1.8.2 1.2.2.4.4.7.6 1 .3.3.6.4 1 .3.6 0 1.1-.3 1.4-.6.3-.4.5-.9.7-1.7.1-.7.2-1.6.2-2.8V5.4c0-.6-.1-1.3-.1-2-.1-.6-.2-1.3-.3-2H5.7c-.7 0-1.5 0-2.2.2-.3.1-.6.2-1 .4-.3.1-.6.4-.9.6-.2.3-.4.6-.5 1-.1.3-.1.7 0 1 .1.5.3.8.4.9v-.1c0-.4.1-.8.4-1 .3-.2.6-.3.9-.3.3 0 .6.1.9.3.3.2.4.6.4 1s-.1.8-.4 1c-.3.2-.6.3-1 .3-.8 0-1.4-.2-1.8-.7-.4-.4-.7-.9-.8-1.5C0 4 0 3.4.2 2.7c.2-.6.5-1.1 1-1.5.4-.3.8-.5 1.2-.7.4-.1.9-.2 1.4-.3.5-.1.9-.1 1.4-.1h2.9c.6 0 1.1 0 1.6.1.5 0 1 .1 1.5.1s1 .1 1.5.1c.4.1.9.1 1.5 0zM25.2 14.3c0 .2.1.4.1.6 0 .2.1.4.1.7-1-.1-2-.2-3-.1-1.1.1-2.1.2-3 .4 0-.2-.1-.4-.1-.5 0-.2-.1-.4-.1-.5.2 0 .5-.1.7-.1.2 0 .4-.1.6-.1-.1-1.5-.3-3.1-.5-4.6-.5.1-.9.1-1.4.2-.5.1-.9.1-1.4.2-.2.7-.3 1.3-.5 2s-.3 1.3-.5 2h.6c.1 0 .3 0 .4.1v.9c0 .1 0 .2-.1.3H14v-1.2h1c.2-.5.3-1 .4-1.5.1-.5.3-1 .4-1.5.2-.6.3-1.2.5-1.7.2-.6.3-1.2.5-1.7.2-1.1.4-2.1.6-3.2.2-1.1.3-2.1.4-3.2h-1.4c0-.2.1-.4.1-.6 0-.2 0-.4.1-.6h5.8l.2 1.2h-1c.3 2.1.7 4.3 1 6.5.3 2.2.7 4.4 1 6.5h1.6zM17.5 9c.4-.1.7-.1 1.1-.2.4-.1.8-.1 1.2-.2-.2-1-.3-2-.5-2.9-.2-1-.4-1.9-.6-2.9-.2 1-.4 2.1-.5 3.1-.3 1-.5 2.1-.7 3.1zM36.7 10.4h-.6c0 .6 0 1.2-.2 1.9-.2.6-.5 1.2-1 1.6-.5.5-1 .9-1.6 1.1-.6.3-1.3.4-2 .5-.6.1-1.1.1-1.8 0-.6-.1-1.1-.4-1.6-.7-.2-.2-.5-.4-.8-.7-.3-.3-.5-.5-.6-.8-.3-.5-.5-1-.6-1.5-.2-.5-.3-.9-.4-1.4-.1-.5-.2-1-.2-1.5s0-1 .1-1.6c.2-1 .4-2 .8-2.9.4-.9.8-1.7 1.4-2.3.5-.7 1.2-1.2 1.9-1.6.7-.3 1.4-.5 2.2-.5.3 0 .5 0 .8.1.3.1.5.2.7.4.3.3.7.7 1 1.2.3.5.6 1.2.7 1.9h.6v.6l-2.5.4c-.3.1-.5.1-.6 0-.1 0-.2-.1-.2-.2-.1-.1-.1-.2 0-.3h.4c.2-.2.3-.3.3-.6v-.7c0-.5-.2-.9-.5-1.3l-.4-.4c-.2-.1-.4-.1-.6 0-.2 0-.4.2-.6.4-.2.2-.4.5-.5.9-.3.2-.4.6-.5.9-.1.3-.2.5-.2.7-.6 2.6-.7 5.3-.2 8 .1.3.2.7.3 1s.3.6.5.9c.2.3.5.5.8.7.3.2.6.2 1 .1.6-.1 1-.4 1.4-1 .3-.5.6-1.1.7-1.8.1-.3.1-.6.1-.9v-.5c-.2 0-.4 0-.6-.1-.1-.1-.2-.2-.2-.3 0-.1 0-.2.1-.3h3.4c0 .1 0 .2-.1.3-.1.1-.1.2-.1.3z"/><path d="M48 14.2c.1.2.3.3.5.4.2.1.5.1.7 0 .1.1.1.2.1.4s-.1.3-.2.4c-.1.1-.2.2-.4.2h-1.4c-.3 0-.7 0-1-.1-.3-.1-.7-.2-1-.4-.3-.2-.5-.4-.7-.7-.2-.3-.3-.6-.3-1V9.9v-.4c0-.2-.1-.3-.2-.5s-.3-.3-.4-.4c-.2-.1-.4-.1-.7-.1-.1 0-.2 0-.5.1-.2.3-.3.5-.5.8-.2.3-.3.5-.5.7 0 .8 0 1.5-.1 2.2 0 .7-.1 1.5-.1 2.1h1.4v1.1c-.5 0-.9.1-1.3 0-.4 0-.8 0-1.2-.1-.4 0-.8-.1-1.2-.1H37.3c-.1 0-.2 0-.3-.1-.1 0-.1-.1-.1-.2s-.1-.3-.1-.4v-.4c0-.1.1-.2.1-.2.2.1.4.2.6.1s.4-.2.5-.4c0-.1.1-.3.1-.7 0-.4 0-.9.1-1.6 0-.6.1-1.3.1-2.1s0-1.6.1-2.4c0-.8 0-1.5.1-2.3 0-.7.1-1.3.1-1.8v-.7c0-.2-.1-.4-.2-.6-.1-.2-.3-.3-.5-.4-.2-.1-.4 0-.6.1 0-.2-.1-.5-.1-.7 0-.2 0-.4-.1-.7 1 0 2 .1 3 .1.9 0 1.9.1 3 .1v.3c0 .1 0 .3.1.4v.4c0 .1 0 .2-.1.2-.1.1-.2.1-.3.1-.1 0-.2 0-.4-.1-.1-.1-.3-.1-.4-.2-.1-.1-.3-.1-.3-.1-.1.9-.1 1.9-.1 2.9s-.1 2-.1 3.1c.7-1.2 1.4-2.5 2-3.8.2-.3.3-.6.4-.9.1-.3.3-.6.5-.9.2-.3.4-.5.7-.7.3.3.6.2.9.1.3-.1.7-.1 1 0 .3.1.6.2.9.5.2.3.4.6.4 1s.1.8 0 1.1v.5c0 .2-.1.3-.2.4-.1.2-.2.3-.4.4-.2.1-.4.1-.5.2-.1 0-.3.1-.4.1h-.4c-.2-.3-.4-.4-.4-.6-.1-.2-.1-.4 0-.5.1-.2.2-.3.3-.3.1 0 .2-.1.4-.1.2-.1.3-.2.3-.3.1-.2.1-.3.1-.5 0-.3-.1-.5-.1-.7-.1-.2-.2-.3-.3-.3-.2 0-.3 0-.5.1s-.3.2-.5.4-.3.4-.4.6c-.1.2-.3.5-.4.7-.1.3-.3.6-.4.8-.2.2-.3.5-.4.8-.4.9-.8 1.7-1.2 2.5.3 0 .6-.1 1 0h1c.3 0 .7.1 1 .2.3.1.6.3.8.6.3.3.4.6.5 1 .1.4.1.8.2 1.1l.2 2.1c0 .2.1.5.1.7 0 .4.1.7.3.9zM71.7 13.9c.2.2.4.4.7.5.3.1.5 0 .8-.1 0 .2.1.3.1.6.1.2.1.4.1.6h-1.1s-.8 0-1.3.1h-2.3v-.2c0-.1.1-.2.2-.3.1-.1.2-.2.4-.3.2-.1.3-.1.6-.1.1 0 .1-.2.1-.7v-1.6c0-.6 0-1.2-.1-1.9s0-1.1 0-1.5V6.4c0-.7.1-1.5.1-2.2-.6 1.3-1.1 2.7-1.6 4.1-.5 1.5-1 3-1.5 4.4 0 0 .1.1.1.2-.2 0-.4 0-.7.1-.3.1-.5.1-.7.1-.5-1.9-1.1-3.7-1.6-5.5-.5-1.8-1.1-3.6-1.6-5.5-.1 1-.1 2-.1 3 0 1.1-.1 2.1-.1 3.2s0 2.1-.1 3.2c0 1-.1 2-.1 3h1.4v1.1c-.5 0-.9.1-1.3 0-.4 0-.8 0-1.2-.1-.4 0-.8-.1-1.2-.1H58c-.1 0-.2 0-.3-.1-.1 0-.1-.1-.1-.2s-.1-.3-.1-.4v-.4c0-.1.1-.2.1-.2.2.1.4.2.6.1s.4-.2.5-.4c0-.1.1-.3.1-.7 0-.4 0-.9.1-1.6 0-.6.1-1.3.1-2.1V7.2c0-.8 0-1.5.1-2.3 0-.7.1-1.3.1-1.8v-.7c0-.2-.1-.4-.2-.6-.1-.2-.3-.3-.5-.4-.2-.1-.4 0-.6.1 0-.2-.1-.5-.1-.7 0-.2 0-.4-.1-.7 1 0 2 .1 3 .1.9 0 1.9.1 3 .1 0 .3-.1.5-.4.7.3 1.3.6 2.6 1 3.9l1.2 3.9c.2-.6.4-1.3.6-1.9l.6-1.8c.3-.5.5-1.1.8-1.7.2-.6.4-1.3.6-2-.1 0-.3 0-.4-.1-.1 0-.2 0-.4-.1-.1 0-.1-.1-.1-.3 0-.1.1-.2.1-.3.1-.1.2-.1.3-.1h4.5c.1 0 .3.1.4.2.1.1.2.2.2.4s0 .3-.2.3c-.1-.1-.2-.1-.3-.1-.1 0-.2.1-.3.1-.2.4-.3.8-.4 1.3-.1.5-.1.9-.1 1.4-.2 2.8-.2 5.6 0 8.4 0 .3 0 .5.1.7-.1.3 0 .5.2.7zM81.7 12h-.4c0 .4 0 .9-.2 1.3-.1.4-.4.8-.7 1.1-.3.3-.7.6-1.1.8-.4.2-.9.3-1.3.4-.4.1-.8 0-1.2 0-.4-.1-.8-.2-1.1-.5-.2-.1-.3-.3-.5-.5s-.3-.4-.4-.6c-.2-.4-.3-.7-.4-1-.1-.3-.2-.6-.3-1-.1-.3-.1-.6-.1-1 0-.3 0-.7.1-1.1.1-.7.3-1.4.5-2 .3-.6.6-1.1.9-1.6s.8-.8 1.3-1.1c.5-.3 1-.4 1.5-.4.2 0 .4 0 .6.1.2.1.3.1.5.3.2.2.4.4.6.8.2.4.4.8.5 1.3h.4v.4l-1.7.3c-.2.1-.3.1-.4 0-.1 0-.1-.1-.2-.2v-.2h.4c.1-.1.2-.2.2-.4v-.5c0-.3-.1-.6-.3-.9l-.3-.3c-.1-.1-.2-.1-.4 0-.1 0-.3.1-.4.3-.1.2-.3.4-.4.6l-.3.6c-.1.2-.1.4-.1.5-.4 1.8-.5 3.6-.1 5.5.1.2.1.4.2.7l.3.6c.1.2.3.3.6.5.2.1.4.1.7.1.4-.1.7-.3 1-.7.2-.4.4-.8.5-1.2 0-.2.1-.4.1-.6v-.3h-.4c-.1 0-.1-.1-.1-.2s0-.2.1-.2h2.4v.2c-.5-.1-.5 0-.6.1z"/><path d="M83.5 14.2c.2-4.3.3-8.5.2-12.8h-1.8V.9.4c.7 0 1.3 0 2-.1.7 0 1.3 0 2-.1.8-.2 1.6-.2 2.4-.1.8.1 1.6.3 2.4.5.7.3 1.4.7 1.9 1.2s.9 1.1 1.1 1.8c.3 1.3.4 2.5.3 3.8 0 1.2-.2 2.4-.3 3.6 0 .4-.1.8-.2 1.2-.1.4-.3.8-.5 1.1-.3.5-.8 1-1.3 1.3-.5.3-1.1.5-1.7.6-.5.1-.9.2-1.4.1-.5 0-.9 0-1.4-.1h-4.9c-.2-.4-.1-.8.2-1.1.2-.2.3-.2.5-.3.2.3.4.3.5.4zm5.9-12.3c-.4-.3-.8-.5-1.3-.6-.5-.1-1-.1-1.5-.1-.3 4.5-.2 9.1.4 13.6.2 0 .4 0 .5-.1.2 0 .4-.1.6-.1.3-.1.6-.2.9-.4.3-.2.6-.4.8-.7.2-.3.4-.6.5-1s.2-.7.2-1.1c.4-2.1.4-4.2.2-6.3-.1-.6-.2-1.2-.4-1.9 0-.4-.4-.9-.9-1.3zM102.4 9.7c-.6-.1-1.3-.1-2 0s-1.4.4-2 .8l-.2-1.4.9-.1c0-.4-.1-.7-.1-1 0-.2-.1-.5-.1-.9-.3 0-.6.1-.9.1-.3 0-.6.1-1 .1-.2.7-.3 1.3-.4 1.8-.1.5-.2 1.1-.4 1.6l.2-.1.7.6c-.4.2-.8.6-1.2 1.1-.4.5-.7 1-.9 1.5l-.9-.5c0-.1.1-.2.2-.4s.2-.3.2-.4c.1-.2.2-.5.3-1 .1-.4.2-.9.4-1.3.1-.5.2-.9.3-1.3.1-.4.2-.7.2-.9l.3-1.2.3-1.2c.2-.7.3-1.4.4-2.1.1-.7.2-1.4.3-2.2h-.6l.1-.8 4-.1.1.8h-.2-.2c.1.7.2 1.4.3 2l.3 1.8.3 1.8c.1.6.2 1.3.4 2h.6l.3.9zm-3.6-3.6c-.1-.7-.2-1.3-.3-2-.1-.6-.3-1.3-.4-2-.1.6-.2 1.3-.4 2.1-.1.7-.3 1.5-.5 2.2l1.6-.3z"/><path d="M124.9 20.1c0-.3.1-.6.3-.8.2-.2.4-.3.7-.4.3-.1.5 0 .8.1.3.1.5.3.6.5.3.4.6.9.7 1.4.2.5.2 1 .2 1.5s-.1 1-.3 1.5c-.2.5-.4 1-.7 1.4-.6.9-1.4 1.6-2.4 2-1 .5-2 .7-3 .7-1.5 0-2.8-.3-3.9-1s-2.1-1.4-3-2.4c-.9-1-1.8-2.1-2.5-3.2-.8-1.2-1.5-2.3-2.3-3.5-1.1 1.2-2.4 2.2-3.9 3-1.5.8-3 1.1-4.5 1-1.1 0-2.1-.1-3-.5-.9-.3-1.6-.8-2.2-1.4-.6-.6-.9-1.3-1.1-2.2-.2-.8-.1-1.7.2-2.7.3-.9.7-1.6 1.3-2.2.6-.6 1.2-1.1 2-1.5.7-.4 1.5-.6 2.4-.7.8-.1 1.7 0 2.6.2v-5-4.6h-1.8V.8.3l3.7-.1c.8-.2 1.6-.2 2.4-.1.8.1 1.6.3 2.4.5.7.3 1.4.7 1.9 1.2s.9 1.1 1.1 1.8c.3 1.2.4 2.4.3 3.6-.1 1.2-.2 2.5-.4 3.7-.1 1-.4 2-.8 3-.5 1-1 2-1.7 2.9.3.4.6.8.8 1.2.3.4.5.8.8 1.2.5.8 1.1 1.6 1.7 2.5.6.8 1.3 1.6 2 2.4.7.7 1.5 1.3 2.4 1.8s1.8.7 2.9.8c1.1 0 2.1-.2 3-.7.9-.5 1.6-1.2 2.1-2.2.2-.4.3-.8.4-1.3.1-.5 0-.9-.1-1.3-.2.1-.4.2-.6.2-.2 0-.4 0-.6-.1-.2-.1-.4-.2-.5-.4s-.4-.5-.4-.8zm-22 .9c1.5-.4 2.8-1 3.7-1.8.9-.8 1.7-1.7 2.3-2.8-.2-.2-.3-.5-.6-.7-.6-.7-1.2-1.4-1.9-1.9 0 .6.1 1.2.1 1.8 0 .6.1 1.1.2 1.6v.1h-4.3c-.1-.2-.1-.4 0-.7 0-.2.1-.3.3-.5.3-.3.7-.4 1.1-.2l.1-3.5c-.5-.2-1-.3-1.5-.3s-1.1 0-1.6.1c-.6.1-1.1.3-1.6.6s-.9.7-1.3 1.1c-.4.4-.7.9-.9 1.5-.2.5-.3 1.1-.3 1.6 0 .7.2 1.3.6 1.8.4.5.9.9 1.4 1.4.2.2.5.3.8.5.3.1.7.2 1.1.3.4.1.8.1 1.2.1.3 0 .7 0 1.1-.1zm6.4-19.1c-.4-.3-.8-.5-1.2-.6-.5-.1-.9-.1-1.4-.1-.1 1.7-.2 3.4-.3 5.3-.1 1.9-.1 3.7 0 5.6.6.4 1.2.8 1.7 1.4.5.5 1 1.1 1.5 1.6.2-.6.4-1.2.6-1.9.2-.6.3-1.2.3-1.7.2-1.1.2-2.1.3-3.1 0-1 0-2.1-.1-3.1-.1-.6-.2-1.2-.4-1.9-.2-.6-.5-1.1-1-1.5z"/><path d="M116.5 1.2h-1.8V.4c.5 0 .9 0 1.2-.1s.7 0 1.1 0h1.1s.8 0 1.3-.1c.9 0 1.8 0 2.8-.1.9 0 1.8 0 2.8-.1v3.6h-1.3c-.1 0-.1-.1 0-.1.1-.2.1-.4.1-.6s0-.4-.1-.6l-.3-.6c-.1-.2-.2-.3-.4-.4-.2-.1-.4-.2-.6-.2h-.7c-.3 0-.5.1-.8.1-.3.1-.5.2-.6.4-.1.2-.1.3-.1.3v.3c0 .7-.1 1.3-.1 2 0 .6-.1 1.3-.1 1.9v1c.6-.2 1.2-.3 1.9-.4.6-.1 1.2-.3 1.9-.4 0 .1.1.2.1.3V7c0 .2-.1.3-.1.4-.1.1-.1.2-.1.3-.1.1-.2.1-.4.2-.1 0-.3.1-.4.1-.5.1-.9.2-1.4.3-.5.1-.9.1-1.4.2 0 1-.1 2-.2 2.9-.1 1-.1 1.9-.2 2.9.8.2 1.5.3 2 .1.6-.2 1.2-.5 1.9-1 .2-.1.2-.3.2-.5v-.7c0-.2.1-.5.2-.6.1-.2.3-.3.7-.4.4 0 .6.1.7.4.1.3.2.7.2 1.1 0 .5 0 .9-.1 1.4-.1.5-.1.9 0 1.2h-1.4c-.4 0-.8 0-1.2.1-.4 0-.8 0-1.2.1h-1.3c-.9 0-1.7 0-2.5.1-.7.1-1.6.1-2.4.1-.2-.2-.2-.4-.2-.7 0-.2.1-.5.3-.6.2-.2.3-.3.6-.3.2-.1.5 0 .7.1.1-2.1.2-4.3.1-6.5-.7-2.2-.7-4.3-.5-6.5z"/></g></svg>
+            </a>
+        </p>
+    </footer>
+
+    <script>
+        var algolia_app_id      = '8BB87I11DE';
+        var algolia_search_key  = '8e1d446d61fce359f69cd7c8b86a50de';
+        var version             = '5.5';
+    </script>
+
+    <script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.h1}}
+		<div class="h1">
+			{{{ _highlightResult.h1.value }}}
+		</div>
+		{{/_highlightResult.h1}}
+
+		<div class="sub-section">
+			{{#_highlightResult.h2}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.h2.value }}}
+			</div>
+			{{/_highlightResult.h2}}
+
+			{{#_highlightResult.h3}}
+			<div class="h3">
+				> {{{ _highlightResult.h3.value }}}
+			</div>
+			{{/_highlightResult.h3}}
+
+			{{#_highlightResult.h4}}
+			<div class="h4">
+				> {{{ _highlightResult.h4.value }}}
+			</div>
+			{{/_highlightResult.h4}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+			<img width="105" src="https://laravel.com/assets/img/algolia-logo.svg">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+
+    <script src="../../build/assets/js/laravel-35667fed17.js"></script>
+    <script src="../../assets/js/viewport-units-buggyfill.js"></script>
+    <script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/5.5/eloquent-relationships by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Oct 2017 13:48:42 GMT -->
+</html>

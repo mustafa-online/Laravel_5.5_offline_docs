@@ -1,0 +1,1351 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from laravel.com/docs/5.5/dusk by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Oct 2017 13:49:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>Browser Tests (Laravel Dusk) - Laravel - The PHP Framework For Web Artisans</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Taylor Otwell">
+    <meta name="description" content="Laravel - The PHP framework for web artisans.">
+    <meta name="keywords" content="laravel, php, framework, web, artisans, taylor otwell">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="canonical" href="dusk.html" />
+        <!-- -->
+    <link rel="stylesheet" href="../../build/assets/css/laravel-97189ffb5f.css">
+    <link rel="stylesheet" href="ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+    <link rel="apple-touch-icon" href="../../favicon.png">
+    <script src="ajax/libs/vue/1.0.26/vue.min.js"></script>
+</head>
+<body class="docs language-php">
+
+    <span class="overlay"></span>
+
+    <nav class="main">
+        <a href="https://laravel.com/" class="brand nav-block">
+            <svg xmlns="http://www.w3.org/2000/svg" width="84.1" height="57.6" viewBox="0 0 84.1 57.6"><path fill="#FB503B" d="M83.8 26.9c-.6-.6-8.3-10.3-9.6-11.9-1.4-1.6-2-1.3-2.9-1.2s-10.6 1.8-11.7 1.9c-1.1.2-1.8.6-1.1 1.6.6.9 7 9.9 8.4 12l-25.5 6.1L21.2 1.5c-.8-1.2-1-1.6-2.8-1.5C16.6.1 2.5 1.3 1.5 1.3c-1 .1-2.1.5-1.1 2.9S17.4 41 17.8 42c.4 1 1.6 2.6 4.3 2 2.8-.7 12.4-3.2 17.7-4.6 2.8 5 8.4 15.2 9.5 16.7 1.4 2 2.4 1.6 4.5 1 1.7-.5 26.2-9.3 27.3-9.8 1.1-.5 1.8-.8 1-1.9-.6-.8-7-9.5-10.4-14 2.3-.6 10.6-2.8 11.5-3.1 1-.3 1.2-.8.6-1.4zm-46.3 9.5c-.3.1-14.6 3.5-15.3 3.7-.8.2-.8.1-.8-.2-.2-.3-17-35.1-17.3-35.5-.2-.4-.2-.8 0-.8S17.6 2.4 18 2.4c.5 0 .4.1.6.4 0 0 18.7 32.3 19 32.8.4.5.2.7-.1.8zm40.2 7.5c.2.4.5.6-.3.8-.7.3-24.1 8.2-24.6 8.4-.5.2-.8.3-1.4-.6s-8.2-14-8.2-14L68.1 32c.6-.2.8-.3 1.2.3.4.7 8.2 11.3 8.4 11.6zm1.6-17.6c-.6.1-9.7 2.4-9.7 2.4l-7.5-10.2c-.2-.3-.4-.6.1-.7.5-.1 9-1.6 9.4-1.7.4-.1.7-.2 1.2.5.5.6 6.9 8.8 7.2 9.1.3.3-.1.5-.7.6z"/></svg>
+            <span>Laravel</span>
+        </a>
+
+        <div class="search nav-block invisible">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#A1A1A1" d="M5.8 11.7c-1.6 0-3-.6-4.1-1.7S0 7.4 0 5.8s.6-3 1.7-4.1C2.8.6 4.3 0 5.8 0s3 .6 4.1 1.7c2.3 2.3 2.3 6 0 8.3-1 1.1-2.5 1.7-4.1 1.7zM5.8 1c-1.3 0-2.5.5-3.4 1.4C1.5 3.3 1 4.5 1 5.8s.5 2.5 1.4 3.4c.9.9 2.1 1.4 3.4 1.4s2.5-.5 3.4-1.4c1.9-1.9 1.9-5 0-6.9C8.4 1.5 7.1 1 5.8 1z"/><path fill="#A1A1A1" d="M15.5 16c-.1 0-.3 0-.3-.1L9.3 10c-.2-.2-.2-.5 0-.7s.5-.2.7 0l5.9 5.9c.2.2.2.5 0 .7-.1.1-.3.1-.4.1z"/></svg>
+            <input placeholder="Laravel 5.5 Docs" type="text" disabled style="background:#fff" v-model="search" id="search-input" v-on:blur="reset" />
+        </div>
+
+        <ul class="main-nav" v-if="! search">
+            <li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+        </ul>
+
+                    <div class="switcher">
+	<div class="dropdown">
+		<button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			5.5
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../master/dusk.html">Master</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="dusk.html">5.5</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.4/dusk.html">5.4</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.3/dusk.html">5.3</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.2/dusk.html">5.2</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.1/dusk.html">5.1</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../5.0/dusk.html">5.0</a>
+				</li>
+							<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="../4.2/dusk.html">4.2</a>
+				</li>
+					</ul>
+	</div>
+</div>
+        
+        <div class="responsive-sidebar-nav">
+            <a href="#" class="toggle-slide menu-link btn">&#9776;</a>
+        </div>
+    </nav>
+
+    <nav id="slide-menu" class="slide-menu" role="navigation">
+
+	<div class="brand">
+		<a href="https://laravel.com/">
+			<img src="../../assets/img/laravel-logo-white.png" height="50">
+		</a>
+	</div>
+
+	<ul class="slide-main-nav">
+		<li><a href="https://laravel.com/">Home</a></li>
+		<li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+	</ul>
+
+	<div class="slide-docs-nav">
+		<h2>Documentation</h2>
+		<ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/5.5">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Errors &amp; Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="passport.html">API Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="https://github.com/laravel/socialite">Socialite</a></li>
+</ul>
+</li>
+</ul>
+	</div>
+
+</nav>
+
+<div class="docs-wrapper container">
+
+	<section class="sidebar">
+		<script async type="text/javascript" src="carbon9873.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=laravelcom" id="_carbonads_js"></script>
+		<small><a href="#" id="doc-expand" style="font-size: 9px; color: #525252;">▶</a></small>
+		<ul>
+<li>
+<h2>Prologue</h2>
+<ul>
+<li><a href="releases.html">Release Notes</a></li>
+<li><a href="upgrade.html">Upgrade Guide</a></li>
+<li><a href="contributions.html">Contribution Guide</a></li>
+<li><a href="https://laravel.com/api/5.5">API Documentation</a></li>
+</ul>
+</li>
+<li>
+<h2>Getting Started</h2>
+<ul>
+<li><a href="installation.html">Installation</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="structure.html">Directory Structure</a></li>
+<li><a href="homestead.html">Homestead</a></li>
+<li><a href="valet.html">Valet</a></li>
+<li><a href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li>
+<h2>Architecture Concepts</h2>
+<ul>
+<li><a href="lifecycle.html">Request Lifecycle</a></li>
+<li><a href="container.html">Service Container</a></li>
+<li><a href="providers.html">Service Providers</a></li>
+<li><a href="facades.html">Facades</a></li>
+<li><a href="contracts.html">Contracts</a></li>
+</ul>
+</li>
+<li>
+<h2>The Basics</h2>
+<ul>
+<li><a href="routing.html">Routing</a></li>
+<li><a href="middleware.html">Middleware</a></li>
+<li><a href="csrf.html">CSRF Protection</a></li>
+<li><a href="controllers.html">Controllers</a></li>
+<li><a href="requests.html">Requests</a></li>
+<li><a href="responses.html">Responses</a></li>
+<li><a href="views.html">Views</a></li>
+<li><a href="urls.html">URL Generation</a></li>
+<li><a href="session.html">Session</a></li>
+<li><a href="validation.html">Validation</a></li>
+<li><a href="errors.html">Errors &amp; Logging</a></li>
+</ul>
+</li>
+<li>
+<h2>Frontend</h2>
+<ul>
+<li><a href="blade.html">Blade Templates</a></li>
+<li><a href="localization.html">Localization</a></li>
+<li><a href="frontend.html">Frontend Scaffolding</a></li>
+<li><a href="mix.html">Compiling Assets</a></li>
+</ul>
+</li>
+<li>
+<h2>Security</h2>
+<ul>
+<li><a href="authentication.html">Authentication</a></li>
+<li><a href="passport.html">API Authentication</a></li>
+<li><a href="authorization.html">Authorization</a></li>
+<li><a href="encryption.html">Encryption</a></li>
+<li><a href="hashing.html">Hashing</a></li>
+<li><a href="passwords.html">Password Reset</a></li>
+</ul>
+</li>
+<li>
+<h2>Digging Deeper</h2>
+<ul>
+<li><a href="artisan.html">Artisan Console</a></li>
+<li><a href="broadcasting.html">Broadcasting</a></li>
+<li><a href="cache.html">Cache</a></li>
+<li><a href="collections.html">Collections</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="filesystem.html">File Storage</a></li>
+<li><a href="helpers.html">Helpers</a></li>
+<li><a href="mail.html">Mail</a></li>
+<li><a href="notifications.html">Notifications</a></li>
+<li><a href="packages.html">Package Development</a></li>
+<li><a href="queues.html">Queues</a></li>
+<li><a href="scheduling.html">Task Scheduling</a></li>
+</ul>
+</li>
+<li>
+<h2>Database</h2>
+<ul>
+<li><a href="database.html">Getting Started</a></li>
+<li><a href="queries.html">Query Builder</a></li>
+<li><a href="pagination.html">Pagination</a></li>
+<li><a href="migrations.html">Migrations</a></li>
+<li><a href="seeding.html">Seeding</a></li>
+<li><a href="redis.html">Redis</a></li>
+</ul>
+</li>
+<li>
+<h2>Eloquent ORM</h2>
+<ul>
+<li><a href="eloquent.html">Getting Started</a></li>
+<li><a href="eloquent-relationships.html">Relationships</a></li>
+<li><a href="eloquent-collections.html">Collections</a></li>
+<li><a href="eloquent-mutators.html">Mutators</a></li>
+<li><a href="eloquent-resources.html">API Resources</a></li>
+<li><a href="eloquent-serialization.html">Serialization</a></li>
+</ul>
+</li>
+<li>
+<h2>Testing</h2>
+<ul>
+<li><a href="testing.html">Getting Started</a></li>
+<li><a href="http-tests.html">HTTP Tests</a></li>
+<li><a href="dusk.html">Browser Tests</a></li>
+<li><a href="database-testing.html">Database</a></li>
+<li><a href="mocking.html">Mocking</a></li>
+</ul>
+</li>
+<li>
+<h2>Official Packages</h2>
+<ul>
+<li><a href="billing.html">Cashier</a></li>
+<li><a href="envoy.html">Envoy</a></li>
+<li><a href="horizon.html">Horizon</a></li>
+<li><a href="passport.html">Passport</a></li>
+<li><a href="scout.html">Scout</a></li>
+<li><a href="https://github.com/laravel/socialite">Socialite</a></li>
+</ul>
+</li>
+</ul>
+	</section>
+
+	
+
+	<article>
+		<h1>Browser Tests (Laravel Dusk)</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#installation">Installation</a>
+<ul>
+<li><a href="#using-other-browsers">Using Other Browsers</a></li>
+</ul></li>
+<li><a href="#getting-started">Getting Started</a>
+<ul>
+<li><a href="#generating-tests">Generating Tests</a></li>
+<li><a href="#running-tests">Running Tests</a></li>
+<li><a href="#environment-handling">Environment Handling</a></li>
+<li><a href="#creating-browsers">Creating Browsers</a></li>
+<li><a href="#authentication">Authentication</a></li>
+</ul></li>
+<li><a href="#interacting-with-elements">Interacting With Elements</a>
+<ul>
+<li><a href="#clicking-links">Clicking Links</a></li>
+<li><a href="#text-values-and-attributes">Text, Values, &amp; Attributes</a></li>
+<li><a href="#using-forms">Using Forms</a></li>
+<li><a href="#attaching-files">Attaching Files</a></li>
+<li><a href="#using-the-keyboard">Using The Keyboard</a></li>
+<li><a href="#using-the-mouse">Using The Mouse</a></li>
+<li><a href="#scoping-selectors">Scoping Selectors</a></li>
+<li><a href="#waiting-for-elements">Waiting For Elements</a></li>
+<li><a href="#making-vue-assertions">Making Vue Assertions</a></li>
+</ul></li>
+<li><a href="#available-assertions">Available Assertions</a></li>
+<li><a href="#pages">Pages</a>
+<ul>
+<li><a href="#generating-pages">Generating Pages</a></li>
+<li><a href="#configuring-pages">Configuring Pages</a></li>
+<li><a href="#navigating-to-pages">Navigating To Pages</a></li>
+<li><a href="#shorthand-selectors">Shorthand Selectors</a></li>
+<li><a href="#page-methods">Page Methods</a></li>
+</ul></li>
+<li><a href="#components">Components</a>
+<ul>
+<li><a href="#generating-components">Generating Components</a></li>
+<li><a href="#using-components">Using Components</a></li>
+</ul></li>
+<li><a href="#continuous-integration">Continuous Integration</a>
+<ul>
+<li><a href="#running-tests-on-travis-ci">Travis CI</a></li>
+<li><a href="#running-tests-on-circle-ci">CircleCI</a></li>
+</ul></li>
+</ul>
+<p><a name="introduction"></a></p>
+<h2>Introduction</h2>
+<p>Laravel Dusk provides an expressive, easy-to-use browser automation and testing API. By default, Dusk does not require you to install JDK or Selenium on your machine. Instead, Dusk uses a standalone <a href="https://sites.google.com/a/chromium.org/chromedriver/home">ChromeDriver</a> installation. However, you are free to utilize any other Selenium compatible driver you wish.</p>
+<p><a name="installation"></a></p>
+<h2>Installation</h2>
+<p>To get started, you should add the <code>laravel/dusk</code> Composer dependency to your project:</p>
+<pre><code>composer require --dev laravel/dusk</code></pre>
+<p>Once Dusk is installed, you should register the <code>Laravel\Dusk\DuskServiceProvider</code> service provider. Typically, this will be done automatically via Laravel's automatic service provider registration.</p>
+<blockquote>
+<p>{note} If you are manually registering Dusk's service provider, you should <strong>never</strong> register it in your production environment, as doing so could lead to arbitrary users being able to authenticate with your application.</p>
+</blockquote>
+<p>After installing the Dusk package, run the <code>dusk:install</code> Artisan command:</p>
+<pre><code>php artisan dusk:install</code></pre>
+<p>A <code>Browser</code> directory will be created within your <code>tests</code> directory and will contain an example test. Next, set the <code>APP_URL</code> environment variable in your <code>.env</code> file. This value should match the URL you use to access your application in a browser.</p>
+<p>To run your tests, use the <code>dusk</code> Artisan command. The <code>dusk</code> command accepts any argument that is also accepted by the <code>phpunit</code> command:</p>
+<pre><code>php artisan dusk</code></pre>
+<p><a name="using-other-browsers"></a></p>
+<h3>Using Other Browsers</h3>
+<p>By default, Dusk uses Google Chrome and a standalone <a href="https://sites.google.com/a/chromium.org/chromedriver/home">ChromeDriver</a> installation to run your browser tests. However, you may start your own Selenium server and run your tests against any browser you wish.</p>
+<p>To get started, open your <code>tests/DuskTestCase.php</code> file, which is the base Dusk test case for your application. Within this file, you can remove the call to the <code>startChromeDriver</code> method. This will stop Dusk from automatically starting the ChromeDriver:</p>
+<pre><code>/**
+ * Prepare for Dusk test execution.
+ *
+ * @beforeClass
+ * @return void
+ */
+public static function prepare()
+{
+    // static::startChromeDriver();
+}</code></pre>
+<p>Next, you may simply modify the <code>driver</code> method to connect to the URL and port of your choice. In addition, you may modify the &quot;desired capabilities&quot; that should be passed to the WebDriver:</p>
+<pre><code>/**
+ * Create the RemoteWebDriver instance.
+ *
+ * @return \Facebook\WebDriver\Remote\RemoteWebDriver
+ */
+protected function driver()
+{
+    return RemoteWebDriver::create(
+        'http://localhost:4444/wd/hub', DesiredCapabilities::phantomjs()
+    );
+}</code></pre>
+<p><a name="getting-started"></a></p>
+<h2>Getting Started</h2>
+<p><a name="generating-tests"></a></p>
+<h3>Generating Tests</h3>
+<p>To generate a Dusk test, use the <code>dusk:make</code> Artisan command. The generated test will be placed in the <code>tests/Browser</code> directory:</p>
+<pre><code>php artisan dusk:make LoginTest</code></pre>
+<p><a name="running-tests"></a></p>
+<h3>Running Tests</h3>
+<p>To run your browser tests, use the <code>dusk</code> Artisan command:</p>
+<pre><code>php artisan dusk</code></pre>
+<p>The <code>dusk</code> command accepts any argument that is normally accepted by the PHPUnit test runner, allowing you to only run the tests for a given <a href="https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.group">group</a>, etc:</p>
+<pre><code>php artisan dusk --group=foo</code></pre>
+<h4>Manually Starting ChromeDriver</h4>
+<p>By default, Dusk will automatically attempt to start ChromeDriver. If this does not work for your particular system, you may manually start ChromeDriver before running the <code>dusk</code> command. If you choose to start ChromeDriver manually, you should comment out the following line of your <code>tests/DuskTestCase.php</code> file:</p>
+<pre><code>/**
+ * Prepare for Dusk test execution.
+ *
+ * @beforeClass
+ * @return void
+ */
+public static function prepare()
+{
+    // static::startChromeDriver();
+}</code></pre>
+<p>In addition, if you start ChromeDriver on a port other than 9515, you should modify the <code>driver</code> method of the same class:</p>
+<pre><code>/**
+ * Create the RemoteWebDriver instance.
+ *
+ * @return \Facebook\WebDriver\Remote\RemoteWebDriver
+ */
+protected function driver()
+{
+    return RemoteWebDriver::create(
+        'http://localhost:9515', DesiredCapabilities::chrome()
+    );
+}</code></pre>
+<p><a name="environment-handling"></a></p>
+<h3>Environment Handling</h3>
+<p>To force Dusk to use its own environment file when running tests, create a <code>.env.dusk.{environment}</code> file in the root of your project. For example, if you will be initiating the <code>dusk</code> command from your <code>local</code> environment, you should create a <code>.env.dusk.local</code> file.</p>
+<p>When running tests, Dusk will back-up your <code>.env</code> file and rename your Dusk environment to <code>.env</code>. Once the tests have completed, your <code>.env</code> file will be restored.</p>
+<p><a name="creating-browsers"></a></p>
+<h3>Creating Browsers</h3>
+<p>To get started, let's write a test that verifies we can log into our application. After generating a test, we can modify it to navigate to the login page, enter some credentials, and click the &quot;Login&quot; button. To create a browser instance, call the <code>browse</code> method:</p>
+<pre><code>&lt;?php
+
+namespace Tests\Browser;
+
+use App\User;
+use Tests\DuskTestCase;
+use Laravel\Dusk\Chrome;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+
+class ExampleTest extends DuskTestCase
+{
+    use DatabaseMigrations;
+
+    /**
+     * A basic browser test example.
+     *
+     * @return void
+     */
+    public function testBasicExample()
+    {
+        $user = factory(User::class)-&gt;create([
+            'email' =&gt; '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bbcfdac2d7d4c9fbd7dac9dacdded795d8d4d6">[email&#160;protected]</a>',
+        ]);
+
+        $this-&gt;browse(function ($browser) use ($user) {
+            $browser-&gt;visit('/login')
+                    -&gt;type('email', $user-&gt;email)
+                    -&gt;type('password', 'secret')
+                    -&gt;press('Login')
+                    -&gt;assertPathIs('/home');
+        });
+    }
+}</code></pre>
+<p>As you can see in the example above, the <code>browse</code> method accepts a callback. A browser instance will automatically be passed to this callback by Dusk and is the main object used to interact with and make assertions against your application.</p>
+<blockquote>
+<p>{tip} This test can be used to test the login screen generated by the <code>make:auth</code> Artisan command.</p>
+</blockquote>
+<h4>Creating Multiple Browsers</h4>
+<p>Sometimes you may need multiple browsers in order to properly carry out a test. For example, multiple browsers may be needed to test a chat screen that interacts with websockets. To create multiple browsers, simply &quot;ask&quot; for more than one browser in the signature of the callback given to the <code>browse</code> method:</p>
+<pre><code>$this-&gt;browse(function ($first, $second) {
+    $first-&gt;loginAs(User::find(1))
+          -&gt;visit('/home')
+          -&gt;waitForText('Message');
+
+    $second-&gt;loginAs(User::find(2))
+           -&gt;visit('/home')
+           -&gt;waitForText('Message')
+           -&gt;type('message', 'Hey Taylor')
+           -&gt;press('Send');
+
+    $first-&gt;waitForText('Hey Taylor')
+          -&gt;assertSee('Jeffrey Way');
+});</code></pre>
+<p><a name="authentication"></a></p>
+<h3>Authentication</h3>
+<p>Often, you will be testing pages that require authentication. You can use Dusk's <code>loginAs</code> method in order to avoid interacting with the login screen during every test. The <code>loginAs</code> method accepts a user ID or user model instance:</p>
+<pre><code>$this-&gt;browse(function ($first, $second) {
+    $first-&gt;loginAs(User::find(1))
+          -&gt;visit('/home');
+});</code></pre>
+<blockquote>
+<p>{note} After using the <code>loginAs</code> method, the user session will be maintained for all tests within the file.</p>
+</blockquote>
+<p><a name="interacting-with-elements"></a></p>
+<h2>Interacting With Elements</h2>
+<p><a name="clicking-links"></a></p>
+<h3>Clicking Links</h3>
+<p>To click a link, you may use the <code>clickLink</code> method on the browser instance. The <code>clickLink</code> method will click the link that has the given display text:</p>
+<pre><code>$browser-&gt;clickLink($linkText);</code></pre>
+<blockquote>
+<p>{note} This method interacts with jQuery. If jQuery is not available on the page, Dusk will automatically inject it into the page so it is available for the test's duration.</p>
+</blockquote>
+<p><a name="text-values-and-attributes"></a></p>
+<h3>Text, Values, &amp; Attributes</h3>
+<h4>Retrieving &amp; Setting Values</h4>
+<p>Dusk provides several methods for interacting with the current display text, value, and attributes of elements on the page. For example, to get the &quot;value&quot; of an element that matches a given selector, use the <code>value</code> method:</p>
+<pre><code>// Retrieve the value...
+$value = $browser-&gt;value('selector');
+
+// Set the value...
+$browser-&gt;value('selector', 'value');</code></pre>
+<h4>Retrieving Text</h4>
+<p>The <code>text</code> method may be used to retrieve the display text of an element that matches the given selector:</p>
+<pre><code>$text = $browser-&gt;text('selector');</code></pre>
+<h4>Retrieving Attributes</h4>
+<p>Finally, the <code>attribute</code> method may be used to retrieve an attribute of an element matching the given selector:</p>
+<pre><code>$attribute = $browser-&gt;attribute('selector', 'value');</code></pre>
+<p><a name="using-forms"></a></p>
+<h3>Using Forms</h3>
+<h4>Typing Values</h4>
+<p>Dusk provides a variety of methods for interacting with forms and input elements. First, let's take a look at an example of typing text into an input field:</p>
+<pre><code>$browser-&gt;type('email', '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acd8cdd5c0c3deecc0cddecddac9c082cfc3c1">[email&#160;protected]</a>');</code></pre>
+<p>Note that, although the method accepts one if necessary, we are not required to pass a CSS selector into the <code>type</code> method. If a CSS selector is not provided, Dusk will search for an input field with the given <code>name</code> attribute. Finally, Dusk will attempt to find a <code>textarea</code> with the given <code>name</code> attribute.</p>
+<p>To append text to a field without clearing its content, you may use the <code>append</code> method:</p>
+<pre><code>$browser-&gt;type('tags', 'foo')
+        -&gt;append('tags', ', bar, baz');</code></pre>
+<p>You may clear the value of an input using the <code>clear</code> method:</p>
+<pre><code>$browser-&gt;clear('email');</code></pre>
+<h4>Dropdowns</h4>
+<p>To select a value in a dropdown selection box, you may use the <code>select</code> method. Like the <code>type</code> method, the <code>select</code> method does not require a full CSS selector. When passing a value to the <code>select</code> method, you should pass the underlying option value instead of the display text:</p>
+<pre><code>$browser-&gt;select('size', 'Large');</code></pre>
+<p>You may select a random option by omitting the second parameter:</p>
+<pre><code>$browser-&gt;select('size');</code></pre>
+<h4>Checkboxes</h4>
+<p>To &quot;check&quot; a checkbox field, you may use the <code>check</code> method. Like many other input related methods, a full CSS selector is not required. If an exact selector match can't be found, Dusk will search for a checkbox with a matching <code>name</code> attribute:</p>
+<pre><code>$browser-&gt;check('terms');
+
+$browser-&gt;uncheck('terms');</code></pre>
+<h4>Radio Buttons</h4>
+<p>To &quot;select&quot; a radio button option, you may use the <code>radio</code> method. Like many other input related methods, a full CSS selector is not required. If an exact selector match can't be found, Dusk will search for a radio with matching <code>name</code> and <code>value</code> attributes:</p>
+<pre><code>$browser-&gt;radio('version', 'php7');</code></pre>
+<p><a name="attaching-files"></a></p>
+<h3>Attaching Files</h3>
+<p>The <code>attach</code> method may be used to attach a file to a <code>file</code> input element. Like many other input related methods, a full CSS selector is not required. If an exact selector match can't be found, Dusk will search for a file input with matching <code>name</code> attribute:</p>
+<pre><code>$browser-&gt;attach('photo', __DIR__.'/photos/me.png');</code></pre>
+<p><a name="using-the-keyboard"></a></p>
+<h3>Using The Keyboard</h3>
+<p>The <code>keys</code> method allows you to provide more complex input sequences to a given element than normally allowed by the <code>type</code> method. For example, you may hold modifier keys entering values. In this example, the <code>shift</code> key will be held while <code>taylor</code> is entered into the element matching the given selector. After <code>taylor</code> is typed, <code>otwell</code> will be typed without any modifier keys:</p>
+<pre><code>$browser-&gt;keys('selector', ['{shift}', 'taylor'], 'otwell');</code></pre>
+<p>You may even send a &quot;hot key&quot; to the primary CSS selector that contains your application:</p>
+<pre><code>$browser-&gt;keys('.app', ['{command}', 'j']);</code></pre>
+<blockquote>
+<p>{tip} All modifier keys are wrapped in <code>{}</code> characters, and match the constants defined in the <code>Facebook\WebDriver\WebDriverKeys</code> class, which can be <a href="https://github.com/facebook/php-webdriver/blob/community/lib/WebDriverKeys.php">found on GitHub</a>.</p>
+</blockquote>
+<p><a name="using-the-mouse"></a></p>
+<h3>Using The Mouse</h3>
+<h4>Clicking On Elements</h4>
+<p>The <code>click</code> method may be used to &quot;click&quot; on an element matching the given selector:</p>
+<pre><code>$browser-&gt;click('.selector');</code></pre>
+<h4>Mouseover</h4>
+<p>The <code>mouseover</code> method may be used when you need to move the mouse over an element matching the given selector:</p>
+<pre><code>$browser-&gt;mouseover('.selector');</code></pre>
+<h4>Drag &amp; Drop</h4>
+<p>The <code>drag</code> method may be used to drag an element matching the given selector to another element:</p>
+<pre><code>$browser-&gt;drag('.from-selector', '.to-selector');</code></pre>
+<p>Or, you may drag an element in a single direction:</p>
+<pre><code>$browser-&gt;dragLeft('.selector', 10);
+$browser-&gt;dragRight('.selector', 10);
+$browser-&gt;dragUp('.selector', 10);
+$browser-&gt;dragDown('.selector', 10);</code></pre>
+<p><a name="scoping-selectors"></a></p>
+<h3>Scoping Selectors</h3>
+<p>Sometimes you may wish to perform several operations while scoping all of the operations within a given selector. For example, you may wish to assert that some text exists only within a table and then click a button within that table. You may use the <code>with</code> method to accomplish this. All operations performed within the callback given to the <code>with</code> method will be scoped to the original selector:</p>
+<pre><code>$browser-&gt;with('.table', function ($table) {
+    $table-&gt;assertSee('Hello World')
+          -&gt;clickLink('Delete');
+});</code></pre>
+<p><a name="waiting-for-elements"></a></p>
+<h3>Waiting For Elements</h3>
+<p>When testing applications that use JavaScript extensively, it often becomes necessary to &quot;wait&quot; for certain elements or data to be available before proceeding with a test. Dusk makes this a cinch. Using a variety of methods, you may wait for elements to be visible on the page or even wait until a given JavaScript expression evaluates to <code>true</code>.</p>
+<h4>Waiting</h4>
+<p>If you need to pause the test for a given number of milliseconds, use the <code>pause</code> method:</p>
+<pre><code>$browser-&gt;pause(1000);</code></pre>
+<h4>Waiting For Selectors</h4>
+<p>The <code>waitFor</code> method may be used to pause the execution of the test until the element matching the given CSS selector is displayed on the page. By default, this will pause the test for a maximum of five seconds before throwing an exception. If necessary, you may pass a custom timeout threshold as the second argument to the method:</p>
+<pre><code>// Wait a maximum of five seconds for the selector...
+$browser-&gt;waitFor('.selector');
+
+// Wait a maximum of one second for the selector...
+$browser-&gt;waitFor('.selector', 1);</code></pre>
+<p>You may also wait until the given selector is missing from the page:</p>
+<pre><code>$browser-&gt;waitUntilMissing('.selector');
+
+$browser-&gt;waitUntilMissing('.selector', 1);</code></pre>
+<h4>Scoping Selectors When Available</h4>
+<p>Occasionally, you may wish to wait for a given selector and then interact with the element matching the selector. For example, you may wish to wait until a modal window is available and then press the &quot;OK&quot; button within the modal. The <code>whenAvailable</code> method may be used in this case. All element operations performed within the given callback will be scoped to the original selector:</p>
+<pre><code>$browser-&gt;whenAvailable('.modal', function ($modal) {
+    $modal-&gt;assertSee('Hello World')
+          -&gt;press('OK');
+});</code></pre>
+<h4>Waiting For Text</h4>
+<p>The <code>waitForText</code> method may be used to wait until the given text is displayed on the page:</p>
+<pre><code>// Wait a maximum of five seconds for the text...
+$browser-&gt;waitForText('Hello World');
+
+// Wait a maximum of one second for the text...
+$browser-&gt;waitForText('Hello World', 1);</code></pre>
+<h4>Waiting For Links</h4>
+<p>The <code>waitForLink</code> method may be used to wait until the given link text is displayed on the page:</p>
+<pre><code>// Wait a maximum of five seconds for the link...
+$browser-&gt;waitForLink('Create');
+
+// Wait a maximum of one second for the link...
+$browser-&gt;waitForLink('Create', 1);</code></pre>
+<h4>Waiting On The Page Location</h4>
+<p>When making a path assertion such as <code>$browser-&gt;assertPathIs('/home')</code>, the assertion can fail if <code>window.location.pathname</code> is being updated asynchronously. You may use the <code>waitForLocation</code> method to wait for the location to be a given value:</p>
+<pre><code>$browser-&gt;waitForLocation('/secret');</code></pre>
+<h4>Waiting for Page Reloads</h4>
+<p>If you need to make assertions after a page has been reloaded, use the <code>waitForReload</code> method:</p>
+<pre><code>$browser-&gt;click('.some-action')
+        -&gt;waitForReload()
+        -&gt;assertSee('something');</code></pre>
+<h4>Waiting On JavaScript Expressions</h4>
+<p>Sometimes you may wish to pause the execution of a test until a given JavaScript expression evaluates to <code>true</code>. You may easily accomplish this using the <code>waitUntil</code> method. When passing an expression to this method, you do not need to include the <code>return</code> keyword or an ending semi-colon:</p>
+<pre><code>// Wait a maximum of five seconds for the expression to be true...
+$browser-&gt;waitUntil('App.dataLoaded');
+
+$browser-&gt;waitUntil('App.data.servers.length &gt; 0');
+
+// Wait a maximum of one second for the expression to be true...
+$browser-&gt;waitUntil('App.data.servers.length &gt; 0', 1);</code></pre>
+<h4>Waiting With A Callback</h4>
+<p>Many of the &quot;wait&quot; methods in Dusk rely on the underlying <code>waitUsing</code> method. You may use this method directly to wait for a given callback to return <code>true</code>. The <code>waitUsing</code> method accepts the maximum number of seconds to wait, the interval at which the Closure should be evaluated, the Closure, and an optional failure message:</p>
+<pre><code>$browser-&gt;waitUsing(10, 1, function () use ($something) {
+    return $something-&gt;isReady();
+}, "Something wasn't ready in time.");</code></pre>
+<p><a name="making-vue-assertions"></a></p>
+<h3>Making Vue Assertions</h3>
+<p>Dusk even allows you to make assertions on the state of <a href="https://vuejs.org/">Vue</a> component data. For example, imagine your application contains the following Vue component:</p>
+<pre><code>// HTML...
+
+&lt;profile dusk="profile-component"&gt;&lt;/profile&gt;
+
+// Component Definition...
+
+Vue.component('profile', {
+    template: '&lt;div&gt;{{ user.name }}&lt;/div&gt;',
+
+    data: function () {
+        return {
+            user: {
+              name: 'Taylor'
+            }
+        };
+    }
+});</code></pre>
+<p>You may assert on the state of the Vue component like so:</p>
+<pre><code>/**
+ * A basic Vue test example.
+ *
+ * @return void
+ */
+public function testVue()
+{
+    $this-&gt;browse(function (Browser $browser) {
+        $browser-&gt;visit('/')
+                -&gt;assertVue('user.name', 'Taylor', '@profile-component');
+    });
+}</code></pre>
+<p><a name="available-assertions"></a></p>
+<h2>Available Assertions</h2>
+<p>Dusk provides a variety of assertions that you may make against your application. All of the available assertions are documented in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Assertion</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$browser-&gt;assertTitle($title)</code></td>
+<td>Assert the page title matches the given text.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertTitleContains($title)</code></td>
+<td>Assert the page title contains the given text.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertPathBeginsWith($path)</code></td>
+<td>Assert that the current URL path begins with given path.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertPathIs('/home')</code></td>
+<td>Assert the current path matches the given path.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertPathIsNot('/home')</code></td>
+<td>Assert the current path does not match the given path.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertRouteIs($name, $parameters)</code></td>
+<td>Assert the current URL matches the given named route's URL.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertQueryStringHas($name, $value)</code></td>
+<td>Assert the given query string parameter is present and has a given value.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertQueryStringMissing($name)</code></td>
+<td>Assert the given query string parameter is missing.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertHasQueryStringParameter($name)</code></td>
+<td>Assert that the given query string parameter is present.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertHasCookie($name)</code></td>
+<td>Assert the given cookie is present.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertCookieMissing($name)</code></td>
+<td>Assert that the given cookie is not present.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertCookieValue($name, $value)</code></td>
+<td>Assert a cookie has a given value.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertPlainCookieValue($name, $value)</code></td>
+<td>Assert an unencrypted cookie has a given value.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertSee($text)</code></td>
+<td>Assert the given text is present on the page.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertDontSee($text)</code></td>
+<td>Assert the given text is not present on the page.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertSeeIn($selector, $text)</code></td>
+<td>Assert the given text is present within the selector.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertDontSeeIn($selector, $text)</code></td>
+<td>Assert the given text is not present within the selector.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertSourceHas($code)</code></td>
+<td>Assert that the given source code is present on the page.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertSourceMissing($code)</code></td>
+<td>Assert that the given source code is not present on the page.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertSeeLink($linkText)</code></td>
+<td>Assert the given link is present on the page.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertDontSeeLink($linkText)</code></td>
+<td>Assert the given link is not present on the page.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertInputValue($field, $value)</code></td>
+<td>Assert the given input field has the given value.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertInputValueIsNot($field, $value)</code></td>
+<td>Assert the given input field does not have the given value.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertChecked($field)</code></td>
+<td>Assert the given checkbox is checked.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertNotChecked($field)</code></td>
+<td>Assert the given checkbox is not checked.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertRadioSelected($field, $value)</code></td>
+<td>Assert the given radio field is selected.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertRadioNotSelected($field, $value)</code></td>
+<td>Assert the given radio field is not selected.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertSelected($field, $value)</code></td>
+<td>Assert the given dropdown has the given value selected.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertNotSelected($field, $value)</code></td>
+<td>Assert the given dropdown does not have the given value selected.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertSelectHasOptions($field, $values)</code></td>
+<td>Assert that the given array of values are available to be selected.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertSelectMissingOptions($field, $values)</code></td>
+<td>Assert that the given array of values are not available to be selected.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertSelectHasOption($field, $value)</code></td>
+<td>Assert that the given value is available to be selected on the given field.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertValue($selector, $value)</code></td>
+<td>Assert the element matching the given selector has the given value.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertVisible($selector)</code></td>
+<td>Assert the element matching the given selector is visible.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertMissing($selector)</code></td>
+<td>Assert the element matching the given selector is not visible.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertDialogOpened($message)</code></td>
+<td>Assert that a JavaScript dialog with given message has been opened.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertVue($property, $value, $component)</code></td>
+<td>Assert that a given Vue component data property matches the given value.</td>
+</tr>
+<tr>
+<td><code>$browser-&gt;assertVueIsNot($property, $value, $component)</code></td>
+<td>Assert that a given Vue component data property does not match the given value.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="pages"></a></p>
+<h2>Pages</h2>
+<p>Sometimes, tests require several complicated actions to be performed in sequence. This can make your tests harder to read and understand. Pages allow you to define expressive actions that may then be performed on a given page using a single method. Pages also allow you to define short-cuts to common selectors for your application or a single page.</p>
+<p><a name="generating-pages"></a></p>
+<h3>Generating Pages</h3>
+<p>To generate a page object, use the <code>dusk:page</code> Artisan command. All page objects will be placed in the <code>tests/Browser/Pages</code> directory:</p>
+<pre><code>php artisan dusk:page Login</code></pre>
+<p><a name="configuring-pages"></a></p>
+<h3>Configuring Pages</h3>
+<p>By default, pages have three methods: <code>url</code>, <code>assert</code>, and <code>elements</code>. We will discuss the <code>url</code> and <code>assert</code> methods now. The <code>elements</code> method will be <a href="#shorthand-selectors">discussed in more detail below</a>.</p>
+<h4>The <code>url</code> Method</h4>
+<p>The <code>url</code> method should return the path of the URL that represents the page. Dusk will use this URL when navigating to the page in the browser:</p>
+<pre><code>/**
+ * Get the URL for the page.
+ *
+ * @return string
+ */
+public function url()
+{
+    return '/login';
+}</code></pre>
+<h4>The <code>assert</code> Method</h4>
+<p>The <code>assert</code> method may make any assertions necessary to verify that the browser is actually on the given page. Completing this method is not necessary; however, you are free to make these assertions if you wish. These assertions will be run automatically when navigating to the page:</p>
+<pre><code>/**
+ * Assert that the browser is on the page.
+ *
+ * @return void
+ */
+public function assert(Browser $browser)
+{
+    $browser-&gt;assertPathIs($this-&gt;url());
+}</code></pre>
+<p><a name="navigating-to-pages"></a></p>
+<h3>Navigating To Pages</h3>
+<p>Once a page has been configured, you may navigate to it using the <code>visit</code> method:</p>
+<pre><code>use Tests\Browser\Pages\Login;
+
+$browser-&gt;visit(new Login);</code></pre>
+<p>Sometimes you may already be on a given page and need to &quot;load&quot; the page's selectors and methods into the current test context. This is common when pressing a button and being redirected to a given page without explicitly navigating to it. In this situation, you may use the <code>on</code> method to load the page:</p>
+<pre><code>use Tests\Browser\Pages\CreatePlaylist;
+
+$browser-&gt;visit('/dashboard')
+        -&gt;clickLink('Create Playlist')
+        -&gt;on(new CreatePlaylist)
+        -&gt;assertSee('@create');</code></pre>
+<p><a name="shorthand-selectors"></a></p>
+<h3>Shorthand Selectors</h3>
+<p>The <code>elements</code> method of pages allows you to define quick, easy-to-remember shortcuts for any CSS selector on your page. For example, let's define a shortcut for the &quot;email&quot; input field of the application's login page:</p>
+<pre><code>/**
+ * Get the element shortcuts for the page.
+ *
+ * @return array
+ */
+public function elements()
+{
+    return [
+        '@email' =&gt; 'input[name=email]',
+    ];
+}</code></pre>
+<p>Now, you may use this shorthand selector anywhere you would use a full CSS selector:</p>
+<pre><code>$browser-&gt;type('@email', '<a href="https://laravel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e692879f8a8994a68a87948790838ac885898b">[email&#160;protected]</a>');</code></pre>
+<h4>Global Shorthand Selectors</h4>
+<p>After installing Dusk, a base <code>Page</code> class will be placed in your <code>tests/Browser/Pages</code> directory. This class contains a <code>siteElements</code> method which may be used to define global shorthand selectors that should be available on every page throughout your application:</p>
+<pre><code>/**
+ * Get the global element shortcuts for the site.
+ *
+ * @return array
+ */
+public static function siteElements()
+{
+    return [
+        '@element' =&gt; '#selector',
+    ];
+}</code></pre>
+<p><a name="page-methods"></a></p>
+<h3>Page Methods</h3>
+<p>In addition to the default methods defined on pages, you may define additional methods which may be used throughout your tests. For example, let's imagine we are building a music management application. A common action for one page of the application might be to create a playlist. Instead of re-writing the logic to create a playlist in each test, you may define a <code>createPlaylist</code> method on a page class:</p>
+<pre><code>&lt;?php
+
+namespace Tests\Browser\Pages;
+
+use Laravel\Dusk\Browser;
+
+class Dashboard extends Page
+{
+    // Other page methods...
+
+    /**
+     * Create a new playlist.
+     *
+     * @param  \Laravel\Dusk\Browser  $browser
+     * @param  string  $name
+     * @return void
+     */
+    public function createPlaylist(Browser $browser, $name)
+    {
+        $browser-&gt;type('name', $name)
+                -&gt;check('share')
+                -&gt;press('Create Playlist');
+    }
+}</code></pre>
+<p>Once the method has been defined, you may use it within any test that utilizes the page. The browser instance will automatically be passed to the page method:</p>
+<pre><code>use Tests\Browser\Pages\Dashboard;
+
+$browser-&gt;visit(new Dashboard)
+        -&gt;createPlaylist('My Playlist')
+        -&gt;assertSee('My Playlist');</code></pre>
+<p><a name="components"></a></p>
+<h2>Components</h2>
+<p>Components are similar to Dusk’s “page objects”, but are intended for pieces of UI and functionality that are re-used throughout your application, such as a navigation bar or notification window. As such, components are not bound to specific URLs.</p>
+<p><a name="generating-components"></a></p>
+<h3>Generating Components</h3>
+<p>To generate a component, use the <code>dusk:component</code> Artisan command. New components are placed in the <code>test/Browser/Components</code> directory:</p>
+<pre><code>php artisan dusk:component DatePicker</code></pre>
+<p>As shown above, a &quot;date picker&quot; is an example of a component that might exist throughout your application on a variety of pages. It can become cumbersome to manually write the browser automation logic to select a date in dozens of tests throughout your test suite. Instead, we can define a Dusk component to represent the date picker, allowing us to encapsulate that logic within the component:</p>
+<pre><code>&lt;?php
+
+namespace Tests\Browser\Components;
+
+use Laravel\Dusk\Browser;
+use Laravel\Dusk\Component as BaseComponent;
+
+class DatePicker extends BaseComponent
+{
+    /**
+     * Get the root selector for the component.
+     *
+     * @return string
+     */
+    public function selector()
+    {
+        return '.date-picker';
+    }
+
+    /**
+     * Assert that the browser page contains the component.
+     *
+     * @param  Browser  $browser
+     * @return void
+     */
+    public function assert(Browser $browser)
+    {
+        $browser-&gt;assertVisible($this-&gt;selector());
+    }
+
+    /**
+     * Get the element shortcuts for the component.
+     *
+     * @return array
+     */
+    public function elements()
+    {
+        return [
+            '@date-field' =&gt; 'input.datepicker-input',
+            '@month-list' =&gt; 'div &gt; div.datepicker-months',
+            '@day-list' =&gt; 'div &gt; div.datepicker-days',
+        ];
+    }
+
+    /**
+     * Select the given date.
+     *
+     * @param  \Laravel\Dusk\Browser  $browser
+     * @param  int  $month
+     * @param  int  $year
+     * @return void
+     */
+    public function selectDate($browser, $month, $year)
+    {
+        $browser-&gt;click('@date-field')
+                -&gt;within('@month-list', function ($browser) use ($month) {
+                    $browser-&gt;click($month);
+                })
+                -&gt;within('@day-list', function ($browser) use ($day) {
+                    $browser-&gt;click($day);
+                });
+    }
+}</code></pre>
+<p><a name="using-components"></a></p>
+<h3>Using Components</h3>
+<p>Once the component has been defined, we can easily select a date within the date picker from any test. And, if the logic necessary to select a date changes, we only need to update the component:</p>
+<pre><code>&lt;?php
+
+namespace Tests\Browser;
+
+use Tests\DuskTestCase;
+use Laravel\Dusk\Browser;
+use Tests\Browser\Components\DatePicker;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+
+class ExampleTest extends DuskTestCase
+{
+    /**
+     * A basic component test example.
+     *
+     * @return void
+     */
+    public function testBasicExample()
+    {
+        $this-&gt;browse(function (Browser $browser) {
+            $browser-&gt;visit('/')
+                    -&gt;within(new DatePicker, function ($browser) {
+                        $browser-&gt;selectDate(1, 2018);
+                    })
+                    -&gt;assertSee('January');
+        });
+    }
+}</code></pre>
+<p><a name="continuous-integration"></a></p>
+<h2>Continuous Integration</h2>
+<p><a name="running-tests-on-travis-ci"></a></p>
+<h3>Travis CI</h3>
+<p>To run your Dusk tests on Travis CI, we will need to use the &quot;sudo-enabled&quot; Ubuntu 14.04 (Trusty) environment. Since Travis CI is not a graphical environment, we will need to take some extra steps in order to launch a Chrome browser. In addition, we will use <code>php artisan serve</code> to launch PHP's built-in web server:</p>
+<pre><code>sudo: required
+dist: trusty
+
+addons:
+   chrome: stable
+
+install:
+   - cp .env.testing .env
+   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+
+before_script:
+   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &amp;
+   - php artisan serve &amp;
+
+script:
+   - php artisan dusk</code></pre>
+<p><a name="running-tests-on-circle-ci"></a></p>
+<h3>CircleCI</h3>
+<h4>CircleCI 1.0</h4>
+<p>If you are using CircleCI 1.0 to run your Dusk tests, you may use this configuration file as a starting point. Like TravisCI, we will use the <code>php artisan serve</code> command to launch PHP's built-in web server:</p>
+<pre><code>dependencies:
+  pre:
+      - curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      - sudo dpkg -i google-chrome.deb
+      - sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
+      - rm google-chrome.deb
+
+test:
+    pre:
+        - "./vendor/laravel/dusk/bin/chromedriver-linux":
+            background: true
+        - cp .env.testing .env
+        - "php artisan serve":
+            background: true
+
+    override:
+        - php artisan dusk</code></pre>
+<h4>CircleCI 2.0</h4>
+<p>If you are using CircleCI 2.0 to run your Dusk tests, you may add these steps to your build:</p>
+<pre><code> version: 2
+ jobs:
+     build:
+         steps:
+            - run: sudo apt-get install -y libsqlite3-dev
+            - run: cp .env.testing .env
+            - run: composer install -n --ignore-platform-reqs
+            - run: npm install
+            - run: npm run production
+            - run: vendor/bin/phpunit
+
+            - run:
+               name: Start Chrome Driver
+               command: ./vendor/laravel/dusk/bin/chromedriver-linux
+               background: true
+
+            - run:
+               name: Run Laravel Server
+               command: php artisan serve
+               background: true
+
+            - run:
+               name: Run Laravel Dusk Tests
+               command: php artisan dusk</code></pre>
+	</article>
+</div>
+
+    <footer class="main">
+        <ul>
+            <li class="nav-docs"><a href="https://laravel.com/docs">Documentation</a></li>
+<li class="nav-laracasts"><a href="https://laracasts.com/">Laracasts</a></li>
+<li class="nav-laravel-news"><a href="https://laravel-news.com/">News</a></li>
+<li class="nav-partners"><a href="https://laravel.com/partners">Partners</a></li>
+<li class="nav-forge"><a href="https://forge.laravel.com/">Forge</a></li>
+
+<li class="dropdown community-dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ecosystem <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+
+		<li><a href="https://envoyer.io/">Envoyer</a></li>
+		<li><a href="https://lumen.laravel.com/">Lumen</a></li>
+		<li><a href="https://spark.laravel.com/">Spark</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracon.eu/">Laracon EU</a></li>
+		<li><a href="http://laracon.us/">Laracon US</a></li>
+		<li><a href="https://laracon.net/">Laracon Online</a></li>
+
+		<li class="divider"></li>
+
+		<li><a href="https://laracasts.com/discuss">Forums</a></li>
+		<li><a href="https://github.com/laravel/laravel">GitHub</a></li>
+		<li><a href="https://larajobs.com/?partner=5#/">Jobs</a></li>
+		<li><a href="http://www.laravelpodcast.com/">Podcast</a></li>
+		<li><a href="https://larachat.co/">Slack</a></li>
+		<li><a href="https://twitter.com/laravelphp">Twitter</a></li>
+	</ul>
+</li>
+        </ul>
+        <p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
+        <p class="less-significant">
+            <a href="http://jackmcdade.com/">
+                Designed by<br>
+                <svg xmlns="http://www.w3.org/2000/svg" width="128.2" height="28" viewBox="0 0 128.2 28"><g fill="#c3c3c3"><path d="M14.2.4v1.4l-1.4-.3.3 4.5c.1 1.5 0 3-.1 4.5 0 .4-.1.8-.1 1.2-.1.4-.1.8-.3 1.2-.1.4-.3.7-.5 1.1-.2.3-.5.6-.9.9-.4.2-.9.4-1.5.6-.6.2-1.1.3-1.6.3-.6 0-1.2-.1-1.6-.3-.5-.2-.9-.6-1.1-1-.3-.5-.5-1-.6-1.6-.1-.6-.1-1.3 0-2.1 0-.2.1-.5.2-.7-.1-.2 0-.4.1-.6l.3-.6 1.1.4c.2 0 .5.1.8.2.3.1.5.1.6.2 0 .2 0 .4-.1.5-.1.2-.1.3-.2.4-.1.1-.2.3-.2.4-.1.2-.1.3-.1.5L6 10.8c-.1.3-.2.7-.2 1.1 0 .4.1.8.2 1.2.2.4.4.7.6 1 .3.3.6.4 1 .3.6 0 1.1-.3 1.4-.6.3-.4.5-.9.7-1.7.1-.7.2-1.6.2-2.8V5.4c0-.6-.1-1.3-.1-2-.1-.6-.2-1.3-.3-2H5.7c-.7 0-1.5 0-2.2.2-.3.1-.6.2-1 .4-.3.1-.6.4-.9.6-.2.3-.4.6-.5 1-.1.3-.1.7 0 1 .1.5.3.8.4.9v-.1c0-.4.1-.8.4-1 .3-.2.6-.3.9-.3.3 0 .6.1.9.3.3.2.4.6.4 1s-.1.8-.4 1c-.3.2-.6.3-1 .3-.8 0-1.4-.2-1.8-.7-.4-.4-.7-.9-.8-1.5C0 4 0 3.4.2 2.7c.2-.6.5-1.1 1-1.5.4-.3.8-.5 1.2-.7.4-.1.9-.2 1.4-.3.5-.1.9-.1 1.4-.1h2.9c.6 0 1.1 0 1.6.1.5 0 1 .1 1.5.1s1 .1 1.5.1c.4.1.9.1 1.5 0zM25.2 14.3c0 .2.1.4.1.6 0 .2.1.4.1.7-1-.1-2-.2-3-.1-1.1.1-2.1.2-3 .4 0-.2-.1-.4-.1-.5 0-.2-.1-.4-.1-.5.2 0 .5-.1.7-.1.2 0 .4-.1.6-.1-.1-1.5-.3-3.1-.5-4.6-.5.1-.9.1-1.4.2-.5.1-.9.1-1.4.2-.2.7-.3 1.3-.5 2s-.3 1.3-.5 2h.6c.1 0 .3 0 .4.1v.9c0 .1 0 .2-.1.3H14v-1.2h1c.2-.5.3-1 .4-1.5.1-.5.3-1 .4-1.5.2-.6.3-1.2.5-1.7.2-.6.3-1.2.5-1.7.2-1.1.4-2.1.6-3.2.2-1.1.3-2.1.4-3.2h-1.4c0-.2.1-.4.1-.6 0-.2 0-.4.1-.6h5.8l.2 1.2h-1c.3 2.1.7 4.3 1 6.5.3 2.2.7 4.4 1 6.5h1.6zM17.5 9c.4-.1.7-.1 1.1-.2.4-.1.8-.1 1.2-.2-.2-1-.3-2-.5-2.9-.2-1-.4-1.9-.6-2.9-.2 1-.4 2.1-.5 3.1-.3 1-.5 2.1-.7 3.1zM36.7 10.4h-.6c0 .6 0 1.2-.2 1.9-.2.6-.5 1.2-1 1.6-.5.5-1 .9-1.6 1.1-.6.3-1.3.4-2 .5-.6.1-1.1.1-1.8 0-.6-.1-1.1-.4-1.6-.7-.2-.2-.5-.4-.8-.7-.3-.3-.5-.5-.6-.8-.3-.5-.5-1-.6-1.5-.2-.5-.3-.9-.4-1.4-.1-.5-.2-1-.2-1.5s0-1 .1-1.6c.2-1 .4-2 .8-2.9.4-.9.8-1.7 1.4-2.3.5-.7 1.2-1.2 1.9-1.6.7-.3 1.4-.5 2.2-.5.3 0 .5 0 .8.1.3.1.5.2.7.4.3.3.7.7 1 1.2.3.5.6 1.2.7 1.9h.6v.6l-2.5.4c-.3.1-.5.1-.6 0-.1 0-.2-.1-.2-.2-.1-.1-.1-.2 0-.3h.4c.2-.2.3-.3.3-.6v-.7c0-.5-.2-.9-.5-1.3l-.4-.4c-.2-.1-.4-.1-.6 0-.2 0-.4.2-.6.4-.2.2-.4.5-.5.9-.3.2-.4.6-.5.9-.1.3-.2.5-.2.7-.6 2.6-.7 5.3-.2 8 .1.3.2.7.3 1s.3.6.5.9c.2.3.5.5.8.7.3.2.6.2 1 .1.6-.1 1-.4 1.4-1 .3-.5.6-1.1.7-1.8.1-.3.1-.6.1-.9v-.5c-.2 0-.4 0-.6-.1-.1-.1-.2-.2-.2-.3 0-.1 0-.2.1-.3h3.4c0 .1 0 .2-.1.3-.1.1-.1.2-.1.3z"/><path d="M48 14.2c.1.2.3.3.5.4.2.1.5.1.7 0 .1.1.1.2.1.4s-.1.3-.2.4c-.1.1-.2.2-.4.2h-1.4c-.3 0-.7 0-1-.1-.3-.1-.7-.2-1-.4-.3-.2-.5-.4-.7-.7-.2-.3-.3-.6-.3-1V9.9v-.4c0-.2-.1-.3-.2-.5s-.3-.3-.4-.4c-.2-.1-.4-.1-.7-.1-.1 0-.2 0-.5.1-.2.3-.3.5-.5.8-.2.3-.3.5-.5.7 0 .8 0 1.5-.1 2.2 0 .7-.1 1.5-.1 2.1h1.4v1.1c-.5 0-.9.1-1.3 0-.4 0-.8 0-1.2-.1-.4 0-.8-.1-1.2-.1H37.3c-.1 0-.2 0-.3-.1-.1 0-.1-.1-.1-.2s-.1-.3-.1-.4v-.4c0-.1.1-.2.1-.2.2.1.4.2.6.1s.4-.2.5-.4c0-.1.1-.3.1-.7 0-.4 0-.9.1-1.6 0-.6.1-1.3.1-2.1s0-1.6.1-2.4c0-.8 0-1.5.1-2.3 0-.7.1-1.3.1-1.8v-.7c0-.2-.1-.4-.2-.6-.1-.2-.3-.3-.5-.4-.2-.1-.4 0-.6.1 0-.2-.1-.5-.1-.7 0-.2 0-.4-.1-.7 1 0 2 .1 3 .1.9 0 1.9.1 3 .1v.3c0 .1 0 .3.1.4v.4c0 .1 0 .2-.1.2-.1.1-.2.1-.3.1-.1 0-.2 0-.4-.1-.1-.1-.3-.1-.4-.2-.1-.1-.3-.1-.3-.1-.1.9-.1 1.9-.1 2.9s-.1 2-.1 3.1c.7-1.2 1.4-2.5 2-3.8.2-.3.3-.6.4-.9.1-.3.3-.6.5-.9.2-.3.4-.5.7-.7.3.3.6.2.9.1.3-.1.7-.1 1 0 .3.1.6.2.9.5.2.3.4.6.4 1s.1.8 0 1.1v.5c0 .2-.1.3-.2.4-.1.2-.2.3-.4.4-.2.1-.4.1-.5.2-.1 0-.3.1-.4.1h-.4c-.2-.3-.4-.4-.4-.6-.1-.2-.1-.4 0-.5.1-.2.2-.3.3-.3.1 0 .2-.1.4-.1.2-.1.3-.2.3-.3.1-.2.1-.3.1-.5 0-.3-.1-.5-.1-.7-.1-.2-.2-.3-.3-.3-.2 0-.3 0-.5.1s-.3.2-.5.4-.3.4-.4.6c-.1.2-.3.5-.4.7-.1.3-.3.6-.4.8-.2.2-.3.5-.4.8-.4.9-.8 1.7-1.2 2.5.3 0 .6-.1 1 0h1c.3 0 .7.1 1 .2.3.1.6.3.8.6.3.3.4.6.5 1 .1.4.1.8.2 1.1l.2 2.1c0 .2.1.5.1.7 0 .4.1.7.3.9zM71.7 13.9c.2.2.4.4.7.5.3.1.5 0 .8-.1 0 .2.1.3.1.6.1.2.1.4.1.6h-1.1s-.8 0-1.3.1h-2.3v-.2c0-.1.1-.2.2-.3.1-.1.2-.2.4-.3.2-.1.3-.1.6-.1.1 0 .1-.2.1-.7v-1.6c0-.6 0-1.2-.1-1.9s0-1.1 0-1.5V6.4c0-.7.1-1.5.1-2.2-.6 1.3-1.1 2.7-1.6 4.1-.5 1.5-1 3-1.5 4.4 0 0 .1.1.1.2-.2 0-.4 0-.7.1-.3.1-.5.1-.7.1-.5-1.9-1.1-3.7-1.6-5.5-.5-1.8-1.1-3.6-1.6-5.5-.1 1-.1 2-.1 3 0 1.1-.1 2.1-.1 3.2s0 2.1-.1 3.2c0 1-.1 2-.1 3h1.4v1.1c-.5 0-.9.1-1.3 0-.4 0-.8 0-1.2-.1-.4 0-.8-.1-1.2-.1H58c-.1 0-.2 0-.3-.1-.1 0-.1-.1-.1-.2s-.1-.3-.1-.4v-.4c0-.1.1-.2.1-.2.2.1.4.2.6.1s.4-.2.5-.4c0-.1.1-.3.1-.7 0-.4 0-.9.1-1.6 0-.6.1-1.3.1-2.1V7.2c0-.8 0-1.5.1-2.3 0-.7.1-1.3.1-1.8v-.7c0-.2-.1-.4-.2-.6-.1-.2-.3-.3-.5-.4-.2-.1-.4 0-.6.1 0-.2-.1-.5-.1-.7 0-.2 0-.4-.1-.7 1 0 2 .1 3 .1.9 0 1.9.1 3 .1 0 .3-.1.5-.4.7.3 1.3.6 2.6 1 3.9l1.2 3.9c.2-.6.4-1.3.6-1.9l.6-1.8c.3-.5.5-1.1.8-1.7.2-.6.4-1.3.6-2-.1 0-.3 0-.4-.1-.1 0-.2 0-.4-.1-.1 0-.1-.1-.1-.3 0-.1.1-.2.1-.3.1-.1.2-.1.3-.1h4.5c.1 0 .3.1.4.2.1.1.2.2.2.4s0 .3-.2.3c-.1-.1-.2-.1-.3-.1-.1 0-.2.1-.3.1-.2.4-.3.8-.4 1.3-.1.5-.1.9-.1 1.4-.2 2.8-.2 5.6 0 8.4 0 .3 0 .5.1.7-.1.3 0 .5.2.7zM81.7 12h-.4c0 .4 0 .9-.2 1.3-.1.4-.4.8-.7 1.1-.3.3-.7.6-1.1.8-.4.2-.9.3-1.3.4-.4.1-.8 0-1.2 0-.4-.1-.8-.2-1.1-.5-.2-.1-.3-.3-.5-.5s-.3-.4-.4-.6c-.2-.4-.3-.7-.4-1-.1-.3-.2-.6-.3-1-.1-.3-.1-.6-.1-1 0-.3 0-.7.1-1.1.1-.7.3-1.4.5-2 .3-.6.6-1.1.9-1.6s.8-.8 1.3-1.1c.5-.3 1-.4 1.5-.4.2 0 .4 0 .6.1.2.1.3.1.5.3.2.2.4.4.6.8.2.4.4.8.5 1.3h.4v.4l-1.7.3c-.2.1-.3.1-.4 0-.1 0-.1-.1-.2-.2v-.2h.4c.1-.1.2-.2.2-.4v-.5c0-.3-.1-.6-.3-.9l-.3-.3c-.1-.1-.2-.1-.4 0-.1 0-.3.1-.4.3-.1.2-.3.4-.4.6l-.3.6c-.1.2-.1.4-.1.5-.4 1.8-.5 3.6-.1 5.5.1.2.1.4.2.7l.3.6c.1.2.3.3.6.5.2.1.4.1.7.1.4-.1.7-.3 1-.7.2-.4.4-.8.5-1.2 0-.2.1-.4.1-.6v-.3h-.4c-.1 0-.1-.1-.1-.2s0-.2.1-.2h2.4v.2c-.5-.1-.5 0-.6.1z"/><path d="M83.5 14.2c.2-4.3.3-8.5.2-12.8h-1.8V.9.4c.7 0 1.3 0 2-.1.7 0 1.3 0 2-.1.8-.2 1.6-.2 2.4-.1.8.1 1.6.3 2.4.5.7.3 1.4.7 1.9 1.2s.9 1.1 1.1 1.8c.3 1.3.4 2.5.3 3.8 0 1.2-.2 2.4-.3 3.6 0 .4-.1.8-.2 1.2-.1.4-.3.8-.5 1.1-.3.5-.8 1-1.3 1.3-.5.3-1.1.5-1.7.6-.5.1-.9.2-1.4.1-.5 0-.9 0-1.4-.1h-4.9c-.2-.4-.1-.8.2-1.1.2-.2.3-.2.5-.3.2.3.4.3.5.4zm5.9-12.3c-.4-.3-.8-.5-1.3-.6-.5-.1-1-.1-1.5-.1-.3 4.5-.2 9.1.4 13.6.2 0 .4 0 .5-.1.2 0 .4-.1.6-.1.3-.1.6-.2.9-.4.3-.2.6-.4.8-.7.2-.3.4-.6.5-1s.2-.7.2-1.1c.4-2.1.4-4.2.2-6.3-.1-.6-.2-1.2-.4-1.9 0-.4-.4-.9-.9-1.3zM102.4 9.7c-.6-.1-1.3-.1-2 0s-1.4.4-2 .8l-.2-1.4.9-.1c0-.4-.1-.7-.1-1 0-.2-.1-.5-.1-.9-.3 0-.6.1-.9.1-.3 0-.6.1-1 .1-.2.7-.3 1.3-.4 1.8-.1.5-.2 1.1-.4 1.6l.2-.1.7.6c-.4.2-.8.6-1.2 1.1-.4.5-.7 1-.9 1.5l-.9-.5c0-.1.1-.2.2-.4s.2-.3.2-.4c.1-.2.2-.5.3-1 .1-.4.2-.9.4-1.3.1-.5.2-.9.3-1.3.1-.4.2-.7.2-.9l.3-1.2.3-1.2c.2-.7.3-1.4.4-2.1.1-.7.2-1.4.3-2.2h-.6l.1-.8 4-.1.1.8h-.2-.2c.1.7.2 1.4.3 2l.3 1.8.3 1.8c.1.6.2 1.3.4 2h.6l.3.9zm-3.6-3.6c-.1-.7-.2-1.3-.3-2-.1-.6-.3-1.3-.4-2-.1.6-.2 1.3-.4 2.1-.1.7-.3 1.5-.5 2.2l1.6-.3z"/><path d="M124.9 20.1c0-.3.1-.6.3-.8.2-.2.4-.3.7-.4.3-.1.5 0 .8.1.3.1.5.3.6.5.3.4.6.9.7 1.4.2.5.2 1 .2 1.5s-.1 1-.3 1.5c-.2.5-.4 1-.7 1.4-.6.9-1.4 1.6-2.4 2-1 .5-2 .7-3 .7-1.5 0-2.8-.3-3.9-1s-2.1-1.4-3-2.4c-.9-1-1.8-2.1-2.5-3.2-.8-1.2-1.5-2.3-2.3-3.5-1.1 1.2-2.4 2.2-3.9 3-1.5.8-3 1.1-4.5 1-1.1 0-2.1-.1-3-.5-.9-.3-1.6-.8-2.2-1.4-.6-.6-.9-1.3-1.1-2.2-.2-.8-.1-1.7.2-2.7.3-.9.7-1.6 1.3-2.2.6-.6 1.2-1.1 2-1.5.7-.4 1.5-.6 2.4-.7.8-.1 1.7 0 2.6.2v-5-4.6h-1.8V.8.3l3.7-.1c.8-.2 1.6-.2 2.4-.1.8.1 1.6.3 2.4.5.7.3 1.4.7 1.9 1.2s.9 1.1 1.1 1.8c.3 1.2.4 2.4.3 3.6-.1 1.2-.2 2.5-.4 3.7-.1 1-.4 2-.8 3-.5 1-1 2-1.7 2.9.3.4.6.8.8 1.2.3.4.5.8.8 1.2.5.8 1.1 1.6 1.7 2.5.6.8 1.3 1.6 2 2.4.7.7 1.5 1.3 2.4 1.8s1.8.7 2.9.8c1.1 0 2.1-.2 3-.7.9-.5 1.6-1.2 2.1-2.2.2-.4.3-.8.4-1.3.1-.5 0-.9-.1-1.3-.2.1-.4.2-.6.2-.2 0-.4 0-.6-.1-.2-.1-.4-.2-.5-.4s-.4-.5-.4-.8zm-22 .9c1.5-.4 2.8-1 3.7-1.8.9-.8 1.7-1.7 2.3-2.8-.2-.2-.3-.5-.6-.7-.6-.7-1.2-1.4-1.9-1.9 0 .6.1 1.2.1 1.8 0 .6.1 1.1.2 1.6v.1h-4.3c-.1-.2-.1-.4 0-.7 0-.2.1-.3.3-.5.3-.3.7-.4 1.1-.2l.1-3.5c-.5-.2-1-.3-1.5-.3s-1.1 0-1.6.1c-.6.1-1.1.3-1.6.6s-.9.7-1.3 1.1c-.4.4-.7.9-.9 1.5-.2.5-.3 1.1-.3 1.6 0 .7.2 1.3.6 1.8.4.5.9.9 1.4 1.4.2.2.5.3.8.5.3.1.7.2 1.1.3.4.1.8.1 1.2.1.3 0 .7 0 1.1-.1zm6.4-19.1c-.4-.3-.8-.5-1.2-.6-.5-.1-.9-.1-1.4-.1-.1 1.7-.2 3.4-.3 5.3-.1 1.9-.1 3.7 0 5.6.6.4 1.2.8 1.7 1.4.5.5 1 1.1 1.5 1.6.2-.6.4-1.2.6-1.9.2-.6.3-1.2.3-1.7.2-1.1.2-2.1.3-3.1 0-1 0-2.1-.1-3.1-.1-.6-.2-1.2-.4-1.9-.2-.6-.5-1.1-1-1.5z"/><path d="M116.5 1.2h-1.8V.4c.5 0 .9 0 1.2-.1s.7 0 1.1 0h1.1s.8 0 1.3-.1c.9 0 1.8 0 2.8-.1.9 0 1.8 0 2.8-.1v3.6h-1.3c-.1 0-.1-.1 0-.1.1-.2.1-.4.1-.6s0-.4-.1-.6l-.3-.6c-.1-.2-.2-.3-.4-.4-.2-.1-.4-.2-.6-.2h-.7c-.3 0-.5.1-.8.1-.3.1-.5.2-.6.4-.1.2-.1.3-.1.3v.3c0 .7-.1 1.3-.1 2 0 .6-.1 1.3-.1 1.9v1c.6-.2 1.2-.3 1.9-.4.6-.1 1.2-.3 1.9-.4 0 .1.1.2.1.3V7c0 .2-.1.3-.1.4-.1.1-.1.2-.1.3-.1.1-.2.1-.4.2-.1 0-.3.1-.4.1-.5.1-.9.2-1.4.3-.5.1-.9.1-1.4.2 0 1-.1 2-.2 2.9-.1 1-.1 1.9-.2 2.9.8.2 1.5.3 2 .1.6-.2 1.2-.5 1.9-1 .2-.1.2-.3.2-.5v-.7c0-.2.1-.5.2-.6.1-.2.3-.3.7-.4.4 0 .6.1.7.4.1.3.2.7.2 1.1 0 .5 0 .9-.1 1.4-.1.5-.1.9 0 1.2h-1.4c-.4 0-.8 0-1.2.1-.4 0-.8 0-1.2.1h-1.3c-.9 0-1.7 0-2.5.1-.7.1-1.6.1-2.4.1-.2-.2-.2-.4-.2-.7 0-.2.1-.5.3-.6.2-.2.3-.3.6-.3.2-.1.5 0 .7.1.1-2.1.2-4.3.1-6.5-.7-2.2-.7-4.3-.5-6.5z"/></g></svg>
+            </a>
+        </p>
+    </footer>
+
+    <script style="display: none !important;">!function(e,t,r,n,c,a,l){function i(t,r){return r=e.createElement('div'),r.innerHTML='<a href="'+t.replace(/"/g,'&quot;')+'"></a>',r.childNodes[0].getAttribute('href')}function o(e,t,r,n){for(r='',n='0x'+e.substr(t,2)|0,t+=2;t<e.length;t+=2)r+=String.fromCharCode('0x'+e.substr(t,2)^n);return i(r)}try{for(c=e.getElementsByTagName('a'),l='/cdn-cgi/l/email-protection#',n=0;n<c.length;n++)try{(t=(a=c[n]).href.indexOf(l))>-1&&(a.href='mailto:'+o(a.href,t+l.length))}catch(e){}for(c=e.querySelectorAll('.__cf_email__'),n=0;n<c.length;n++)try{(a=c[n]).parentNode.replaceChild(e.createTextNode(o(a.getAttribute('data-cfemail'),0)),a)}catch(e){}}catch(e){}}(document);</script><script>
+        var algolia_app_id      = '8BB87I11DE';
+        var algolia_search_key  = '8e1d446d61fce359f69cd7c8b86a50de';
+        var version             = '5.5';
+    </script>
+
+    <script id="search_suggestion_template" type="text/template">
+	<div class="autocomplete-wrapper">
+		{{#_highlightResult.h1}}
+		<div class="h1">
+			{{{ _highlightResult.h1.value }}}
+		</div>
+		{{/_highlightResult.h1}}
+
+		<div class="sub-section">
+			{{#_highlightResult.h2}}
+			<div class="h2">
+				<span class="hash">#</span> {{{ _highlightResult.h2.value }}}
+			</div>
+			{{/_highlightResult.h2}}
+
+			{{#_highlightResult.h3}}
+			<div class="h3">
+				> {{{ _highlightResult.h3.value }}}
+			</div>
+			{{/_highlightResult.h3}}
+
+			{{#_highlightResult.h4}}
+			<div class="h4">
+				> {{{ _highlightResult.h4.value }}}
+			</div>
+			{{/_highlightResult.h4}}
+		</div>
+
+		{{#_highlightResult.content}}
+		<div class="content">
+			{{{ _highlightResult.content.value }}}
+		</div>
+		{{/_highlightResult.content}}
+	</div>
+</script>
+
+<script id="search_empty_template" type="text/template">
+	<div class="autocomplete-wrapper empty">
+		<div class="h2">We didn't find any result for "{{query}}". Sorry!</div>
+	</div>
+</script>
+
+<script id="search_footer_template" type="text/template">
+	<div class="footer">
+		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&amp;utm_medium=link&amp;utm_campaign=laravel_documentation_search">
+			<img width="105" src="https://laravel.com/assets/img/algolia-logo.svg">
+			<div style="clear: both"></div>
+		</a>
+	</div>
+</script>
+
+    <script src="../../build/assets/js/laravel-35667fed17.js"></script>
+    <script src="../../assets/js/viewport-units-buggyfill.js"></script>
+    <script>window.viewportUnitsBuggyfill.init();</script>
+    <script>
+        var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
+        (function(d,t){
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)
+        }(document,'script'));
+    </script>
+</body>
+
+<!-- Mirrored from laravel.com/docs/5.5/dusk by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 Oct 2017 13:49:22 GMT -->
+</html>
